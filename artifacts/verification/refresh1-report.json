@@ -1,0 +1,162 @@
+{
+  "run_id": "refresh-live-1",
+  "started_at": "2026-10-15T15:18:45.565648Z",
+  "completed_at": "2026-10-15T15:19:16.927512Z",
+  "input_sha256": "37a50fbdcf887c74660b24f2b2946b735f2988d443f4b3b816a53009c2a6a95b",
+  "expected_count": 6,
+  "emitted_envelopes": 6,
+  "resumed_profiles": 0,
+  "source_tree_sha256": "81c55b9f078a6aae7c33295f768eef9c8efc9a4189a605c5261ea559c06e8d83",
+  "limits": {
+    "requests": 120,
+    "seconds": 240.0,
+    "cost_usd": 0,
+    "workers": 8,
+    "per_company_requests": 16
+  },
+  "resource_cutoff": false,
+  "operations": {
+    "requests": 32,
+    "bytes": 453483,
+    "runtime_ms": 31359,
+    "third_party_cost_usd": 0,
+    "api_usage": {},
+    "cache_hits": 1,
+    "source_failures": {
+      "Public source request failed: gaierror": 2
+    },
+    "requests_by_host": {
+      "data.brreg.no": 12,
+      "solundverft.no": 3,
+      "fjordweb.no": 3,
+      "www.helpinghands.no": 3,
+      "kolsen.as": 2,
+      "www.kolsen.as": 5,
+      "seminvest.no": 2,
+      "cscd44holding.no": 2
+    },
+    "requests_by_company": {
+      "985882053": 5,
+      "913795784": 5,
+      "915922058": 5,
+      "989240048": 4,
+      "941578861": 9,
+      "917284865": 4
+    },
+    "request_p50_ms": 328,
+    "request_p95_ms": 6579,
+    "requests_this_invocation": 32,
+    "request_accounting": "Durable reservations before DNS/HTTP; redirects, robots and retries count. Resume retains original wall-clock deadline and cumulative request cap."
+  },
+  "coverage": {
+    "envelopes": 6,
+    "distinct_inputs": 6,
+    "registry_anchored_companies": 6,
+    "externally_enriched_companies": 4,
+    "financial_companies": 6,
+    "current_claims_by_field": {
+      "bankrupt": 6,
+      "business_address": 6,
+      "business_email": 4,
+      "business_phone": 2,
+      "employees": 2,
+      "entity_kind": 6,
+      "financial.annual_result": 17,
+      "financial.assets": 17,
+      "financial.debt": 15,
+      "financial.equity": 17,
+      "financial.operating_result": 17,
+      "financial.revenue": 11,
+      "founded": 6,
+      "industry": 6,
+      "latest_filing_year": 6,
+      "legal_form": 6,
+      "legal_name": 6,
+      "liquidating": 6,
+      "official_website": 4,
+      "organisation_number": 6,
+      "postal_address": 1,
+      "registered": 6,
+      "registered_activity": 6,
+      "registered_purpose": 5,
+      "website_description": 9,
+      "website_email": 6,
+      "website_phone": 9
+    },
+    "companies_by_populated_field": {
+      "bankrupt": 6,
+      "business_address": 6,
+      "business_email": 4,
+      "business_phone": 2,
+      "employees": 2,
+      "entity_kind": 6,
+      "financial.annual_result": 6,
+      "financial.assets": 6,
+      "financial.debt": 6,
+      "financial.equity": 6,
+      "financial.operating_result": 6,
+      "financial.revenue": 4,
+      "founded": 6,
+      "industry": 6,
+      "latest_filing_year": 6,
+      "legal_form": 6,
+      "legal_name": 6,
+      "liquidating": 6,
+      "official_website": 4,
+      "organisation_number": 6,
+      "postal_address": 1,
+      "registered": 6,
+      "registered_activity": 6,
+      "registered_purpose": 5,
+      "website_description": 4,
+      "website_email": 2,
+      "website_phone": 3
+    },
+    "terminal_availability_counts": {
+      "available": 6
+    },
+    "module_states": {
+      "registry": {
+        "available": 6
+      },
+      "financials": {
+        "available": 6
+      },
+      "roles": {
+        "failed": 6
+      },
+      "locations": {
+        "failed": 6
+      },
+      "group": {
+        "failed": 6
+      },
+      "website": {
+        "available": 4,
+        "failed": 2
+      },
+      "hiring": {
+        "failed": 6
+      },
+      "activity": {
+        "failed": 6
+      },
+      "public_brand": {
+        "failed": 6
+      },
+      "company_owned_profiles": {
+        "failed": 6
+      }
+    },
+    "stale_claims": 0
+  },
+  "validation": {
+    "passed": true,
+    "count": 6,
+    "errors": []
+  },
+  "profile_p50_ms": 30062,
+  "profile_p95_ms": 31093,
+  "cache_declaration": "SQLite response validators; no unvalidated response reuse. Optional evaluator bulk declared in source_snapshots.",
+  "qualification": "Self-test only; no official score or qualification claimed"
+}

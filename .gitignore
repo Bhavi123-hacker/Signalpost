@@ -1,0 +1,17 @@
+.venv*/
+__pycache__/
+.pytest_cache/
+*.pyc
+.env*
+private/
+reference/
+docs/rules/*.md
+docs/rules/*.html
+docs/rules/*.gz
+submission/*.zip
+submission/manifest.json
+submission/EMAIL_DRAFT.txt
+out/
+build/
+artifacts/development-scale-1000/
+*.egg-info/

@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "signalpost-bhavy"
+version = "1.0.0"
+description = "Evidence-backed Norwegian company research without paid APIs"
+requires-python = ">=3.12"
+authors = [{name = "Bhavy Garg"}]
+license = "MIT"
+dependencies = ["httpx==0.28.1", "pydantic==2.14.1", "beautifulsoup4==4.15.0"]
+
+[project.scripts]
+signalpost = "signalpost.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["signalpost*"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

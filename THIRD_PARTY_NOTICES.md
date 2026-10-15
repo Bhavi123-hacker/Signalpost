@@ -1,0 +1,11 @@
+# Attribution and redistribution
+
+Original implementation: Bhavy Garg, 24BAI1088, VIT Chennai. MIT (LICENSE).
+
+BRREG entity records, public company roles, registered workplaces and accounts: Brønnøysundregistrene. Open data under [NLOD 2.0](https://data.norge.no/nlod/no/2.0), as declared by [BRREG datasets and APIs](https://www.brreg.no/bruke-data-fra-bronnoysundregistrene/datasett-og-api/) and the [entity API documentation](https://data.brreg.no/enhetsregisteret/api/docs/index.html). Data can change and is provided without endorsement. Do not infer private facts or make contact with individuals from this dataset. Only company-centric role names/types are exposed; dates of birth and private addresses are excluded from exported claims. Raw responses remain private.
+
+Builderr's challenge, starter and guidance were consulted as contract references. The downloaded starter has no explicit licence file. None of its implementation, examples, fixture answers or scoring/reference data is incorporated into this implementation or submission. Full downloaded documents/archive are retained locally under ignored paths for review, with retrieval hashes in docs/rules/retrieval.json. To compare with the starter validator, download it independently and pass --reference-root. No official affiliation or qualification is implied.
+
+Company websites retain their owners' rights. Raw pages are local private evidence, not included in the Git repository or ZIP. Public exports omit company-owned claims and evidence unless redistribution rights are separately established. Counts in reports describe the original local run. Source URLs/hashes allow an evaluator to collect its own evidence with this runner, subject to the source's current policy.
+
+Runtime libraries: HTTPX (BSD-3-Clause), httpcore (BSD-3-Clause), AnyIO (MIT), h11 (MIT), idna (BSD-3-Clause), certifi (MPL-2.0), Pydantic and pydantic-core (MIT), annotated-types (MIT), typing-extensions and typing-inspection (PSF/Apache-2.0 as distributed), Beautiful Soup (MIT), SoupSieve (MIT). Tooling: pytest/pytest-asyncio (MIT/Apache-2.0 as distributed), setuptools (MIT), pip (MIT). Exact installed metadata and licence expressions are generated in docs/dependency-licences.json. No model weights, browser runtime or proprietary SDK is needed by the application.

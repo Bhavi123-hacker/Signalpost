@@ -1,0 +1,107 @@
+{
+  "properties": {
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "organisation_number": {
+      "title": "Organisation Number",
+      "type": "string"
+    },
+    "source_url": {
+      "title": "Source Url",
+      "type": "string"
+    },
+    "final_url": {
+      "title": "Final Url",
+      "type": "string"
+    },
+    "source_class": {
+      "title": "Source Class",
+      "type": "string"
+    },
+    "source_identifier": {
+      "title": "Source Identifier",
+      "type": "string"
+    },
+    "retrieved_at": {
+      "title": "Retrieved At",
+      "type": "string"
+    },
+    "source_published_at": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Source Published At"
+    },
+    "effective_at": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Effective At"
+    },
+    "content_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "storage_ref": {
+      "title": "Storage Ref",
+      "type": "string"
+    },
+    "claim_span": {
+      "title": "Claim Span",
+      "type": "string"
+    },
+    "json_path": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Json Path"
+    },
+    "extraction_method": {
+      "default": "deterministic-v1",
+      "title": "Extraction Method",
+      "type": "string"
+    },
+    "claim_bindings": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Claim Bindings",
+      "type": "object"
+    }
+  },
+  "required": [
+    "id",
+    "organisation_number",
+    "source_url",
+    "final_url",
+    "source_class",
+    "source_identifier",
+    "retrieved_at",
+    "content_sha256",
+    "storage_ref",
+    "claim_span"
+  ],
+  "title": "Evidence",
+  "type": "object"
+}

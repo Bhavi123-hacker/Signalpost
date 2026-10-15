@@ -1,0 +1,364 @@
+{
+  "$defs": {
+    "Claim": {
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "field": {
+          "title": "Field",
+          "type": "string"
+        },
+        "value": {
+          "default": null,
+          "title": "Value"
+        },
+        "availability": {
+          "enum": [
+            "available",
+            "not_available",
+            "blocked",
+            "not_applicable",
+            "ambiguous",
+            "failed"
+          ],
+          "title": "Availability",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "explanation": {
+          "default": "",
+          "title": "Explanation",
+          "type": "string"
+        },
+        "effective_at": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Effective At"
+        },
+        "reporting_period": {
+          "anyOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reporting Period"
+        },
+        "first_seen": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "First Seen"
+        },
+        "last_checked": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Last Checked"
+        },
+        "stale": {
+          "default": false,
+          "title": "Stale",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "field",
+        "availability"
+      ],
+      "title": "Claim",
+      "type": "object"
+    },
+    "Evidence": {
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "organisation_number": {
+          "title": "Organisation Number",
+          "type": "string"
+        },
+        "source_url": {
+          "title": "Source Url",
+          "type": "string"
+        },
+        "final_url": {
+          "title": "Final Url",
+          "type": "string"
+        },
+        "source_class": {
+          "title": "Source Class",
+          "type": "string"
+        },
+        "source_identifier": {
+          "title": "Source Identifier",
+          "type": "string"
+        },
+        "retrieved_at": {
+          "title": "Retrieved At",
+          "type": "string"
+        },
+        "source_published_at": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Published At"
+        },
+        "effective_at": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Effective At"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "storage_ref": {
+          "title": "Storage Ref",
+          "type": "string"
+        },
+        "claim_span": {
+          "title": "Claim Span",
+          "type": "string"
+        },
+        "json_path": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Json Path"
+        },
+        "extraction_method": {
+          "default": "deterministic-v1",
+          "title": "Extraction Method",
+          "type": "string"
+        },
+        "claim_bindings": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Claim Bindings",
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "organisation_number",
+        "source_url",
+        "final_url",
+        "source_class",
+        "source_identifier",
+        "retrieved_at",
+        "content_sha256",
+        "storage_ref",
+        "claim_span"
+      ],
+      "title": "Evidence",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "schema_version": {
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "organisation_number": {
+      "title": "Organisation Number",
+      "type": "string"
+    },
+    "input_id": {
+      "default": null,
+      "title": "Input Id"
+    },
+    "run_id": {
+      "title": "Run Id",
+      "type": "string"
+    },
+    "state": {
+      "title": "State",
+      "type": "string"
+    },
+    "availability": {
+      "enum": [
+        "available",
+        "not_available",
+        "blocked",
+        "not_applicable",
+        "ambiguous",
+        "failed"
+      ],
+      "title": "Availability",
+      "type": "string"
+    },
+    "started_at": {
+      "title": "Started At",
+      "type": "string"
+    },
+    "completed_at": {
+      "title": "Completed At",
+      "type": "string"
+    },
+    "run": {
+      "additionalProperties": true,
+      "title": "Run",
+      "type": "object"
+    },
+    "legal_identity": {
+      "additionalProperties": true,
+      "title": "Legal Identity",
+      "type": "object"
+    },
+    "modules": {
+      "additionalProperties": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Modules",
+      "type": "object"
+    },
+    "claims": {
+      "items": {
+        "$ref": "#/$defs/Claim"
+      },
+      "title": "Claims",
+      "type": "array"
+    },
+    "evidence": {
+      "items": {
+        "$ref": "#/$defs/Evidence"
+      },
+      "title": "Evidence",
+      "type": "array"
+    },
+    "source_snapshots": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Source Snapshots",
+      "type": "array"
+    },
+    "profile": {
+      "additionalProperties": true,
+      "title": "Profile",
+      "type": "object"
+    },
+    "summary": {
+      "additionalProperties": true,
+      "title": "Summary",
+      "type": "object"
+    },
+    "website_candidates": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Website Candidates",
+      "type": "array"
+    },
+    "changes": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Changes",
+      "type": "array"
+    },
+    "errors": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Errors",
+      "type": "array"
+    },
+    "refresh": {
+      "additionalProperties": true,
+      "title": "Refresh",
+      "type": "object"
+    },
+    "operations": {
+      "additionalProperties": true,
+      "title": "Operations",
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "organisation_number",
+    "run_id",
+    "state",
+    "availability",
+    "started_at",
+    "completed_at",
+    "run",
+    "legal_identity",
+    "modules",
+    "claims",
+    "evidence",
+    "source_snapshots",
+    "profile",
+    "summary",
+    "website_candidates",
+    "changes",
+    "errors",
+    "refresh",
+    "operations"
+  ],
+  "title": "Envelope",
+  "type": "object"
+}

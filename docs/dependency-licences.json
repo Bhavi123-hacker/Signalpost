@@ -1,0 +1,176 @@
+[
+  {
+    "name": "annotated-types",
+    "version": "0.8.0",
+    "licence_expression": "MIT",
+    "licence": null,
+    "classifiers": [
+      "License :: OSI Approved :: MIT License"
+    ]
+  },
+  {
+    "name": "anyio",
+    "version": "4.15.1",
+    "licence_expression": "MIT",
+    "licence": null,
+    "classifiers": []
+  },
+  {
+    "name": "beautifulsoup4",
+    "version": "4.15.0",
+    "licence_expression": null,
+    "licence": "MIT License",
+    "classifiers": [
+      "License :: OSI Approved :: MIT License"
+    ]
+  },
+  {
+    "name": "certifi",
+    "version": "2026.7.22",
+    "licence_expression": null,
+    "licence": "MPL-2.0",
+    "classifiers": [
+      "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)"
+    ]
+  },
+  {
+    "name": "colorama",
+    "version": "0.4.6",
+    "licence_expression": null,
+    "licence": null,
+    "classifiers": [
+      "License :: OSI Approved :: BSD License"
+    ]
+  },
+  {
+    "name": "h11",
+    "version": "0.16.0",
+    "licence_expression": null,
+    "licence": "MIT",
+    "classifiers": [
+      "License :: OSI Approved :: MIT License"
+    ]
+  },
+  {
+    "name": "httpcore",
+    "version": "1.0.9",
+    "licence_expression": "BSD-3-Clause",
+    "licence": null,
+    "classifiers": [
+      "License :: OSI Approved :: BSD License"
+    ]
+  },
+  {
+    "name": "httpx",
+    "version": "0.28.1",
+    "licence_expression": null,
+    "licence": "BSD-3-Clause",
+    "classifiers": [
+      "License :: OSI Approved :: BSD License"
+    ]
+  },
+  {
+    "name": "idna",
+    "version": "3.20",
+    "licence_expression": "BSD-3-Clause",
+    "licence": null,
+    "classifiers": []
+  },
+  {
+    "name": "iniconfig",
+    "version": "2.3.1",
+    "licence_expression": "MIT",
+    "licence": null,
+    "classifiers": []
+  },
+  {
+    "name": "packaging",
+    "version": "26.3",
+    "licence_expression": "Apache-2.0 OR BSD-2-Clause",
+    "licence": null,
+    "classifiers": []
+  },
+  {
+    "name": "pip",
+    "version": "24.0",
+    "licence_expression": null,
+    "licence": "MIT",
+    "classifiers": [
+      "License :: OSI Approved :: MIT License"
+    ]
+  },
+  {
+    "name": "pluggy",
+    "version": "1.7.0",
+    "licence_expression": null,
+    "licence": "MIT",
+    "classifiers": [
+      "License :: OSI Approved :: MIT License"
+    ]
+  },
+  {
+    "name": "pydantic",
+    "version": "2.14.1",
+    "licence_expression": "MIT",
+    "licence": null,
+    "classifiers": []
+  },
+  {
+    "name": "pydantic_core",
+    "version": "2.50.1",
+    "licence_expression": "MIT",
+    "licence": null,
+    "classifiers": []
+  },
+  {
+    "name": "Pygments",
+    "version": "2.21.0",
+    "licence_expression": "BSD-2-Clause",
+    "licence": null,
+    "classifiers": []
+  },
+  {
+    "name": "pytest",
+    "version": "9.1.1",
+    "licence_expression": "MIT",
+    "licence": null,
+    "classifiers": []
+  },
+  {
+    "name": "pytest-asyncio",
+    "version": "1.4.0",
+    "licence_expression": "Apache-2.0",
+    "licence": null,
+    "classifiers": []
+  },
+  {
+    "name": "setuptools",
+    "version": "80.9.0",
+    "licence_expression": "MIT",
+    "licence": null,
+    "classifiers": []
+  },
+  {
+    "name": "soupsieve",
+    "version": "3.0.3",
+    "licence_expression": "MIT",
+    "licence": null,
+    "classifiers": [
+      "License :: OSI Approved :: MIT License"
+    ]
+  },
+  {
+    "name": "typing-inspection",
+    "version": "0.4.4",
+    "licence_expression": "MIT",
+    "licence": null,
+    "classifiers": []
+  },
+  {
+    "name": "typing_extensions",
+    "version": "4.16.0",
+    "licence_expression": "PSF-2.0",
+    "licence": null,
+    "classifiers": []
+  }
+]
