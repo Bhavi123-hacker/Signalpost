@@ -1,8 +1,8 @@
 # Publication and submission handoff
 
-The authorised GitHub repository is private: https://github.com/Bhavi123-hacker/Signalpost . A private source push does not give Builderr access. No email has been sent and no competition entry has been submitted.
+The authorised GitHub repository is now **public**: https://github.com/Bhavi123-hacker/Signalpost . The author explicitly requested public visibility on 15 October 2026; the visibility change succeeded and GitHub confirmed `isPrivate=false`. Source and permitted official-data exports have been pushed. No email has been sent and no competition entry has been submitted.
 
-After reviewing the local package and choosing how the organiser will receive access, publish only the frozen source and permitted reports. The commands below are a handoff, not executed public publication:
+Future source publication must include only permitted source and reports. These are the publication commands; the initial push and later authorised visibility change have already been performed:
 
 ```sh
 git remote -v
@@ -10,12 +10,12 @@ git status --short
 git push -u origin main
 ```
 
-The final report states whether the private source push has already been performed. Do not add private/, out/, .env files, raw company pages, virtual environments, tokens or personal-session data. The repository ignores those paths; the packaging script uses an explicit tracked-source allowlist and permitted export directory.
+Do not add private/, out/, .env files, raw company pages, virtual environments, tokens or personal-session data. The repository ignores those paths; the packaging script uses an explicit tracked-source allowlist and permitted export directory.
 
-If a public artifact is required, changing visibility needs a separate explicit authorisation:
+The following visibility command was executed after the author's explicit request:
 
 ```sh
 gh repo edit Bhavi123-hacker/Signalpost --visibility public --accept-visibility-change-consequences
 ```
 
-Alternatively, arrange specific organiser access after receiving the correct account identity. Do not guess or invite an account automatically. `EMAIL_DRAFT.txt` is local-only and must be reviewed, contact details filled, and sent by the author to submit@builderr.ai. Use the exact frozen source commit in manifest.json. No result file implies official qualification.
+`EMAIL_DRAFT.txt` is local-only and must be reviewed, contact details filled, and sent by the author to submit@builderr.ai. Use the exact frozen source commit in manifest.json. No result file implies official qualification. The ZIP overlays explicitly listed later reports/packaging metadata on the frozen research source; its manifest identifies every overlay and payload hash.

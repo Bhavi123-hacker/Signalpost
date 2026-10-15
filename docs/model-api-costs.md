@@ -14,6 +14,11 @@ Measured paid third-party API spend is **USD 0.00 per tested batch**. Representa
 | Revised scale | 1,000 | 2,000 | 691.515 | 0.00 |
 | Live refresh first | 6 | 32 | 31.359 | 0.00 |
 | Live refresh second | 6 | 32 | 29.172 | 0.00 |
+| Frozen-source clean smoke | 100 | 752 | 230.516 | 0.00 |
+| Frozen-source untouched validation | 20 | 150 | 81.531 | 0.00 |
+| Frozen-source clean scale | 1,000 | 2,000 | 766.750 | 0.00 |
+
+Final ledger, including overlapping reruns: 13 recorded live evaluator runs, 8,281 HTTP starts, 2,997.449 summed runtime seconds and USD 0.00 paid API charges. Exact reports and exclusions are in submission/verification-final.json. These are measured totals, not estimates of an official score or a guarantee of full external coverage.
 
 The default official-run **paid API cost expectation is $0** at any supplied batch size, because there is no charging integration. This does not mean full information is free to access: restricted/missing sources are declined. Budgets constrain coverage, not price. The retrieved contract gives an equal supplied budget but no numeric cap; default $0 remains below the user's unverified $10 ceiling.
 

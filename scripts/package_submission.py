@@ -49,6 +49,11 @@ def main():
     for name,data in payload.items():
         if secret_pattern.search(data): raise ValueError('Potential secret pattern in '+name)
     verification=json.loads(Path(args.verification).read_text(encoding='utf-8'))
+    # Later packaging metadata is explicit; executable research source stays frozen.
+    metadata_paths=['PROGRESS.md','docs/verification-report.md','docs/limitations.md',
+        'docs/model-api-costs.md','submission/PUBLICATION.md','scripts/package_submission.py']
+    for name in metadata_paths:
+        payload[name]=(ROOT/name).read_bytes()
     payload['submission/verification-final.json']=(json.dumps(verification,indent=2,ensure_ascii=False)+'\n').encode()
     try:
         remote=git('remote','get-url','origin').decode().strip()
@@ -57,6 +62,7 @@ def main():
     except subprocess.CalledProcessError:
         repository=None
     summary=verification.get('summary',{})
+    visibility=verification.get('repository_visibility','unknown')
     command='python scripts/run_competition_batch.py --organisations INPUT.jsonl --output OUTPUT.jsonl --report REPORT.json --state STATE --run-id official-001 --max-requests 2000 --max-seconds 2700'
     email=f'''To: submit@builderr.ai
 Subject: Signalpost entry — Bhavy Garg, 24BAI1088, VIT Chennai
@@ -67,7 +73,7 @@ Institution: VIT Chennai
 Contact email/phone for results: [AUTHOR: CONFIRM CONTACT DETAILS BEFORE SENDING]
 Agent: Signalpost (deterministic no-model mode)
 Repository: {repository or '[repository URL not configured]'}
-Repository visibility: private; organiser access/public visibility must be arranged before submission.
+Repository visibility: {visibility}; author explicitly authorised public visibility on 15 October 2026.
 Frozen source commit: {commit}
 
 Install Python 3.12+ and: python -m pip install -r requirements.lock.txt
@@ -95,11 +101,13 @@ This is a LOCAL DRAFT ONLY. Nothing has been sent.
     payload['submission/EMAIL_DRAFT.txt']=email.encode('utf-8')
     rules=json.loads((ROOT/'docs/rules/retrieval.json').read_text())
     manifest={'manifest_version':1,'created_at':datetime.now(UTC).isoformat(),'author':{'name':'Bhavy Garg','student_id':'24BAI1088','institution':'VIT Chennai'},
-        'source_commit':commit,'source_tree':git('rev-parse',commit+'^{tree}').decode().strip(),'repository_url':repository,'repository_visibility':'private',
-        'completion_status':{'local_implementation':'finished subject to declared limitations','official_qualification':'not evaluated','submission_sent':False,'public_publication':False},
+        'source_commit':commit,'source_tree':git('rev-parse',commit+'^{tree}').decode().strip(),'repository_url':repository,'repository_visibility':visibility,
+        'completion_status':{'local_implementation':'finished subject to declared limitations','official_qualification':'not evaluated','submission_sent':False,'public_publication':visibility=='public'},
         'contract_retrievals':rules,'actual_verification_summary':summary,'run_command':command,'third_party_api_cost_usd':0,
-        'remaining_handoff':['Confirm author contact detail','Arrange organiser access or explicitly authorise public visibility','Review and send email manually; no email was sent','Use organiser-supplied official run limits and frozen registry/cutoff'],
+        'remaining_handoff':['Confirm author contact detail','Review and send email manually; no email was sent','Use organiser-supplied official run limits and frozen registry/cutoff'],
         'source_archive_sha256':sha(archive),'payload_sha256':{n:sha(b) for n,b in sorted(payload.items())},
+        'post_freeze_metadata_paths':metadata_paths,
+        'source_scope':'Research runtime, tests, schemas and requirements are the frozen source commit. Listed packaging/report files overlay later authorisation and exact-commit verification; their payload hashes are explicit.',
         'manifest_scope':'Embedded manifest hashes payload excluding itself; external manifest additionally records final ZIP hash.'}
     payload['submission/manifest.json']=(json.dumps(manifest,indent=2,ensure_ascii=False)+'\n').encode()
     output=(ROOT/args.output).resolve(); output.parent.mkdir(parents=True,exist_ok=True)
