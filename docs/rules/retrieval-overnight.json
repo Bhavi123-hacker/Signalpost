@@ -1,0 +1,165 @@
+{
+  "at": "2026-10-15T19:27:44.240299Z",
+  "records": [
+    {
+      "name": "contract",
+      "source_url": "https://www.builderr.ai/docs/signalpost-evaluation-harness.md",
+      "final_url": "https://www.builderr.ai/docs/signalpost-evaluation-harness.md",
+      "source_class": "rule_document",
+      "retrieved_at": "2026-10-15T19:27:39.983114Z",
+      "source_published_at": null,
+      "http_last_modified": "Thu, 15 Oct 2026 14:47:46 GMT",
+      "http_status": 200,
+      "redirect_chain": [],
+      "revalidated": false,
+      "content_type": "text/markdown; charset=utf-8",
+      "content_sha256": "e9f994e2fa34750411487e9fab82dbffd55dc1bb16efe9021906b92896229d45",
+      "storage_ref": "evidence/e9/e9f994e2fa34750411487e9fab82dbffd55dc1bb16efe9021906b92896229d45.bin",
+      "id": "snapshot-d4b96ac5bd49938d4d93e5cd",
+      "unchanged_from_revision2": true
+    },
+    {
+      "name": "guide",
+      "source_url": "https://www.builderr.ai/starter-briefs/signalpost-agent-playbook.md",
+      "final_url": "https://www.builderr.ai/starter-briefs/signalpost-agent-playbook.md",
+      "source_class": "rule_document",
+      "retrieved_at": "2026-10-15T19:27:40.731658Z",
+      "source_published_at": null,
+      "http_last_modified": "Thu, 15 Oct 2026 16:16:34 GMT",
+      "http_status": 200,
+      "redirect_chain": [],
+      "revalidated": false,
+      "content_type": "text/markdown; charset=utf-8",
+      "content_sha256": "0b165301576e1ad09c210bba48dd61bb2669752a07abaeb1188df4099bd4844e",
+      "storage_ref": "evidence/0b/0b165301576e1ad09c210bba48dd61bb2669752a07abaeb1188df4099bd4844e.bin",
+      "id": "snapshot-6cc71dbc7891a2e9db769e1e",
+      "unchanged_from_revision2": true
+    },
+    {
+      "name": "sources",
+      "source_url": "https://www.builderr.ai/starter-briefs/signalpost-sources.md",
+      "final_url": "https://www.builderr.ai/starter-briefs/signalpost-sources.md",
+      "source_class": "rule_document",
+      "retrieved_at": "2026-10-15T19:27:41.725211Z",
+      "source_published_at": null,
+      "http_last_modified": "Thu, 15 Oct 2026 14:42:13 GMT",
+      "http_status": 200,
+      "redirect_chain": [],
+      "revalidated": false,
+      "content_type": "text/markdown; charset=utf-8",
+      "content_sha256": "f080470ab29d5c6da243d812e35d0ae0aa3d35f5871d62dfef90422df1b8f630",
+      "storage_ref": "evidence/f0/f080470ab29d5c6da243d812e35d0ae0aa3d35f5871d62dfef90422df1b8f630.bin",
+      "id": "snapshot-cb001f7303ba7a238a58d41a",
+      "unchanged_from_revision2": true
+    },
+    {
+      "name": "brief",
+      "source_url": "https://www.builderr.ai/starter-briefs/signalpost.md",
+      "final_url": "https://www.builderr.ai/starter-briefs/signalpost.md",
+      "source_class": "rule_document",
+      "retrieved_at": "2026-10-15T19:27:42.730527Z",
+      "source_published_at": null,
+      "http_last_modified": "Thu, 15 Oct 2026 16:16:34 GMT",
+      "http_status": 200,
+      "redirect_chain": [],
+      "revalidated": false,
+      "content_type": "text/markdown; charset=utf-8",
+      "content_sha256": "924ff60e1dab437c63806846aa19eaa29d84d8e87132983c4e5d9f7336214c32",
+      "storage_ref": "evidence/92/924ff60e1dab437c63806846aa19eaa29d84d8e87132983c4e5d9f7336214c32.bin",
+      "id": "snapshot-03b90381b594b8437d81a8dc",
+      "unchanged_from_revision2": true
+    },
+    {
+      "name": "starter",
+      "source_url": "https://www.builderr.ai/signalpost-starter-kit.tar.gz",
+      "final_url": "https://www.builderr.ai/signalpost-starter-kit.tar.gz",
+      "source_class": "rule_document",
+      "retrieved_at": "2026-10-15T19:27:43.954707Z",
+      "source_published_at": null,
+      "http_last_modified": "Thu, 15 Oct 2026 16:16:34 GMT",
+      "http_status": 200,
+      "redirect_chain": [],
+      "revalidated": false,
+      "content_type": "application/gzip",
+      "content_sha256": "d48da9910ea7de07d2bf51ab265539a35fe07002a6c1ca5787df81316dfabbf6",
+      "storage_ref": "evidence/d4/d48da9910ea7de07d2bf51ab265539a35fe07002a6c1ca5787df81316dfabbf6.bin",
+      "id": "snapshot-c69df4a8a3889a735cf94754",
+      "unchanged_from_revision2": true
+    },
+    {
+      "name": "wikidata_exact_id",
+      "error": "HTTP 403; no bypass attempted"
+    }
+  ],
+  "operations": {
+    "requests": 6,
+    "bytes": 279455,
+    "runtime_ms": 4781,
+    "third_party_cost_usd": 0,
+    "api_usage": {
+      "documented_brreg_http_starts": 0,
+      "paid_api_calls": 0,
+      "model_calls": 0
+    },
+    "cache_hits": 0,
+    "source_failures": {
+      "HTTP 403": 1
+    },
+    "requests_by_host": {
+      "www.builderr.ai": 5,
+      "query.wikidata.org": 1
+    },
+    "requests_by_company": {},
+    "request_p50_ms": 235,
+    "request_p95_ms": 313
+  },
+  "events": [
+    {
+      "url": "https://www.builderr.ai/docs/signalpost-evaluation-harness.md",
+      "started_at": "2026-10-15T19:27:39.669968Z",
+      "request_number": 1,
+      "status": 200,
+      "elapsed_ms": 313
+    },
+    {
+      "url": "https://www.builderr.ai/starter-briefs/signalpost-agent-playbook.md",
+      "started_at": "2026-10-15T19:27:40.685054Z",
+      "request_number": 2,
+      "status": 200,
+      "elapsed_ms": 47
+    },
+    {
+      "url": "https://www.builderr.ai/starter-briefs/signalpost-sources.md",
+      "started_at": "2026-10-15T19:27:41.693563Z",
+      "request_number": 3,
+      "status": 200,
+      "elapsed_ms": 31
+    },
+    {
+      "url": "https://www.builderr.ai/starter-briefs/signalpost.md",
+      "started_at": "2026-10-15T19:27:42.698450Z",
+      "request_number": 4,
+      "status": 200,
+      "elapsed_ms": 31
+    },
+    {
+      "url": "https://www.builderr.ai/signalpost-starter-kit.tar.gz",
+      "started_at": "2026-10-15T19:27:43.719687Z",
+      "request_number": 5,
+      "status": 200,
+      "elapsed_ms": 235
+    },
+    {
+      "url": "https://query.wikidata.org/sparql?query=SELECT+%3Forg+%3Fitem+%3Fsite+WHERE+%7B+VALUES+%3Forg+%7B+%22966494638%22+%22988659398%22+%22919353058%22+%22996281191%22+%22930714518%22+%22924605693%22+%22953359324%22+%22986139214%22+%22984365845%22+%22848475742%22+%22922699194%22+%22929510119%22+%22953262894%22+%22927308401%22+%22922241139%22+%22989218794%22+%22984698062%22+%22920348475%22+%22925115266%22+%22912782913%22+%22927684578%22+%22935593859%22+%22913096789%22+%22976562763%22+%22936434975%22+%22890049052%22+%22929872967%22+%22997200365%22+%22915692508%22+%22923012451%22+%22933375617%22+%22923848045%22+%22912118134%22+%22961487064%22+%22981982924%22+%22997712870%22+%22983222684%22+%22913783417%22+%22918835520%22+%22926969145%22+%22987539100%22+%22918012311%22+%22954400352%22+%22932434199%22+%22924667524%22+%22993069167%22+%22830788662%22+%22919939389%22+%22915440983%22+%22921202067%22+%22992185317%22+%22989221353%22+%22931930680%22+%22931966138%22+%22983176585%22+%22933242714%22+%22932056674%22+%22913448642%22+%22914827639%22+%22934343263%22+%22971185678%22+%22991393110%22+%22924644397%22+%22923171789%22+%22830315802%22+%22932570491%22+%22911687437%22+%22998016606%22+%22932165791%22+%22989137867%22+%22926317512%22+%22976850297%22+%22932253461%22+%22931468448%22+%22924861460%22+%22988556025%22+%22919885653%22+%22995524821%22+%22963972989%22+%22988951196%22+%22933215830%22+%22920066844%22+%22915832628%22+%22976726375%22+%22927648725%22+%22914448638%22+%22923324925%22+%22990074143%22+%22928547442%22+%22927235455%22+%22988271217%22+%22933253015%22+%22994256955%22+%22822091512%22+%22923172181%22+%22929275454%22+%22911784947%22+%22917126917%22+%22991801138%22+%22912062600%22+%7D+%3Fitem+wdt%3AP2333+%3Forg%3B+wdt%3AP856+%3Fsite.+%7D&format=json",
+      "started_at": "2026-10-15T19:27:43.963402Z",
+      "request_number": 6,
+      "status": 403,
+      "elapsed_ms": 266
+    }
+  ],
+  "starter_archive_review": {
+    "members": 158,
+    "safe_paths_no_links": true,
+    "extracted_or_executed": false
+  }
+}

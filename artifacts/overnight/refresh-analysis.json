@@ -1,0 +1,434 @@
+{
+  "website_enabled_second_refresh": {
+    "changes": 10,
+    "interpretation": "Ten new contacts from a newly visited Solund contact page, not timestamp-only changes or duplicate old values. Five old contact claims remain correctly labelled stale; bounded/prior-aware extraction does not reverify every known contact even when related pages are rechecked. This is incomplete freshness, not a successful all-fields refresh.",
+    "unchanged_existing_values": 194,
+    "unchanged_first_seen_preserved": 194,
+    "new_page_urls": [
+      "https://solundverft.no/contact-us"
+    ],
+    "added_claims": [
+      {
+        "organisation_number": "985882053",
+        "field": "website_email",
+        "type": "added",
+        "source_urls": [
+          "https://solundverft.no/contact-us"
+        ]
+      },
+      {
+        "organisation_number": "985882053",
+        "field": "website_phone",
+        "type": "added",
+        "source_urls": [
+          "https://solundverft.no/contact-us"
+        ]
+      },
+      {
+        "organisation_number": "985882053",
+        "field": "website_email",
+        "type": "added",
+        "source_urls": [
+          "https://solundverft.no/contact-us"
+        ]
+      },
+      {
+        "organisation_number": "985882053",
+        "field": "website_phone",
+        "type": "added",
+        "source_urls": [
+          "https://solundverft.no/contact-us"
+        ]
+      },
+      {
+        "organisation_number": "985882053",
+        "field": "website_email",
+        "type": "added",
+        "source_urls": [
+          "https://solundverft.no/contact-us"
+        ]
+      },
+      {
+        "organisation_number": "985882053",
+        "field": "website_phone",
+        "type": "added",
+        "source_urls": [
+          "https://solundverft.no/contact-us"
+        ]
+      },
+      {
+        "organisation_number": "985882053",
+        "field": "website_email",
+        "type": "added",
+        "source_urls": [
+          "https://solundverft.no/contact-us"
+        ]
+      },
+      {
+        "organisation_number": "985882053",
+        "field": "website_phone",
+        "type": "added",
+        "source_urls": [
+          "https://solundverft.no/contact-us"
+        ]
+      },
+      {
+        "organisation_number": "985882053",
+        "field": "website_email",
+        "type": "added",
+        "source_urls": [
+          "https://solundverft.no/contact-us"
+        ]
+      },
+      {
+        "organisation_number": "985882053",
+        "field": "website_phone",
+        "type": "added",
+        "source_urls": [
+          "https://solundverft.no/contact-us"
+        ]
+      }
+    ]
+  },
+  "identity_financial_control": {
+    "scope": "Fresh separate state; only registry and financial modules, not website idempotency",
+    "first": {
+      "run_id": "overnight-core-refresh1",
+      "started_at": "2026-10-16T02:19:38.368299Z",
+      "completed_at": "2026-10-16T02:19:42.360651Z",
+      "input_sha256": "37a50fbdcf887c74660b24f2b2946b735f2988d443f4b3b816a53009c2a6a95b",
+      "expected_count": 6,
+      "emitted_envelopes": 6,
+      "resumed_profiles": 0,
+      "source_tree_sha256": "f955ec13b63e59896aa53a145a52f9fe026e8780a6248578c7f73e056acd209a",
+      "configuration": {
+        "strategy": "balanced",
+        "extraction": "expanded",
+        "page_policy": "adaptive",
+        "modules": "registry,financials",
+        "bulk_sha256": null
+      },
+      "limits": {
+        "requests": 100,
+        "seconds": 120.0,
+        "cost_usd": 0,
+        "workers": 8,
+        "per_company_requests": 16
+      },
+      "resource_cutoff": false,
+      "operations": {
+        "requests": 7,
+        "bytes": 37179,
+        "runtime_ms": 3985,
+        "third_party_cost_usd": 0,
+        "api_usage": {
+          "documented_brreg_http_starts": 7,
+          "paid_api_calls": 0,
+          "model_calls": 0
+        },
+        "cache_hits": 0,
+        "source_failures": {},
+        "requests_by_host": {
+          "data.brreg.no": 7
+        },
+        "requests_by_company": {
+          "985882053": 1,
+          "913795784": 1,
+          "915922058": 1,
+          "989240048": 1,
+          "941578861": 1,
+          "917284865": 1
+        },
+        "request_p50_ms": 313,
+        "request_p95_ms": 1281,
+        "resource_deferrals": {},
+        "network_source_failures": {},
+        "request_budget_exhausted": false,
+        "shared_response_hits": 0,
+        "requests_this_invocation": 7,
+        "request_accounting": "Durable reservations before DNS/HTTP; redirects, robots and retries count. Resume retains original wall-clock deadline and cumulative request cap."
+      },
+      "coverage": {
+        "envelopes": 6,
+        "distinct_inputs": 6,
+        "registry_anchored_companies": 6,
+        "externally_enriched_companies": 0,
+        "verified_website_companies": 0,
+        "external_definition": "At least one current supported substantive company-site fact; URL-only and registry facts excluded",
+        "financial_companies": 6,
+        "current_claims_by_field": {
+          "bankrupt": 6,
+          "business_address": 6,
+          "business_email": 4,
+          "business_phone": 2,
+          "employees": 2,
+          "entity_kind": 6,
+          "financial.annual_result": 17,
+          "financial.assets": 17,
+          "financial.debt": 15,
+          "financial.equity": 17,
+          "financial.operating_result": 17,
+          "financial.revenue": 11,
+          "founded": 6,
+          "industry": 6,
+          "latest_filing_year": 6,
+          "legal_form": 6,
+          "legal_name": 6,
+          "liquidating": 6,
+          "organisation_number": 6,
+          "postal_address": 1,
+          "registered": 6,
+          "registered_activity": 6,
+          "registered_purpose": 5
+        },
+        "companies_by_populated_field": {
+          "bankrupt": 6,
+          "business_address": 6,
+          "business_email": 4,
+          "business_phone": 2,
+          "employees": 2,
+          "entity_kind": 6,
+          "financial.annual_result": 6,
+          "financial.assets": 6,
+          "financial.debt": 6,
+          "financial.equity": 6,
+          "financial.operating_result": 6,
+          "financial.revenue": 4,
+          "founded": 6,
+          "industry": 6,
+          "latest_filing_year": 6,
+          "legal_form": 6,
+          "legal_name": 6,
+          "liquidating": 6,
+          "organisation_number": 6,
+          "postal_address": 1,
+          "registered": 6,
+          "registered_activity": 6,
+          "registered_purpose": 5
+        },
+        "terminal_availability_counts": {
+          "available": 6
+        },
+        "module_states": {
+          "registry": {
+            "available": 6
+          },
+          "financials": {
+            "available": 6
+          },
+          "roles": {
+            "failed": 6
+          },
+          "locations": {
+            "failed": 6
+          },
+          "group": {
+            "failed": 6
+          },
+          "website": {
+            "failed": 6
+          },
+          "hiring": {
+            "failed": 6
+          },
+          "activity": {
+            "failed": 6
+          },
+          "public_brand": {
+            "failed": 6
+          },
+          "company_owned_profiles": {
+            "failed": 6
+          }
+        },
+        "stale_claims": 0
+      },
+      "validation": {
+        "passed": true,
+        "count": 6,
+        "errors": []
+      },
+      "profile_p50_ms": 3609,
+      "profile_p95_ms": 3641,
+      "cache_declaration": "SQLite response validators; no unvalidated response reuse. Optional evaluator bulk declared in source_snapshots.",
+      "qualification": "Self-test only; no official score or qualification claimed"
+    },
+    "second": {
+      "run_id": "overnight-core-refresh2",
+      "started_at": "2026-10-16T02:19:43.117434Z",
+      "completed_at": "2026-10-16T02:19:46.886562Z",
+      "input_sha256": "37a50fbdcf887c74660b24f2b2946b735f2988d443f4b3b816a53009c2a6a95b",
+      "expected_count": 6,
+      "emitted_envelopes": 6,
+      "resumed_profiles": 0,
+      "source_tree_sha256": "f955ec13b63e59896aa53a145a52f9fe026e8780a6248578c7f73e056acd209a",
+      "configuration": {
+        "strategy": "balanced",
+        "extraction": "expanded",
+        "page_policy": "adaptive",
+        "modules": "registry,financials",
+        "bulk_sha256": null
+      },
+      "limits": {
+        "requests": 100,
+        "seconds": 120.0,
+        "cost_usd": 0,
+        "workers": 8,
+        "per_company_requests": 16
+      },
+      "resource_cutoff": false,
+      "operations": {
+        "requests": 7,
+        "bytes": 37179,
+        "runtime_ms": 3766,
+        "third_party_cost_usd": 0,
+        "api_usage": {
+          "documented_brreg_http_starts": 7,
+          "paid_api_calls": 0,
+          "model_calls": 0
+        },
+        "cache_hits": 0,
+        "source_failures": {},
+        "requests_by_host": {
+          "data.brreg.no": 7
+        },
+        "requests_by_company": {
+          "985882053": 1,
+          "913795784": 1,
+          "915922058": 1,
+          "989240048": 1,
+          "941578861": 1,
+          "917284865": 1
+        },
+        "request_p50_ms": 328,
+        "request_p95_ms": 1359,
+        "resource_deferrals": {},
+        "network_source_failures": {},
+        "request_budget_exhausted": false,
+        "shared_response_hits": 0,
+        "requests_this_invocation": 7,
+        "request_accounting": "Durable reservations before DNS/HTTP; redirects, robots and retries count. Resume retains original wall-clock deadline and cumulative request cap."
+      },
+      "coverage": {
+        "envelopes": 6,
+        "distinct_inputs": 6,
+        "registry_anchored_companies": 6,
+        "externally_enriched_companies": 0,
+        "verified_website_companies": 0,
+        "external_definition": "At least one current supported substantive company-site fact; URL-only and registry facts excluded",
+        "financial_companies": 6,
+        "current_claims_by_field": {
+          "bankrupt": 6,
+          "business_address": 6,
+          "business_email": 4,
+          "business_phone": 2,
+          "employees": 2,
+          "entity_kind": 6,
+          "financial.annual_result": 17,
+          "financial.assets": 17,
+          "financial.debt": 15,
+          "financial.equity": 17,
+          "financial.operating_result": 17,
+          "financial.revenue": 11,
+          "founded": 6,
+          "industry": 6,
+          "latest_filing_year": 6,
+          "legal_form": 6,
+          "legal_name": 6,
+          "liquidating": 6,
+          "organisation_number": 6,
+          "postal_address": 1,
+          "registered": 6,
+          "registered_activity": 6,
+          "registered_purpose": 5
+        },
+        "companies_by_populated_field": {
+          "bankrupt": 6,
+          "business_address": 6,
+          "business_email": 4,
+          "business_phone": 2,
+          "employees": 2,
+          "entity_kind": 6,
+          "financial.annual_result": 6,
+          "financial.assets": 6,
+          "financial.debt": 6,
+          "financial.equity": 6,
+          "financial.operating_result": 6,
+          "financial.revenue": 4,
+          "founded": 6,
+          "industry": 6,
+          "latest_filing_year": 6,
+          "legal_form": 6,
+          "legal_name": 6,
+          "liquidating": 6,
+          "organisation_number": 6,
+          "postal_address": 1,
+          "registered": 6,
+          "registered_activity": 6,
+          "registered_purpose": 5
+        },
+        "terminal_availability_counts": {
+          "available": 6
+        },
+        "module_states": {
+          "registry": {
+            "available": 6
+          },
+          "financials": {
+            "available": 6
+          },
+          "roles": {
+            "failed": 6
+          },
+          "locations": {
+            "failed": 6
+          },
+          "group": {
+            "failed": 6
+          },
+          "website": {
+            "failed": 6
+          },
+          "hiring": {
+            "failed": 6
+          },
+          "activity": {
+            "failed": 6
+          },
+          "public_brand": {
+            "failed": 6
+          },
+          "company_owned_profiles": {
+            "failed": 6
+          }
+        },
+        "stale_claims": 0
+      },
+      "validation": {
+        "passed": true,
+        "count": 6,
+        "errors": []
+      },
+      "profile_p50_ms": 3484,
+      "profile_p95_ms": 3516,
+      "cache_declaration": "SQLite response validators; no unvalidated response reuse. Optional evaluator bulk declared in source_snapshots.",
+      "qualification": "Self-test only; no official score or qualification claimed"
+    },
+    "changes": 0,
+    "stale_claims": 0,
+    "audit": {
+      "audited_at": "2026-10-16T02:19:47.851625Z",
+      "companies": 6,
+      "evidence_references_checked": 280,
+      "financial_observations_checked": 94,
+      "binding_validation": {
+        "passed": true,
+        "count": 6,
+        "errors": []
+      },
+      "failures": [],
+      "passed": true,
+      "limitation": "Source binding self-audit, not independent factual or official scoring validation. Raw API units retained; PDF scale corroboration not performed."
+    }
+  }
+}

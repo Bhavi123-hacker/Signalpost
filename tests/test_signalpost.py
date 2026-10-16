@@ -219,6 +219,10 @@ async def test_conditional_refresh_304_is_live_request(store):
         return httpx.Response(304) if r.headers.get("if-none-match")=="synthetic-v1" else httpx.Response(200,content=b'synthetic',headers={"etag":"synthetic-v1"})
     f=Fetcher(store,Budget(5,10),transport=httpx.MockTransport(handle))
     a=await f.get("https://data.brreg.no/synthetic", "synthetic",robots=False)
+    budget=f.budget
+    await f.close()
+    # A refresh is a new run/fetcher; same-run URL sharing is separately tested.
+    f=Fetcher(store,budget,transport=httpx.MockTransport(handle))
     b=await f.get("https://data.brreg.no/synthetic", "synthetic",robots=False)
     assert a.data==b.data and b.snapshot["revalidated"] and f.budget.requests==2 and f.budget.cache_hits==1
     await f.close()

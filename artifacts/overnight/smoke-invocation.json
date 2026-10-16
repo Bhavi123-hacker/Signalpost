@@ -1,0 +1,25 @@
+{
+  "argv": [
+    "wsl.exe",
+    "-e",
+    "/mnt/d/Signalpost/private/overnight/selected/linux-venv/bin/python",
+    "scripts/run_competition_batch.py",
+    "--organisations",
+    "/mnt/d/Signalpost/data/inputs/smoke-100.jsonl",
+    "--output",
+    "/mnt/d/Signalpost/private/overnight/selected/smoke-results.jsonl",
+    "--report",
+    "/mnt/d/Signalpost/private/overnight/selected/smoke-report.json",
+    "--state",
+    "/mnt/d/Signalpost/private/overnight/selected/smoke-state",
+    "--run-id",
+    "overnight-final-linux-smoke",
+    "--max-requests",
+    "2000",
+    "--max-seconds",
+    "2700"
+  ],
+  "exit_code": 0,
+  "cache": "Fresh Linux state, live registry lookup, no bulk",
+  "source_commit": "0607183400744697596a57322af38890b123678a"
+}

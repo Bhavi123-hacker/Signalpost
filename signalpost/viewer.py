@@ -61,6 +61,9 @@ def profile_html(row, history):
     financial=[c for c in row['claims'] if c['availability']=='available' and not c['stale'] and c['field'].startswith('financial.')]
     if financial:
         last=max(c['value']['period']['tilDato'] for c in financial)
+        body+='<p class="muted">Reported API currency amounts, preserved without conversion. Revenue means total operating income, including other operating income. Company and consolidated group results are shown separately.</p>'
+        context=next((c['value'].get('reporting_entity_context') for c in financial if 'Foreign enterprise' in c['value'].get('reporting_entity_context','')),None)
+        if context:body+='<p class="panel">'+esc(context)+'</p>'
         body+='<h2>Latest returned accounts · '+esc(last)+'</h2><div class="panel scroll"><table><thead><tr><th>Metric & scope</th><th>Reported amount</th><th>Evidence</th></tr></thead><tbody>'
         for c in financial:
             v=c['value']

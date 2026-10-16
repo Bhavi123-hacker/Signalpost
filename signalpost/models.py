@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+from decimal import Decimal,InvalidOperation
 from datetime import UTC, datetime
 from typing import Any, Literal
 
@@ -67,9 +68,12 @@ class Claim(BaseModel):
     first_seen: str | None = None
     last_checked: str | None = None
     stale: bool = False
+    retracted: bool = False
 
     @model_validator(mode="after")
     def supported(self):
+        if self.retracted and (self.availability=='available' or not self.evidence_ids):
+            raise ValueError('Retracted attribution must be unavailable with correction evidence')
         if self.availability == "available" and (self.value is None or not self.evidence_ids):
             raise ValueError("Published value requires evidence")
         if self.availability != "available" and self.value is not None:
@@ -80,6 +84,10 @@ class Claim(BaseModel):
                 raise ValueError("Incomplete financial dimensions")
             if not v["currency"] or not v["period"] or v["scope"] not in {"company", "group"} or v["scale"] != 1:
                 raise ValueError("Unverified financial scope, units or period")
+            try:
+                if not Decimal(str(v['amount'])).is_finite():raise ValueError('Non-finite financial amount')
+            except InvalidOperation:
+                raise ValueError('Invalid financial decimal amount') from None
         return self
 
 
@@ -154,6 +162,9 @@ def validate_envelopes(rows: list[dict], inputs: list[dict] | None = None) -> di
                     raise ValueError("Evidence-to-claim value binding missing or changed")
                 if c.field.startswith("financial.") and c.availability == "available" and c.value["organisation_number"] != row["organisation_number"]:
                     raise ValueError("Financial company mismatch")
+            current_description_ids={c['id'] for c in row['claims'] if c['availability']=='available' and not c['stale'] and c['field'] in {'registered_activity','website_description'}}
+            if set(row['summary'].get('business_description_claim_ids',[]))-current_description_ids:
+                raise ValueError('Summary references an unavailable, stale or unrelated description')
             for key in ("profile", "modules", "changes", "errors", "operations", "refresh", "source_snapshots"):
                 if key not in row:
                     raise ValueError(f"Missing section {key}")

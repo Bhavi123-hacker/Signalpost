@@ -1,0 +1,83 @@
+{
+  "created_at": "2026-10-16T02:20:36.472324Z",
+  "funnel": {
+    "inputs": 1000,
+    "identity_available": 1000,
+    "candidate_discovered": 984,
+    "candidate_html_fetched": 99,
+    "ownership_verified": 18,
+    "substantive_external": 17,
+    "companies_with_additional_company_pages": 7
+  },
+  "dominant_website_outcomes": {
+    "request_starvation": 845,
+    "identity_ambiguous": 77,
+    "missing_discovery_path": 16,
+    "source_timeout": 16,
+    "other_fetch_or_parser_failure": 19,
+    "blocked_access": 9,
+    "substantive_accepted": 17,
+    "verified_site_no_substantive_extraction": 1
+  },
+  "candidates_by_method": {
+    "legal_name_domain_hypothesis": {
+      "failed": 767
+    },
+    "registry_business_email_domain": {
+      "failed": 113,
+      "ambiguous": 60,
+      "blocked": 8,
+      "verified": 5,
+      "candidate": 10
+    },
+    "registry_listed": {
+      "ambiguous": 61,
+      "failed": 22,
+      "blocked": 5,
+      "verified": 13
+    }
+  },
+  "companies_by_populated_field": {
+    "registered": 998,
+    "latest_filing_year": 998,
+    "financial.assets": 995,
+    "business_address": 995,
+    "organisation_number": 1000,
+    "registered_activity": 998,
+    "legal_name": 1000,
+    "founded": 989,
+    "registered_purpose": 965,
+    "entity_kind": 1000,
+    "financial.equity": 994,
+    "financial.debt": 985,
+    "financial.annual_result": 995,
+    "bankrupt": 998,
+    "industry": 998,
+    "liquidating": 998,
+    "legal_form": 1000,
+    "leadership_role": 366,
+    "financial.operating_result": 978,
+    "financial.revenue": 810,
+    "employees": 134,
+    "business_email": 245,
+    "business_phone": 184,
+    "postal_address": 228,
+    "official_website": 18,
+    "website_description": 17,
+    "website_phone": 13,
+    "website_email": 11,
+    "deleted_at": 2,
+    "public_brand": 1,
+    "website_location": 1
+  },
+  "request_allocation": {
+    "registry_identity": 2,
+    "accounts": 1000,
+    "robots": 257,
+    "company_page": 374,
+    "roles": 367
+  },
+  "recorded_request_starts": 2000,
+  "interpretation": "Bounded collection outcomes only. Missing discovery path/unattempted/ambiguous is not confirmed absence. Extraction counts require substantive supported facts, never URL-only.",
+  "input_output_sha256": "e5ab28356443ea0031cbfc31197bc4808533a90f33ba4b24b48c5038c27c27a5"
+}

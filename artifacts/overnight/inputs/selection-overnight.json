@@ -1,0 +1,9 @@
+{
+  "seed": "20261016-overnight-sealed-v1",
+  "development": "Lowest200 SHA256(overnight-dev-20261016:org) from previous1000, with no site/industry/size conditioning",
+  "validation": "Lowest100 SHA256(seed:org) over complete verified universe, excluding all previous input IDs; sealed before experiments",
+  "excluded_IDs": 1240,
+  "host_disjointness": "Not guaranteed for missing/shared/discovered domains",
+  "dev_sha256": "89b0460c3950ea69594d67d5fd83c94835c5073af6ff7de869c606ed972922ec",
+  "validation_sha256": "5b42eb56d4ff4268643da867e8ecdeec27526e210ab4f93aa2bb7b7ec470ff81"
+}

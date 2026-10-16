@@ -1,0 +1,10 @@
+{
+  "scope": "Earlier diagnostic bootstrap failures informed the selected fresh-environment procedure; they were not repeated application failures",
+  "initial_venv_failure": "WSL Ubuntu Python3.14 lacks ensurepip/python3.14-venv; normal python3 -m venv failed before dependency installation",
+  "dependency_recovery": "Created a new --without-pip target venv with include-system-site-packages=false. Existing pip used only as an installer through its --python target option; all21 application/test packages installed from the pinned lockfile with --no-cache-dir. No installed old application dependency is used at runtime.",
+  "pip_check": "No broken requirements found",
+  "initial_pytest_failure": "No tests ran: default FD capture TemporaryFile.truncate raised FileNotFoundError on WSL/DrvFS TMPDIR",
+  "test_runner_recovery": "Use --capture=sys, retaining project-local temporary files on D:; application source and tests unchanged. Final XML records the subsequent actual result.",
+  "global_changes": "None; no OS package install, unrelated deletion or global WSL setting change",
+  "selected_tests": "111 passed in each fresh isolated Windows/Linux environment at source0607183400744697596a57322af38890b123678a"
+}

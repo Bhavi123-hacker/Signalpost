@@ -93,6 +93,11 @@
           "default": false,
           "title": "Stale",
           "type": "boolean"
+        },
+        "retracted": {
+          "default": false,
+          "title": "Retracted",
+          "type": "boolean"
         }
       },
       "required": [

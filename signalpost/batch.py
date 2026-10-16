@@ -12,7 +12,7 @@ from pathlib import Path
 
 from .http import Budget, FetchError, Fetcher, REQUEST_SCOPE, Result
 from .models import canonical, digest, org_number, utcnow, validate_envelopes
-from .research import Profile, official, registry, website, website_candidates
+from .research import BASE, Profile, official, registry, website, website_candidates, candidate_priority
 from .store import Store
 
 
@@ -140,17 +140,19 @@ def load_bulk(path, wanted: set[str], store: Store, budget: Budget, retrieved_at
 def coverage_report(rows: list[dict]) -> dict:
     fields = Counter()
     companies = Counter()
-    external = baseline = financial = stale = 0
+    external = baseline = financial = stale = verified = 0
     for row in rows:
         populated = [c for c in row["claims"] if c["availability"] == "available" and not c["stale"]]
         fields.update(c["field"] for c in populated)
         companies.update({c["field"] for c in populated})
         baseline += row["legal_identity"]["status"] == "available"
-        external += any(c["field"] in {"official_website", "website_description", "website_email", "website_phone", "job_posting", "dated_activity"} for c in populated)
+        verified += any(c['field']=='official_website' for c in populated)
+        external += any(c["field"] in {"website_description", "website_email", "website_phone", "website_service", "website_location", "website_leadership", "job_posting", "dated_activity", "public_brand"} for c in populated)
         financial += any(c["field"].startswith("financial.") for c in populated)
         stale += sum(c["stale"] for c in row["claims"])
     return {"envelopes": len(rows), "distinct_inputs": len({r["organisation_number"] for r in rows}), "registry_anchored_companies": baseline,
-            "externally_enriched_companies": external, "financial_companies": financial,
+            "externally_enriched_companies": external, "verified_website_companies": verified,
+            "external_definition":"At least one current supported substantive company-site fact; URL-only and registry facts excluded", "financial_companies": financial,
             "current_claims_by_field": dict(sorted(fields.items())), "companies_by_populated_field": dict(sorted(companies.items())),
             "terminal_availability_counts": dict(Counter(r["availability"] for r in rows)),
             "module_states": {m: dict(Counter(r["modules"][m]["availability"] for r in rows)) for m in rows[0]["modules"]} if rows else {}, "stale_claims": stale}
@@ -178,7 +180,8 @@ async def run_batch(args, *, transport=None):
     config_hash = digest(canonical({"input_hash": input_hash, "modules": args.modules, "strategy": args.strategy,
         "bulk": str(Path(args.bulk).resolve()) if args.bulk else None, "max_requests": args.max_requests,
         "bulk_sha256": bulk_hash, "source_tree_sha256": source_tree_hash,
-        "max_seconds": args.max_seconds, "per_company_requests": args.per_company_requests, "site_pages": args.site_pages}).encode())
+        "max_seconds": args.max_seconds, "per_company_requests": args.per_company_requests, "site_pages": args.site_pages,
+        "extraction":getattr(args,'extraction','baseline'),"page_policy":getattr(args,'page_policy','baseline')}).encode())
     saved_run = store.db.execute("SELECT input_hash,config_hash,started_at FROM runs WHERE run_id=?", (args.run_id,)).fetchone()
     if saved_run:
         if not args.resume:
@@ -255,6 +258,7 @@ async def run_batch(args, *, transport=None):
         if org in rows_by_org:
             return
         async with sem:
+            allowance=min(allowance,max(0,args.per_company_requests-budget.by_company[org]))
             token = REQUEST_SCOPE.set({"org": org, "allowance": allowance, "used": 0})
             try:
                 if p.modules["registry"]["availability"] == "available":
@@ -264,9 +268,12 @@ async def run_batch(args, *, transport=None):
                         sequence.remove("website")
                         sequence.insert(0, "website")
                     for module in sequence:
+                        if module!='website' and p.modules[module]['availability'] in {'available','not_available','not_applicable'}:
+                            continue
+                        REQUEST_SCOPE.get()['module']=module
                         try:
                             if module == "website":
-                                await website(p, fetcher, max_pages=args.site_pages)
+                                await website(p, fetcher, max_pages=args.site_pages,extraction=getattr(args,'extraction','baseline'),page_policy=getattr(args,'page_policy','baseline'))
                             else:
                                 await official(p, fetcher, module)
                         except FetchError as exc:
@@ -297,6 +304,24 @@ async def run_batch(args, *, transport=None):
                     print(f"Bulk source unreadable ({type(exc).__name__}); using bounded exact-API fallback", file=sys.stderr)
                     for p in profiles.values():
                         p.errors.append({"module": "registry_bulk", "state": "failed", "message": "Bulk source parse/read error: " + type(exc).__name__})
+            if not args.bulk and len(inputs) > 1:
+                # Documented exact-ID filter; small pages bound URL/body sizes.
+                # Original response bytes and row pointers remain the evidence.
+                wanted = [r['organisation_number'] for r in inputs if not r['input_error'] and r['organisation_number'] not in rows_by_org]
+                # 100-ID bodies measured ~190 KB and intermittently exceeded
+                # 15-second cold downloads; 25-ID chunks avoid mass fallbacks.
+                for offset in range(0,len(wanted),25):
+                    numbers=wanted[offset:offset+25]
+                    try:
+                        response=await fetcher.get(BASE+'/enheter?organisasjonsnummer='+','.join(numbers)+'&size=25','official_registry',robots=False)
+                        body=response.json(); entities=body.get('_embedded',{}).get('enheter',[])
+                        ids=[e.get('organisasjonsnummer') for e in entities]
+                        if len(ids)!=len(set(ids)) or set(ids)-set(numbers) or body.get('page',{}).get('totalPages',1)>1:
+                            raise ValueError('Filtered registry returned duplicate/unrequested IDs or incomplete page')
+                        for i,entity in enumerate(entities):
+                            bulk[entity['organisasjonsnummer']]=Result(response.snapshot,response.data,f'/_embedded/enheter/{i}',body)
+                    except (FetchError,ValueError,KeyError,AttributeError,TypeError):
+                        print('Filtered identity lookup unavailable; bounded exact-ID fallback',file=sys.stderr)
             await asyncio.gather(*(identity_task(r) for r in inputs))
             pending = [p for org, p in profiles.items() if org not in rows_by_org and p.modules["registry"]["availability"] == "available"]
             if args.strategy == "balanced" and "financials" in requested:
@@ -306,17 +331,25 @@ async def run_batch(args, *, transport=None):
                 share, extra = divmod(budget.remaining, max(1, len(pending)))
                 await asyncio.gather(*(enrich_task(p, min(2, share + (i < extra), args.per_company_requests), ["financials"], finish=False) for i, p in enumerate(pending)))
                 print(f"Accounts phase finished for {len(pending)} identities; {budget.requests} HTTP requests", file=sys.stderr, flush=True)
-                sequence = [m for m in requested if m in {"website", "roles", "locations", "group"}]
-                priority = [p for p in pending if "website" in requested and any(c["method"] in {"registry_listed", "registry_business_email_domain"} for c in website_candidates(p.entity))]
-                remaining = [p for p in pending if p not in priority]
-                # Source-aware allocation: registry URL/email candidates receive
-                # enough starts to check robots + redirects + a page. All other
-                # companies already got identity/accounts, and share unused starts
-                # afterwards (including reproducible name-domain discovery).
-                share, extra = divmod(budget.remaining, max(1, len(priority)))
-                await asyncio.gather(*(enrich_task(p, min(args.per_company_requests, share + (i < extra)), sequence) for i, p in enumerate(priority)))
-                share, extra = divmod(budget.remaining, max(1, len(remaining)))
-                await asyncio.gather(*(enrich_task(p, min(args.per_company_requests, share + (i < extra)), sequence) for i, p in enumerate(remaining)))
+                # Website-only passes prevent role/group requests starving other
+                # companies' higher-yield ownership checks. No company-ID tuning.
+                groups = [[],[],[],[]]
+                if 'website' in requested:
+                    for p in pending:
+                        groups[candidate_priority(p.entity)].append(p)
+                    for group_index,group in enumerate(groups):
+                        if group_index==2 and 'roles' in requested:
+                            # Measured official roles have far higher useful-fact
+                            # yield/start than unmatched email or guessed domains.
+                            # Give the whole batch one fair role opportunity after
+                            # strong site candidates, before speculative discovery.
+                            share,extra=divmod(budget.remaining,max(1,len(pending)))
+                            await asyncio.gather(*(enrich_task(p,min(1,share+(i<extra)),['roles'],finish=False) for i,p in enumerate(pending)))
+                        share,extra=divmod(budget.remaining,max(1,len(group)))
+                        await asyncio.gather(*(enrich_task(p,min(args.per_company_requests,share+(i<extra)),['website'],finish=False) for i,p in enumerate(group)))
+                sequence=[m for m in requested if m in {'roles','locations','group'}]
+                share,extra=divmod(budget.remaining,max(1,len(pending)))
+                await asyncio.gather(*(enrich_task(p,min(args.per_company_requests,share+(i<extra)),sequence) for i,p in enumerate(pending)))
                 await asyncio.gather(*(enrich_task(p, 0, []) for org,p in profiles.items() if org not in rows_by_org))
             else:
                 share, extra = divmod(budget.remaining, max(1, len(pending)))
@@ -342,12 +375,17 @@ async def run_batch(args, *, transport=None):
     if args.profiles_output:
         write_jsonl(args.profiles_output, [r["profile"] for r in rows])
     operations = budget.report()
+    operations['resource_deferrals']={k:v for k,v in operations['source_failures'].items() if 'budget exhausted' in k.lower() or 'allocation exhausted' in k.lower()}
+    operations['network_source_failures']={k:v for k,v in operations['source_failures'].items() if k not in operations['resource_deferrals']}
+    operations['request_budget_exhausted']=budget.remaining==0
+    operations['shared_response_hits']=fetcher.shared_hits
     operations["requests_this_invocation"] = budget.requests - previous_requests
     operations["request_accounting"] = "Durable reservations before DNS/HTTP; redirects, robots and retries count. Resume retains original wall-clock deadline and cumulative request cap."
     runtimes = sorted(r["operations"]["runtime_ms"] for r in rows)
     report = {"run_id": args.run_id, "started_at": started_at, "completed_at": utcnow(), "input_sha256": input_hash,
               "expected_count": len(inputs), "emitted_envelopes": len(rows), "resumed_profiles": resumed,
               "source_tree_sha256": source_tree_hash,
+              "configuration":{"strategy":args.strategy,"extraction":getattr(args,'extraction','baseline'),"page_policy":getattr(args,'page_policy','baseline'),"modules":args.modules,"bulk_sha256":bulk_hash},
               "limits": {"requests": args.max_requests, "seconds": args.max_seconds, "cost_usd": 0, "workers": args.workers, "per_company_requests": args.per_company_requests},
               "resource_cutoff": timed_out, "operations": operations, "coverage": coverage_report(rows), "validation": validation,
               "profile_p50_ms": runtimes[len(runtimes) // 2] if runtimes else None,

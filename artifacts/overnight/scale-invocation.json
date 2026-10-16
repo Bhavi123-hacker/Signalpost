@@ -1,0 +1,30 @@
+{
+  "source_commit": "0607183400744697596a57322af38890b123678a",
+  "argv": [
+    "D:\\Signalpost\\private\\overnight\\selected\\windows-venv\\Scripts\\python.exe",
+    "scripts/run_competition_batch.py",
+    "--organisations",
+    "D:\\Signalpost\\data\\inputs\\scale-1000.jsonl",
+    "--output",
+    "D:\\Signalpost\\private\\overnight\\selected\\scale-results.jsonl",
+    "--report",
+    "D:\\Signalpost\\private\\overnight\\selected\\scale-report.json",
+    "--state",
+    "D:\\Signalpost\\private\\overnight\\selected\\scale-state",
+    "--run-id",
+    "overnight-final-scale",
+    "--max-requests",
+    "2000",
+    "--max-seconds",
+    "2700",
+    "--bulk",
+    "D:\\Signalpost\\private\\preparation\\brreg-enheter.csv.gz"
+  ],
+  "working_directory": "D:\\Signalpost\\private\\overnight\\selected\\source",
+  "exit_code": 0,
+  "peak_working_set_bytes": 270487552,
+  "memory_samples": 1232,
+  "owned_process_count": 2,
+  "memory_method": "Largest observed OS per-process PeakWorkingSetSize across this launcher and its own descendants, sampled each second; may miss final sub-second peak. Other user processes are excluded. The first38c diagnostic measured only the small launcher and is not an application-memory result.",
+  "cache": "Fresh empty state except explicit second refresh; supplied frozen registry only when --bulk is present"
+}

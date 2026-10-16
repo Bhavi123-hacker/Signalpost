@@ -1,0 +1,9 @@
+{
+  "seed": "20261015-signalpost-revision2-blind-v1",
+  "count": 100,
+  "selection": "Smallest SHA256(seed:org) over entire verified public universe excluding all earlier input IDs; no website, industry, employee or prominence conditioning. Source-host disjointness is not guaranteed; no host-based filtering applied.",
+  "excluded_organisation_count": 1121,
+  "input_sha256": "0aec8c88c6e5233cf83fa19eaa669545ab1919cc2a3393d55aa102a576e36d82",
+  "universe_content_sha256": "b82d6a3e7231d1759a958c282bc4366b80ec2fab8095053d8ed7fa9cd01bc838",
+  "policy": "Run baseline and revised code once each with identical cold settings after revised thresholds freeze; do not tune after viewing this set."
+}

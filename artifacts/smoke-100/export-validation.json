@@ -1,9 +1,0 @@
-{
-  "validation": {
-    "passed": true,
-    "count": 100,
-    "errors": []
-  },
-  "copied_official_blobs": 307,
-  "policy": "Official NLOD observations only; raw roles and company-owned pages excluded. Original live outputs remain local."
-}

@@ -1,0 +1,58 @@
+[
+  {
+    "url": "https://www.builderr.ai/challenges/signalpost",
+    "final_url": "https://www.builderr.ai/challenges/signalpost",
+    "retrieved_at": "2026-10-15T16:16:33.448612+00:00",
+    "sha256": "529804529a333b0686e92fa55d88b78968705d0df501eb198c62cdd46da23f87",
+    "bytes": 111583,
+    "local_ignored_path": "private/revision2/challenge.html"
+  },
+  {
+    "url": "https://www.builderr.ai/docs/signalpost-evaluation-harness.md",
+    "final_url": "https://www.builderr.ai/docs/signalpost-evaluation-harness.md",
+    "retrieved_at": "2026-10-15T16:16:33.488361+00:00",
+    "sha256": "e9f994e2fa34750411487e9fab82dbffd55dc1bb16efe9021906b92896229d45",
+    "bytes": 7137,
+    "local_ignored_path": "private/revision2/evaluation.md"
+  },
+  {
+    "url": "https://www.builderr.ai/starter-briefs/signalpost-agent-playbook.md",
+    "final_url": "https://www.builderr.ai/starter-briefs/signalpost-agent-playbook.md",
+    "retrieved_at": "2026-10-15T16:16:33.778567+00:00",
+    "sha256": "0b165301576e1ad09c210bba48dd61bb2669752a07abaeb1188df4099bd4844e",
+    "bytes": 6886,
+    "local_ignored_path": "private/revision2/guide.md"
+  },
+  {
+    "url": "https://www.builderr.ai/starter-briefs/signalpost-sources.md",
+    "final_url": "https://www.builderr.ai/starter-briefs/signalpost-sources.md",
+    "retrieved_at": "2026-10-15T16:16:33.818611+00:00",
+    "sha256": "f080470ab29d5c6da243d812e35d0ae0aa3d35f5871d62dfef90422df1b8f630",
+    "bytes": 2567,
+    "local_ignored_path": "private/revision2/sources.md"
+  },
+  {
+    "url": "https://www.builderr.ai/starter-briefs/signalpost.md",
+    "final_url": "https://www.builderr.ai/starter-briefs/signalpost.md",
+    "retrieved_at": "2026-10-15T16:16:34.106230+00:00",
+    "sha256": "924ff60e1dab437c63806846aa19eaa29d84d8e87132983c4e5d9f7336214c32",
+    "bytes": 10351,
+    "local_ignored_path": "private/revision2/brief.md"
+  },
+  {
+    "url": "https://www.builderr.ai/signalpost-starter-kit.tar.gz",
+    "final_url": "https://www.builderr.ai/signalpost-starter-kit.tar.gz",
+    "retrieved_at": "2026-10-15T16:16:34.730497+00:00",
+    "sha256": "d48da9910ea7de07d2bf51ab265539a35fe07002a6c1ca5787df81316dfabbf6",
+    "bytes": 252373,
+    "local_ignored_path": "private/revision2/starter.tar.gz"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/brreg/openAPI/master/specs/enhetsregisteret.json",
+    "final_url": "https://raw.githubusercontent.com/brreg/openAPI/master/specs/enhetsregisteret.json",
+    "retrieved_at": "2026-10-15T16:16:35.292048+00:00",
+    "sha256": "dfd7d5157c25aa05165ed368fc92dd92fa7312065e398fad5ff5b46b89201d13",
+    "bytes": 35311,
+    "local_ignored_path": "private/revision2/entity-openapi.json"
+  }
+]

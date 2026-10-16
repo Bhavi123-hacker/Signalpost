@@ -40,7 +40,7 @@ def main():
         row['website_candidates']=[]
         for module in ['website','hiring','activity','public_brand','company_owned_profiles']:
             row['modules'][module]={'availability':'failed','state':MODULE_STATE['failed'],'explanation':'Omitted from public export because company-source redistribution rights are not established; original measured state is in report.json','final_timestamp':row['completed_at'],'retry_count':0}
-        row['profile']={k:v for k,v in row['profile'].items() if not k.startswith('website') and k not in {'official_website','job_posting','dated_activity'}}
+        row['profile']={k:v for k,v in row['profile'].items() if not k.startswith('website') and k not in {'official_website','job_posting','dated_activity','public_brand','company_owned_profiles'}}
         row['profile']['evidence']={m:{'status':v['availability'],'note':v['explanation']} for m,v in row['modules'].items()}
         row['summary']['current_fact_count']=sum(c['availability']=='available' and not c['stale'] for c in row['claims'])
         row['summary']['business_description_claim_ids']=[k for k in row['summary']['business_description_claim_ids'] if k in current_ids]

@@ -1,25 +1,25 @@
 # Models, APIs and actual costs
 
-No LLM, embedding model, model weights, paid search, paid data feed, paid API key, cloud resource or hosting is used. No optional paid adapter is implemented or activated. Environment variables and the author's coding-assistant login are never used as application credentials. All runs are fully reproducible without a personal browser/service account.
+No model, embedding, paid search/data API, API key, personal browser session, cloud hosting or billing integration is enabled. No optional paid adapter was built or used. The author's coding-assistant login is never an application credential.
 
-Enabled APIs: free public BRREG Enhetsregisteret (entity/subunit, company roles, group structure, workplaces) and normalised Regnskapsregisteret financials. Company websites use ordinary anonymous HTTP subject to robots and the source policy. Original code is MIT; official data is NLOD; dependency and company-source rights are in THIRD_PARTY_NOTICES.md and docs/dependency-licences.json. No raw company page is redistributed.
+Enabled sources are the free documented BRREG entity/subunit, roles, accounts, workplace and group APIs plus anonymous company HTTP subject to source policy and robots. Original code is MIT; BRREG data is NLOD. Dependency licences are in THIRD_PARTY_NOTICES.md and docs/dependency-licences.json. Raw company pages and role birth-date responses are not redistributed.
 
-Measured paid third-party API spend is **USD 0.00 per tested batch**. Representative development measurements (exact final records and later clean verification are in verification-report.md and submission/verification-final.json):
+Frozen source0607183400744697596a57322af38890b123678a; actual selected runs:
 
-| Run | Inputs | HTTP starts | Runtime seconds | Paid API USD |
+| Run | Inputs | HTTP starts | Seconds | Paid API USD |
 | --- | ---: | ---: | ---: | ---: |
-| Initial smoke | 100 | 642 | 211.454 | 0.00 |
-| Initial scale | 1,000 | 2,000 | 658.050 | 0.00 |
-| Revised smoke | 100 | 650 | 223.515 | 0.00 |
-| Revised scale | 1,000 | 2,000 | 691.515 | 0.00 |
-| Live refresh first | 6 | 32 | 31.359 | 0.00 |
-| Live refresh second | 6 | 32 | 29.172 | 0.00 |
-| Frozen-source clean smoke | 100 | 752 | 230.516 | 0.00 |
-| Frozen-source untouched validation | 20 | 150 | 81.531 | 0.00 |
-| Frozen-source clean scale | 1,000 | 2,000 | 766.750 | 0.00 |
+| scale | 1000 | 2000 | 620.703 | 0.00 |
+| smoke | 100 | 572 | 324.039 | 0.00 |
+| validation | 100 | 601 | 198.578 | 0.00 |
+| refresh1 | 6 | 24 | 21.375 | 0.00 |
+| refresh2 | 6 | 25 | 27.078 | 0.00 |
 
-Final ledger, including overlapping reruns: 13 recorded live evaluator runs, 8,281 HTTP starts, 2,997.449 summed runtime seconds and USD 0.00 paid API charges. Exact reports and exclusions are in submission/verification-final.json. These are measured totals, not estimates of an official score or a guarantee of full external coverage.
+Scale uses a declared supplied registry snapshot and fresh external state. Smoke and sealed validation use fresh state/live identity. Website refresh2 has10 new observations and5 retained stale contacts; it is not claimed fully idempotent. The separate registry/financial-only control is documented in artifacts/overnight/refresh-analysis.json.
 
-The default official-run **paid API cost expectation is $0** at any supplied batch size, because there is no charging integration. This does not mean full information is free to access: restricted/missing sources are declined. Budgets constrain coverage, not price. The retrieved contract gives an equal supplied budget but no numeric cap; default $0 remains below the user's unverified $10 ceiling.
+Recorded overnight evaluator ledger: 14 runs, 7842 starts, 2897.258 summed seconds, USD0. All recorded evaluator runs across recovery/development: 36 runs, 23243 starts, 9797.695 summed seconds, USD0. Overlapping companies are not summed as distinct profiles. Rejected diagnostic runs remain in the ledger.
 
-Internet service, electricity, hardware, development time, ChatGPT/Codex plan usage, GitHub account arrangements and possible future deployment costs are separate from third-party application API charges. They are neither estimated nor represented as free. No account upgrade, paid hosting or cloud provisioning occurred. Development preparation downloads and diagnostic HTTP tests are outside measured evaluator runs; they made no paid API calls. Their request counts are not claimed to be comprehensively metered. Evaluator adapters all share the durable bounded counter.
+Rule/Wikidata/NAV investigation counters are separate in run-ledger.json. Dependency downloads, web-tool documentation browsing and earlier preparation/diagnostic downloads are not comprehensively metered; they made no paid API calls. Internet, electricity, hardware, coding time and assistant-plan charges are separate and unestimated.
+
+Expected official-run paid API charges remain USD0 at any input size because there is no charging adapter. This is not a guarantee of source availability or information completeness. The retrieved contract does not confirm numeric resource caps; use organiser-supplied limits. Default2700seconds/2000starts are provisional, with USD0 external paid spend.
+
+Optional local financial-review tools were actually used: pypdf6.20.1 (BSD-3-Clause) and PyMuPDF1.26.7 (AGPL-3.0), declared separately in requirements-audit.txt. They are not imported by the evaluator/viewer. No LLM repaired or generated a financial value. Ten original filings/31 observations were visually reviewed; other accounts remain unaudited against original PDFs.

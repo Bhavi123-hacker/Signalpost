@@ -1,0 +1,13 @@
+{
+  "source_commit": "0607183400744697596a57322af38890b123678a",
+  "files_verified": 4918,
+  "archive_EOL_restorations": [
+    ".gitattributes",
+    ".gitignore",
+    "LICENSE"
+  ],
+  "passed": true,
+  "mismatches": [],
+  "archive_sha256": "91662f84e344e0089612022967ee7a23621c5e8d01a5cb583fd14d395e201b87",
+  "method": "Git archive, path/symlink checks, every file compared against the original Git blob; no worktree or installed application fallback"
+}

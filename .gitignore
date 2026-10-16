@@ -11,6 +11,11 @@ docs/rules/*.gz
 submission/*.zip
 submission/manifest.json
 submission/EMAIL_DRAFT.txt
+submission/EMAIL_DRAFT-revision2.txt
+submission/manifest-revision2.json
+submission/manifest-overnight.json
+submission/EMAIL_DRAFT-overnight.txt
+submission/PACKAGING_COMMIT-overnight.txt
 out/
 build/
 artifacts/development-scale-1000/

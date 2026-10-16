@@ -1,21 +1,15 @@
 # Publication and submission handoff
 
-The authorised GitHub repository is now **public**: https://github.com/Bhavi123-hacker/Signalpost . The author explicitly requested public visibility on 15 October 2026; the visibility change succeeded and GitHub confirmed `isPrivate=false`. Source and permitted official-data exports have been pushed. No email has been sent and no competition entry has been submitted.
+The existing repository is public: https://github.com/Bhavi123-hacker/Signalpost . Read-only GitHub visibility and origin/main were checked again on16 October2026: public; remote main remains d400e03e73f0ee90bf7b2eedab5ca94e1319bdaa. The overnight source and packaging commits remain LOCAL. Nothing from this revision has been pushed, deployed or emailed.
 
-Future source publication must include only permitted source and reports. These are the publication commands; the initial push and later authorised visibility change have already been performed:
+Frozen executable source:0607183400744697596a57322af38890b123678a. The later packaging commit records permitted exports, reports and explicit metadata overlays. submission/manifest-overnight.json and PACKAGE_CHECK-overnight.json bind the new local Signalpost-submission-overnight.zip. Existing original/revision2 packages are preserved separately.
 
-```sh
-git remote -v
-git status --short
-git push -u origin main
-```
-
-Do not add private/, out/, .env files, raw company pages, virtual environments, tokens or personal-session data. The repository ignores those paths; the packaging script uses an explicit tracked-source allowlist and permitted export directory.
-
-The following visibility command was executed after the author's explicit request:
+After author review and a later explicit publication instruction, the exact publication command from D:/Signalpost is:
 
 ```sh
-gh repo edit Bhavi123-hacker/Signalpost --visibility public --accept-visibility-change-consequences
+git push origin main
 ```
 
-`EMAIL_DRAFT.txt` is local-only and must be reviewed, contact details filled, and sent by the author to submit@builderr.ai. Use the exact frozen source commit in manifest.json. No result file implies official qualification. The ZIP overlays explicitly listed later reports/packaging metadata on the frozen research source; its manifest identifies every overlay and payload hash.
+It is prepared, not executed. Do not publish private/, out/, .env files, raw company pages, personal data, virtual environments or credentials. Public exports intentionally retain only permitted official-data claims; reports distinguish them from original full local output.
+
+Fill the explicit contact placeholder in submission/EMAIL_DRAFT-overnight.txt, review the package and send manually to submit@builderr.ai. No contact address was invented, no email sent and no official qualification asserted. Use organiser-supplied numeric caps/cutoff/private schema if provided; public starter validation is structural only.

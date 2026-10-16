@@ -1,0 +1,696 @@
+{
+  "review_kind": "Sample semantic comparison against original filed accounts, not complete corpus truth verification",
+  "filings_reviewed": 10,
+  "metric_observations_reviewed": 31,
+  "amount_discrepancies_observed": 0,
+  "findings": [
+    "revenue field means total operating income including other operating income, not sales-only revenue",
+    "NUF financial presentation needs foreign-enterprise scope caveat",
+    "Explicit zero values retained only when source actually supplies zero",
+    "No global PDF/OCR corroboration is implied by sample checks"
+  ],
+  "raw_PDF_policy": "Original PDFs and PNGs remain private; public report records URLs/hashes/page references and reviewed financial observations. No birth dates/raw personal notes redistributed.",
+  "reviews": [
+    {
+      "organisation_number": "941578861",
+      "legal_name": "KOLBJØRN OLSEN AS",
+      "source_url": "https://data.brreg.no/regnskapsregisteret/regnskap/aarsregnskap/kopi/941578861/2025",
+      "retrieved_at": "2026-10-15T16:25:16.134056Z",
+      "content_sha256": "0d4db85013b95626457f9bce0db0721fa8d5076e260b20a4c99d7b9077621489",
+      "local_private_storage": "private/revision2/financial-audit-retry/state/evidence/0d/0d4db85013b95626457f9bce0db0721fa8d5076e260b20a4c99d7b9077621489.bin",
+      "reviewer": "assistant visual inspection of actual rendered original PDF; not independent human adjudication",
+      "pages_reviewed": [
+        1,
+        2,
+        4
+      ],
+      "observations": [
+        {
+          "amount": "22145051.00",
+          "currency": "NOK",
+          "journal_number": "2026716175",
+          "metric": "revenue",
+          "organisation_number": "941578861",
+          "period": {
+            "fraDato": "2025-01-01",
+            "tilDato": "2025-12-31"
+          },
+          "record_id": 7179687,
+          "scale": 1,
+          "scope": "company",
+          "source_field": "/resultatregnskapResultat/driftsresultat/driftsinntekter/sumDriftsinntekter",
+          "units": "currency units (normalised official API)"
+        },
+        {
+          "amount": "68014.00",
+          "currency": "NOK",
+          "journal_number": "2026716175",
+          "metric": "operating_result",
+          "organisation_number": "941578861",
+          "period": {
+            "fraDato": "2025-01-01",
+            "tilDato": "2025-12-31"
+          },
+          "record_id": 7179687,
+          "scale": 1,
+          "scope": "company",
+          "source_field": "/resultatregnskapResultat/driftsresultat/driftsresultat",
+          "units": "currency units (normalised official API)"
+        },
+        {
+          "amount": "966775.00",
+          "currency": "NOK",
+          "journal_number": "2026716175",
+          "metric": "annual_result",
+          "organisation_number": "941578861",
+          "period": {
+            "fraDato": "2025-01-01",
+            "tilDato": "2025-12-31"
+          },
+          "record_id": 7179687,
+          "scale": 1,
+          "scope": "company",
+          "source_field": "/resultatregnskapResultat/aarsresultat",
+          "units": "currency units (normalised official API)"
+        },
+        {
+          "amount": "23407757.00",
+          "currency": "NOK",
+          "journal_number": "2026716175",
+          "metric": "assets",
+          "organisation_number": "941578861",
+          "period": {
+            "fraDato": "2025-01-01",
+            "tilDato": "2025-12-31"
+          },
+          "record_id": 7179687,
+          "scale": 1,
+          "scope": "company",
+          "source_field": "/eiendeler/sumEiendeler",
+          "units": "currency units (normalised official API)"
+        },
+        {
+          "amount": "19985352.00",
+          "currency": "NOK",
+          "journal_number": "2026716175",
+          "metric": "equity",
+          "organisation_number": "941578861",
+          "period": {
+            "fraDato": "2025-01-01",
+            "tilDato": "2025-12-31"
+          },
+          "record_id": 7179687,
+          "scale": 1,
+          "scope": "company",
+          "source_field": "/egenkapitalGjeld/egenkapital/sumEgenkapital",
+          "units": "currency units (normalised official API)"
+        },
+        {
+          "amount": "3422406.00",
+          "currency": "NOK",
+          "journal_number": "2026716175",
+          "metric": "debt",
+          "organisation_number": "941578861",
+          "period": {
+            "fraDato": "2025-01-01",
+            "tilDato": "2025-12-31"
+          },
+          "record_id": 7179687,
+          "scale": 1,
+          "scope": "company",
+          "source_field": "/egenkapitalGjeld/gjeldOversikt/sumGjeld",
+          "units": "currency units (normalised official API)"
+        }
+      ],
+      "result": "Compared API amounts, currency, period, sign, and company/group table heading with original PDF. No amount/scale discrepancy in reviewed observations.",
+      "unit_observation": "Table explicitly states currency; displayed whole amounts equal API values, no thousand multiplication.",
+      "scope_note": "Standalone company; group separately labelled where present"
+    },
+    {
+      "organisation_number": "918712011",
+      "legal_name": "EINES AS",
+      "source_url": "https://data.brreg.no/regnskapsregisteret/regnskap/aarsregnskap/kopi/918712011/2025",
+      "retrieved_at": "2026-10-15T16:25:58.275283Z",
+      "content_sha256": "2db4a1957c79340b43453eed71796281c23ab17d56bfc4d4f7af5019b9ef1388",
+      "local_private_storage": "private/revision2/financial-audit-retry/state/evidence/2d/2db4a1957c79340b43453eed71796281c23ab17d56bfc4d4f7af5019b9ef1388.bin",
+      "reviewer": "assistant visual inspection of actual rendered original PDF; not independent human adjudication",
+      "pages_reviewed": [
+        1,
+        2
+      ],
+      "observations": [
+        {
+          "amount": "74178405.00",
+          "currency": "NOK",
+          "journal_number": "2026619752",
+          "metric": "revenue",
+          "organisation_number": "918712011",
+          "period": {
+            "fraDato": "2025-01-01",
+            "tilDato": "2025-12-31"
+          },
+          "record_id": 7033338,
+          "scale": 1,
+          "scope": "company",
+          "source_field": "/resultatregnskapResultat/driftsresultat/driftsinntekter/sumDriftsinntekter",
+          "units": "currency units (normalised official API)"
+        },
+        {
+          "amount": "2880555.00",
+          "currency": "NOK",
+          "journal_number": "2026619752",
+          "metric": "annual_result",
+          "organisation_number": "918712011",
+          "period": {
+            "fraDato": "2025-01-01",
+            "tilDato": "2025-12-31"
+          },
+          "record_id": 7033338,
+          "scale": 1,
+          "scope": "company",
+          "source_field": "/resultatregnskapResultat/aarsresultat",
+          "units": "currency units (normalised official API)"
+        }
+      ],
+      "result": "Compared API amounts, currency, period, sign, and company/group table heading with original PDF. No amount/scale discrepancy in reviewed observations.",
+      "unit_observation": "Table explicitly states currency; displayed whole amounts equal API values, no thousand multiplication.",
+      "scope_note": "Standalone company; group separately labelled where present"
+    },
+    {
+      "organisation_number": "985281505",
+      "legal_name": "KOAN APPARTEMENT AS",
+      "source_url": "https://data.brreg.no/regnskapsregisteret/regnskap/aarsregnskap/kopi/985281505/2025",
+      "retrieved_at": "2026-10-15T16:26:07.687096Z",
+      "content_sha256": "f2074a06ccccfff04c76822b15f8c9d5e194c52f51fffbdf3531193f5c52301b",
+      "local_private_storage": "private/revision2/financial-audit-retry/state/evidence/f2/f2074a06ccccfff04c76822b15f8c9d5e194c52f51fffbdf3531193f5c52301b.bin",
+      "reviewer": "assistant visual inspection of actual rendered original PDF; not independent human adjudication",
+      "pages_reviewed": [
+        1,
+        2
+      ],
+      "observations": [
+        {
+          "amount": "2829492.00",
+          "currency": "NOK",
+          "journal_number": "2026721977",
+          "metric": "revenue",
+          "organisation_number": "985281505",
+          "period": {
+            "fraDato": "2025-01-01",
+            "tilDato": "2025-12-31"
+          },
+          "record_id": 7086129,
+          "scale": 1,
+          "scope": "company",
+          "source_field": "/resultatregnskapResultat/driftsresultat/driftsinntekter/sumDriftsinntekter",
+          "units": "currency units (normalised official API)"
+        },
+        {
+          "amount": "1001252.00",
+          "currency": "NOK",
+          "journal_number": "2026721977",
+          "metric": "annual_result",
+          "organisation_number": "985281505",
+          "period": {
+            "fraDato": "2025-01-01",
+            "tilDato": "2025-12-31"
+          },
+          "record_id": 7086129,
+          "scale": 1,
+          "scope": "company",
+          "source_field": "/resultatregnskapResultat/aarsresultat",
+          "units": "currency units (normalised official API)"
+        }
+      ],
+      "result": "Compared API amounts, currency, period, sign, and company/group table heading with original PDF. No amount/scale discrepancy in reviewed observations.",
+      "unit_observation": "Table explicitly states currency; displayed whole amounts equal API values, no thousand multiplication.",
+      "scope_note": "Standalone company; group separately labelled where present"
+    },
+    {
+      "organisation_number": "817672442",
+      "legal_name": "SAFETY GUIDE AS",
+      "source_url": "https://data.brreg.no/regnskapsregisteret/regnskap/aarsregnskap/kopi/817672442/2025",
+      "retrieved_at": "2026-10-15T16:26:33.844226Z",
+      "content_sha256": "81fa5e928cb8527a4e073cd9a85c0cd0799f003766a3ae465e756a1caf29cd80",
+      "local_private_storage": "private/revision2/financial-audit-retry/state/evidence/81/81fa5e928cb8527a4e073cd9a85c0cd0799f003766a3ae465e756a1caf29cd80.bin",
+      "reviewer": "assistant visual inspection of actual rendered original PDF; not independent human adjudication",
+      "pages_reviewed": [
+        1,
+        2
+      ],
+      "observations": [
+        {
+          "amount": "26119977.00",
+          "currency": "NOK",
+          "journal_number": "2026382790",
+          "metric": "revenue",
+          "organisation_number": "817672442",
+          "period": {
+            "fraDato": "2025-01-01",
+            "tilDato": "2025-12-31"
+          },
+          "record_id": 6535309,
+          "scale": 1,
+          "scope": "company",
+          "source_field": "/resultatregnskapResultat/driftsresultat/driftsinntekter/sumDriftsinntekter",
+          "units": "currency units (normalised official API)"
+        },
+        {
+          "amount": "3201733.00",
+          "currency": "NOK",
+          "journal_number": "2026382790",
+          "metric": "annual_result",
+          "organisation_number": "817672442",
+          "period": {
+            "fraDato": "2025-01-01",
+            "tilDato": "2025-12-31"
+          },
+          "record_id": 6535309,
+          "scale": 1,
+          "scope": "company",
+          "source_field": "/resultatregnskapResultat/aarsresultat",
+          "units": "currency units (normalised official API)"
+        }
+      ],
+      "result": "Compared API amounts, currency, period, sign, and company/group table heading with original PDF. No amount/scale discrepancy in reviewed observations.",
+      "unit_observation": "Table explicitly states currency; displayed whole amounts equal API values, no thousand multiplication.",
+      "scope_note": "Standalone company; group separately labelled where present"
+    },
+    {
+      "organisation_number": "927648415",
+      "legal_name": "ISENTRUM EIENDOM AS",
+      "source_url": "https://data.brreg.no/regnskapsregisteret/regnskap/aarsregnskap/kopi/927648415/2025",
+      "retrieved_at": "2026-10-15T16:26:49.910160Z",
+      "content_sha256": "46372e304672916c1c6d3328609dbec6418398509f2c4d585543d0695c4d0f31",
+      "local_private_storage": "private/revision2/financial-audit-retry/state/evidence/46/46372e304672916c1c6d3328609dbec6418398509f2c4d585543d0695c4d0f31.bin",
+      "reviewer": "assistant visual inspection of actual rendered original PDF; not independent human adjudication",
+      "pages_reviewed": [
+        1,
+        2
+      ],
+      "observations": [
+        {
+          "amount": "270000.00",
+          "currency": "NOK",
+          "journal_number": "2026642922",
+          "metric": "revenue",
+          "organisation_number": "927648415",
+          "period": {
+            "fraDato": "2025-01-01",
+            "tilDato": "2025-12-31"
+          },
+          "record_id": 6903340,
+          "scale": 1,
+          "scope": "company",
+          "source_field": "/resultatregnskapResultat/driftsresultat/driftsinntekter/sumDriftsinntekter",
+          "units": "currency units (normalised official API)"
+        },
+        {
+          "amount": "65759.00",
+          "currency": "NOK",
+          "journal_number": "2026642922",
+          "metric": "annual_result",
+          "organisation_number": "927648415",
+          "period": {
+            "fraDato": "2025-01-01",
+            "tilDato": "2025-12-31"
+          },
+          "record_id": 6903340,
+          "scale": 1,
+          "scope": "company",
+          "source_field": "/resultatregnskapResultat/aarsresultat",
+          "units": "currency units (normalised official API)"
+        }
+      ],
+      "result": "Compared API amounts, currency, period, sign, and company/group table heading with original PDF. No amount/scale discrepancy in reviewed observations.",
+      "unit_observation": "Table explicitly states currency; displayed whole amounts equal API values, no thousand multiplication.",
+      "scope_note": "Standalone company; group separately labelled where present"
+    },
+    {
+      "organisation_number": "979820941",
+      "legal_name": "STIFTELSEN BIRRALEE INTERNATIONAL SCHOOL TRONDHEIM",
+      "source_url": "https://data.brreg.no/regnskapsregisteret/regnskap/aarsregnskap/kopi/979820941/2025",
+      "retrieved_at": "2026-10-15T16:27:19.667041Z",
+      "content_sha256": "e41964c4d28dfefca5a44d3a2cef8a1a0cb23ca1508ed332597a4e605a61654a",
+      "local_private_storage": "private/revision2/financial-audit-retry/state/evidence/e4/e41964c4d28dfefca5a44d3a2cef8a1a0cb23ca1508ed332597a4e605a61654a.bin",
+      "reviewer": "assistant visual inspection of actual rendered original PDF; not independent human adjudication",
+      "pages_reviewed": [
+        1,
+        2
+      ],
+      "observations": [
+        {
+          "amount": "0.00",
+          "currency": "NOK",
+          "journal_number": "2026460703",
+          "metric": "revenue",
+          "organisation_number": "979820941",
+          "period": {
+            "fraDato": "2025-01-01",
+            "tilDato": "2025-12-31"
+          },
+          "record_id": 6753756,
+          "scale": 1,
+          "scope": "company",
+          "source_field": "/resultatregnskapResultat/driftsresultat/driftsinntekter/sumDriftsinntekter",
+          "units": "currency units (normalised official API)"
+        },
+        {
+          "amount": "0.00",
+          "currency": "NOK",
+          "journal_number": "2026460703",
+          "metric": "annual_result",
+          "organisation_number": "979820941",
+          "period": {
+            "fraDato": "2025-01-01",
+            "tilDato": "2025-12-31"
+          },
+          "record_id": 6753756,
+          "scale": 1,
+          "scope": "company",
+          "source_field": "/resultatregnskapResultat/aarsresultat",
+          "units": "currency units (normalised official API)"
+        }
+      ],
+      "result": "Compared API amounts, currency, period, sign, and company/group table heading with original PDF. No amount/scale discrepancy in reviewed observations.",
+      "unit_observation": "Table explicitly states currency; displayed whole amounts equal API values, no thousand multiplication.",
+      "scope_note": "Standalone company; group separately labelled where present"
+    },
+    {
+      "organisation_number": "927878313",
+      "legal_name": "BOVIERAN VEUM AS",
+      "source_url": "https://data.brreg.no/regnskapsregisteret/regnskap/aarsregnskap/kopi/927878313/2025",
+      "retrieved_at": "2026-10-15T16:36:54.776534Z",
+      "content_sha256": "82d160311bb6d26b2406eeebf361a5ac117804e94a80d0094c3e4cc5c5960de3",
+      "local_private_storage": "private/revision2/financial-audit-edges/state/evidence/82/82d160311bb6d26b2406eeebf361a5ac117804e94a80d0094c3e4cc5c5960de3.bin",
+      "reviewer": "assistant visual inspection of actual rendered original PDF; not independent human adjudication",
+      "pages_reviewed": [
+        1,
+        2
+      ],
+      "observations": [
+        {
+          "amount": "0.00",
+          "currency": "NOK",
+          "journal_number": "2026555690",
+          "metric": "revenue",
+          "organisation_number": "927878313",
+          "period": {
+            "fraDato": "2025-01-01",
+            "tilDato": "2025-12-31"
+          },
+          "record_id": 6737968,
+          "scale": 1,
+          "scope": "company",
+          "source_field": "/resultatregnskapResultat/driftsresultat/driftsinntekter/sumDriftsinntekter",
+          "units": "currency units (normalised official API)"
+        },
+        {
+          "amount": "-18705.00",
+          "currency": "NOK",
+          "journal_number": "2026555690",
+          "metric": "annual_result",
+          "organisation_number": "927878313",
+          "period": {
+            "fraDato": "2025-01-01",
+            "tilDato": "2025-12-31"
+          },
+          "record_id": 6737968,
+          "scale": 1,
+          "scope": "company",
+          "source_field": "/resultatregnskapResultat/aarsresultat",
+          "units": "currency units (normalised official API)"
+        }
+      ],
+      "result": "Compared API amounts, currency, period, sign, and company/group table heading with original PDF. No amount/scale discrepancy in reviewed observations.",
+      "unit_observation": "Table explicitly states currency; displayed whole amounts equal API values, no thousand multiplication.",
+      "scope_note": "Standalone company; group separately labelled where present"
+    },
+    {
+      "organisation_number": "923114998",
+      "legal_name": "GJENSIDIGE BUSINESS SERVICES NORGE NUF",
+      "source_url": "https://data.brreg.no/regnskapsregisteret/regnskap/aarsregnskap/kopi/923114998/2023",
+      "retrieved_at": "2026-10-15T16:37:45.654869Z",
+      "content_sha256": "812697a4c98b48db4706150d42b339d94f24acfb7b464d661e637e8a7f221cc0",
+      "local_private_storage": "private/revision2/financial-audit-edges/state/evidence/81/812697a4c98b48db4706150d42b339d94f24acfb7b464d661e637e8a7f221cc0.bin",
+      "reviewer": "assistant visual inspection of actual rendered original PDF; not independent human adjudication",
+      "pages_reviewed": [
+        1,
+        2
+      ],
+      "observations": [
+        {
+          "amount": "1593388000.00",
+          "currency": "SEK",
+          "journal_number": "2024613837",
+          "metric": "revenue",
+          "organisation_number": "923114998",
+          "period": {
+            "fraDato": "2023-01-01",
+            "tilDato": "2023-12-31"
+          },
+          "record_id": 5327379,
+          "scale": 1,
+          "scope": "company",
+          "source_field": "/resultatregnskapResultat/driftsresultat/driftsinntekter/sumDriftsinntekter",
+          "units": "currency units (normalised official API)"
+        },
+        {
+          "amount": "1227000.00",
+          "currency": "SEK",
+          "journal_number": "2024613837",
+          "metric": "annual_result",
+          "organisation_number": "923114998",
+          "period": {
+            "fraDato": "2023-01-01",
+            "tilDato": "2023-12-31"
+          },
+          "record_id": 5327379,
+          "scale": 1,
+          "scope": "company",
+          "source_field": "/resultatregnskapResultat/aarsresultat",
+          "units": "currency units (normalised official API)"
+        }
+      ],
+      "result": "Compared API amounts, currency, period, sign, and company/group table heading with original PDF. No amount/scale discrepancy in reviewed observations.",
+      "unit_observation": "Table explicitly states currency; displayed whole amounts equal API values, no thousand multiplication.",
+      "scope_note": "NUF is a Norwegian registration of a foreign enterprise, not Norwegian branch-only financial performance"
+    },
+    {
+      "organisation_number": "916928068",
+      "legal_name": "SYDVARANGER DRIFT AS",
+      "source_url": "https://data.brreg.no/regnskapsregisteret/regnskap/aarsregnskap/kopi/916928068/2024",
+      "retrieved_at": "2026-10-15T16:38:21.708433Z",
+      "content_sha256": "bde3e81936045a4e97d2d92718cd508c209864391ede68229fb98913832cd4a7",
+      "local_private_storage": "private/revision2/financial-audit-edges/state/evidence/bd/bde3e81936045a4e97d2d92718cd508c209864391ede68229fb98913832cd4a7.bin",
+      "reviewer": "assistant visual inspection of actual rendered original PDF; not independent human adjudication",
+      "pages_reviewed": [
+        1,
+        2
+      ],
+      "observations": [
+        {
+          "amount": "9849.00",
+          "currency": "USD",
+          "journal_number": "2025709596",
+          "metric": "revenue",
+          "organisation_number": "916928068",
+          "period": {
+            "fraDato": "2024-01-01",
+            "tilDato": "2024-12-31"
+          },
+          "record_id": 6224257,
+          "scale": 1,
+          "scope": "company",
+          "source_field": "/resultatregnskapResultat/driftsresultat/driftsinntekter/sumDriftsinntekter",
+          "units": "currency units (normalised official API)"
+        },
+        {
+          "amount": "-4850835.00",
+          "currency": "USD",
+          "journal_number": "2025709596",
+          "metric": "annual_result",
+          "organisation_number": "916928068",
+          "period": {
+            "fraDato": "2024-01-01",
+            "tilDato": "2024-12-31"
+          },
+          "record_id": 6224257,
+          "scale": 1,
+          "scope": "company",
+          "source_field": "/resultatregnskapResultat/aarsresultat",
+          "units": "currency units (normalised official API)"
+        }
+      ],
+      "result": "Compared API amounts, currency, period, sign, and company/group table heading with original PDF. No amount/scale discrepancy in reviewed observations.",
+      "unit_observation": "Table explicitly states currency; displayed whole amounts equal API values, no thousand multiplication.",
+      "scope_note": "Standalone company; group separately labelled where present"
+    },
+    {
+      "organisation_number": "921349564",
+      "legal_name": "HELSEPARTNER NORD-NORGE AS",
+      "source_url": "https://data.brreg.no/regnskapsregisteret/regnskap/aarsregnskap/kopi/921349564/2025",
+      "retrieved_at": "2026-10-15T16:47:10.882138Z",
+      "content_sha256": "eefd31a81d2e9d6b8817a4ecd4a628bcdee7e1c5d971e1ff86207f59d0af0db1",
+      "local_private_storage": "private/revision2/financial-audit-group-final-attempt/state/evidence/ee/eefd31a81d2e9d6b8817a4ecd4a628bcdee7e1c5d971e1ff86207f59d0af0db1.bin",
+      "reviewer": "assistant visual inspection of actual rendered original PDF; not independent human adjudication",
+      "pages_reviewed": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8
+      ],
+      "observations": [
+        {
+          "amount": "195097347.00",
+          "currency": "NOK",
+          "journal_number": "2026640139",
+          "metric": "revenue",
+          "organisation_number": "921349564",
+          "period": {
+            "fraDato": "2025-01-01",
+            "tilDato": "2025-12-31"
+          },
+          "record_id": 7103857,
+          "scale": 1,
+          "scope": "group",
+          "source_field": "/resultatregnskapResultat/driftsresultat/driftsinntekter/sumDriftsinntekter",
+          "units": "currency units (normalised official API)"
+        },
+        {
+          "amount": "-8935377.00",
+          "currency": "NOK",
+          "journal_number": "2026640139",
+          "metric": "operating_result",
+          "organisation_number": "921349564",
+          "period": {
+            "fraDato": "2025-01-01",
+            "tilDato": "2025-12-31"
+          },
+          "record_id": 7103857,
+          "scale": 1,
+          "scope": "group",
+          "source_field": "/resultatregnskapResultat/driftsresultat/driftsresultat",
+          "units": "currency units (normalised official API)"
+        },
+        {
+          "amount": "-12527628.00",
+          "currency": "NOK",
+          "journal_number": "2026640139",
+          "metric": "annual_result",
+          "organisation_number": "921349564",
+          "period": {
+            "fraDato": "2025-01-01",
+            "tilDato": "2025-12-31"
+          },
+          "record_id": 7103857,
+          "scale": 1,
+          "scope": "group",
+          "source_field": "/resultatregnskapResultat/aarsresultat",
+          "units": "currency units (normalised official API)"
+        },
+        {
+          "amount": "63642529.00",
+          "currency": "NOK",
+          "journal_number": "2026640139",
+          "metric": "assets",
+          "organisation_number": "921349564",
+          "period": {
+            "fraDato": "2025-01-01",
+            "tilDato": "2025-12-31"
+          },
+          "record_id": 7103857,
+          "scale": 1,
+          "scope": "group",
+          "source_field": "/eiendeler/sumEiendeler",
+          "units": "currency units (normalised official API)"
+        },
+        {
+          "amount": "15224721.00",
+          "currency": "NOK",
+          "journal_number": "2026640139",
+          "metric": "equity",
+          "organisation_number": "921349564",
+          "period": {
+            "fraDato": "2025-01-01",
+            "tilDato": "2025-12-31"
+          },
+          "record_id": 7103857,
+          "scale": 1,
+          "scope": "group",
+          "source_field": "/egenkapitalGjeld/egenkapital/sumEgenkapital",
+          "units": "currency units (normalised official API)"
+        },
+        {
+          "amount": "48417808.00",
+          "currency": "NOK",
+          "journal_number": "2026640139",
+          "metric": "debt",
+          "organisation_number": "921349564",
+          "period": {
+            "fraDato": "2025-01-01",
+            "tilDato": "2025-12-31"
+          },
+          "record_id": 7103857,
+          "scale": 1,
+          "scope": "group",
+          "source_field": "/egenkapitalGjeld/gjeldOversikt/sumGjeld",
+          "units": "currency units (normalised official API)"
+        },
+        {
+          "amount": "5210672.00",
+          "currency": "NOK",
+          "journal_number": "2026640139",
+          "metric": "revenue",
+          "organisation_number": "921349564",
+          "period": {
+            "fraDato": "2025-01-01",
+            "tilDato": "2025-12-31"
+          },
+          "record_id": 7103855,
+          "scale": 1,
+          "scope": "company",
+          "source_field": "/resultatregnskapResultat/driftsresultat/driftsinntekter/sumDriftsinntekter",
+          "units": "currency units (normalised official API)"
+        },
+        {
+          "amount": "-5145593.00",
+          "currency": "NOK",
+          "journal_number": "2026640139",
+          "metric": "operating_result",
+          "organisation_number": "921349564",
+          "period": {
+            "fraDato": "2025-01-01",
+            "tilDato": "2025-12-31"
+          },
+          "record_id": 7103855,
+          "scale": 1,
+          "scope": "company",
+          "source_field": "/resultatregnskapResultat/driftsresultat/driftsresultat",
+          "units": "currency units (normalised official API)"
+        },
+        {
+          "amount": "-34117205.00",
+          "currency": "NOK",
+          "journal_number": "2026640139",
+          "metric": "annual_result",
+          "organisation_number": "921349564",
+          "period": {
+            "fraDato": "2025-01-01",
+            "tilDato": "2025-12-31"
+          },
+          "record_id": 7103855,
+          "scale": 1,
+          "scope": "company",
+          "source_field": "/resultatregnskapResultat/aarsresultat",
+          "units": "currency units (normalised official API)"
+        }
+      ],
+      "result": "Compared API amounts, currency, period, sign, and company/group table heading with original PDF. No amount/scale discrepancy in reviewed observations.",
+      "unit_observation": "Table explicitly states currency (NOK/SEK/USD); numbers match whole API currency amounts, no thousand multiplication. Group notes explicitly state whole numbers.",
+      "scope_note": "Standalone company; group separately labelled where present"
+    }
+  ]
+}

@@ -1,0 +1,498 @@
+{
+  "reviewed_at": "2026-10-16T02:06:33.269302+00:00",
+  "source_commit": "0607183400744697596a57322af38890b123678a",
+  "reviewer": "Assistant inspection of actual locally collected records; not independent human adjudication",
+  "scope": {
+    "ownership_matches_inspected": 18,
+    "substantive_companies_inspected": 17,
+    "business_description_excerpts_inspected": 18,
+    "current_financial_corpus_semantically_audited": false
+  },
+  "matches": [
+    {
+      "organisation_number": "997610903",
+      "registry_legal_name": "AVERO AS",
+      "verified_site": "https://no.northtrampoline.com/",
+      "ownership_evidence": [
+        {
+          "id": "ev-5731cc021ff63fc225f26d3a",
+          "source_url": "https://no.northtrampoline.com/pages/contact",
+          "content_sha256": "209947cceda4ee35e2b890953151a37473af95cdf7a76c5ad5d4d8f43601a853"
+        },
+        {
+          "id": "ev-5ec77c1b58fd90c28b94948b",
+          "source_url": "https://no.northtrampoline.com/pages/contact",
+          "content_sha256": "209947cceda4ee35e2b890953151a37473af95cdf7a76c5ad5d4d8f43601a853"
+        }
+      ],
+      "fields_inspected": [
+        "official_website",
+        "website_description",
+        "website_email",
+        "website_phone"
+      ],
+      "inspection": "Assistant read collected ownership spans and current external values/excerpts; no wrong-entity attachment observed in this inspected set. Not an independent precision estimate."
+    },
+    {
+      "organisation_number": "991368566",
+      "registry_legal_name": "DALE OF NORWAY AS",
+      "verified_site": "https://eu.daleofnorway.com:443/",
+      "ownership_evidence": [
+        {
+          "id": "ev-81ca94009b1115122d723ecd",
+          "source_url": "https://eu.daleofnorway.com:443/customer-service/contact-us/",
+          "content_sha256": "b2ae726859a780372d77c1001d01ef7f25d1627042369de260ca55bf4103914d"
+        },
+        {
+          "id": "ev-6a4d8d3150ae65b3514489e0",
+          "source_url": "https://eu.daleofnorway.com:443/customer-service/contact-us/",
+          "content_sha256": "b2ae726859a780372d77c1001d01ef7f25d1627042369de260ca55bf4103914d"
+        }
+      ],
+      "fields_inspected": [
+        "official_website",
+        "website_description",
+        "website_email",
+        "website_phone"
+      ],
+      "inspection": "Assistant read collected ownership spans and current external values/excerpts; no wrong-entity attachment observed in this inspected set. Not an independent precision estimate."
+    },
+    {
+      "organisation_number": "987445378",
+      "registry_legal_name": "TEMP TEAM AS",
+      "verified_site": "https://temp-team.no/",
+      "ownership_evidence": [
+        {
+          "id": "ev-462a081d98a13f4e5536879c",
+          "source_url": "https://temp-team.no/om-oss/personvernerklaering",
+          "content_sha256": "500eaea8fbfb76b74e330c409c0d1ab6075c8b073de946be2a428c43d60f2ddb"
+        },
+        {
+          "id": "ev-be6d1cf0885db3f90d7546fa",
+          "source_url": "https://temp-team.no/om-oss/personvernerklaering",
+          "content_sha256": "500eaea8fbfb76b74e330c409c0d1ab6075c8b073de946be2a428c43d60f2ddb"
+        }
+      ],
+      "fields_inspected": [
+        "official_website",
+        "website_description",
+        "website_email",
+        "website_phone"
+      ],
+      "inspection": "Assistant read collected ownership spans and current external values/excerpts; no wrong-entity attachment observed in this inspected set. Not an independent precision estimate."
+    },
+    {
+      "organisation_number": "985882053",
+      "registry_legal_name": "SOLUND VERFT AS",
+      "verified_site": "https://solundverft.no/",
+      "ownership_evidence": [
+        {
+          "id": "ev-fafee2db5fdde6f4db800fcd",
+          "source_url": "https://solundverft.no/",
+          "content_sha256": "517aec4465b77861601eba51a3668cd9688055187b5b46b91528b6bf6bd6b93f"
+        },
+        {
+          "id": "ev-2e17a766ddf4e12293123ac4",
+          "source_url": "https://solundverft.no/",
+          "content_sha256": "517aec4465b77861601eba51a3668cd9688055187b5b46b91528b6bf6bd6b93f"
+        }
+      ],
+      "fields_inspected": [
+        "official_website",
+        "website_description",
+        "website_email",
+        "website_phone"
+      ],
+      "inspection": "Assistant read collected ownership spans and current external values/excerpts; no wrong-entity attachment observed in this inspected set. Not an independent precision estimate."
+    },
+    {
+      "organisation_number": "913795784",
+      "registry_legal_name": "FJORDWEB SOLUTIONS AS",
+      "verified_site": "https://fjordweb.no/",
+      "ownership_evidence": [
+        {
+          "id": "ev-826aa414b439a95775c4a346",
+          "source_url": "https://fjordweb.no/",
+          "content_sha256": "abf0d539af88ec36443f8d90bca878718d98b2e3711b35e17fc42f7b6d95836b"
+        },
+        {
+          "id": "ev-6172d0fc72572f3ae302c178",
+          "source_url": "https://fjordweb.no/",
+          "content_sha256": "abf0d539af88ec36443f8d90bca878718d98b2e3711b35e17fc42f7b6d95836b"
+        }
+      ],
+      "fields_inspected": [
+        "official_website",
+        "public_brand",
+        "website_description",
+        "website_phone"
+      ],
+      "inspection": "Assistant read collected ownership spans and current external values/excerpts; no wrong-entity attachment observed in this inspected set. Not an independent precision estimate."
+    },
+    {
+      "organisation_number": "990503214",
+      "registry_legal_name": "FIVELAND MARINE AS",
+      "verified_site": "https://fiveland.no/",
+      "ownership_evidence": [
+        {
+          "id": "ev-6d89ec303b660515da358c07",
+          "source_url": "https://fiveland.no/",
+          "content_sha256": "52d80bcfb8076290e72e0bb1f1004871d45412712a5d89b9ea7e25e397872941"
+        },
+        {
+          "id": "ev-e9fbe85ed42526398144dc20",
+          "source_url": "https://fiveland.no/",
+          "content_sha256": "52d80bcfb8076290e72e0bb1f1004871d45412712a5d89b9ea7e25e397872941"
+        }
+      ],
+      "fields_inspected": [
+        "official_website",
+        "website_description"
+      ],
+      "inspection": "Assistant read collected ownership spans and current external values/excerpts; no wrong-entity attachment observed in this inspected set. Not an independent precision estimate."
+    },
+    {
+      "organisation_number": "940598117",
+      "registry_legal_name": "NEMS AS",
+      "verified_site": "https://www.nems.eco/",
+      "ownership_evidence": [
+        {
+          "id": "ev-b8026b1e55f63993d83a4b98",
+          "source_url": "https://www.nems.eco/contact-us",
+          "content_sha256": "963542a692a433a68e32711ed57f38b405d3f538e8dc27a302db6986835c4426"
+        },
+        {
+          "id": "ev-dc9bf876c39a7adbcfd59f3a",
+          "source_url": "https://www.nems.eco/contact-us",
+          "content_sha256": "963542a692a433a68e32711ed57f38b405d3f538e8dc27a302db6986835c4426"
+        }
+      ],
+      "fields_inspected": [
+        "official_website",
+        "website_description",
+        "website_email",
+        "website_phone"
+      ],
+      "inspection": "Assistant read collected ownership spans and current external values/excerpts; no wrong-entity attachment observed in this inspected set. Not an independent precision estimate."
+    },
+    {
+      "organisation_number": "982512069",
+      "registry_legal_name": "ØKOLOGISK NORGE",
+      "verified_site": "https://okologisknorge.no/",
+      "ownership_evidence": [
+        {
+          "id": "ev-2c93915264d7ec6996fba7ef",
+          "source_url": "https://okologisknorge.no/",
+          "content_sha256": "998a37d904ca731f03153fa547b205675739dbb19e1014bd17e8b8345451c9b7"
+        },
+        {
+          "id": "ev-1749c3b124cb3d5844b037f2",
+          "source_url": "https://okologisknorge.no/",
+          "content_sha256": "998a37d904ca731f03153fa547b205675739dbb19e1014bd17e8b8345451c9b7"
+        }
+      ],
+      "fields_inspected": [
+        "official_website",
+        "website_description"
+      ],
+      "inspection": "Assistant read collected ownership spans and current external values/excerpts; no wrong-entity attachment observed in this inspected set. Not an independent precision estimate."
+    },
+    {
+      "organisation_number": "915922058",
+      "registry_legal_name": "HELPING HANDS",
+      "verified_site": "https://www.helpinghands.no/",
+      "ownership_evidence": [
+        {
+          "id": "ev-90db80360f6f26db16c107ab",
+          "source_url": "https://www.helpinghands.no/",
+          "content_sha256": "c9cfb60c9027e5bb4c8e06e7f5f9527e63c21ace4ea316e9c75a22202d09cf62"
+        },
+        {
+          "id": "ev-bd7b19866c4900b33aced7be",
+          "source_url": "https://www.helpinghands.no/",
+          "content_sha256": "c9cfb60c9027e5bb4c8e06e7f5f9527e63c21ace4ea316e9c75a22202d09cf62"
+        }
+      ],
+      "fields_inspected": [
+        "official_website",
+        "website_description"
+      ],
+      "inspection": "Assistant read collected ownership spans and current external values/excerpts; no wrong-entity attachment observed in this inspected set. Not an independent precision estimate."
+    },
+    {
+      "organisation_number": "986593306",
+      "registry_legal_name": "LILLE SPECIAL AS",
+      "verified_site": "https://www.lillespecial.no/",
+      "ownership_evidence": [
+        {
+          "id": "ev-58428f68739a0090748312f8",
+          "source_url": "https://www.lillespecial.no/kontakt-oss",
+          "content_sha256": "31431203f022010d158efedb5fd6388a66fe0a9bd706ed8c1cf6e86d5227d14d"
+        },
+        {
+          "id": "ev-6220c04a85899d3e2c4c62a9",
+          "source_url": "https://www.lillespecial.no/kontakt-oss",
+          "content_sha256": "31431203f022010d158efedb5fd6388a66fe0a9bd706ed8c1cf6e86d5227d14d"
+        }
+      ],
+      "fields_inspected": [
+        "official_website",
+        "website_description",
+        "website_email",
+        "website_phone"
+      ],
+      "inspection": "Assistant read collected ownership spans and current external values/excerpts; no wrong-entity attachment observed in this inspected set. Not an independent precision estimate."
+    },
+    {
+      "organisation_number": "914614317",
+      "registry_legal_name": "BMV BERLAND MASKIN OG VEDLIKEHOLD AS",
+      "verified_site": "https://www.berlandmaskin.no/",
+      "ownership_evidence": [
+        {
+          "id": "ev-246303bf1b0914f421acef8a",
+          "source_url": "https://www.berlandmaskin.no/",
+          "content_sha256": "65d762b1a03cef35e9944022e1453747b40fbcb15f867734104d90694c50556f"
+        },
+        {
+          "id": "ev-85605933d794d734d40f89dd",
+          "source_url": "https://www.berlandmaskin.no/",
+          "content_sha256": "65d762b1a03cef35e9944022e1453747b40fbcb15f867734104d90694c50556f"
+        }
+      ],
+      "fields_inspected": [
+        "official_website",
+        "website_description",
+        "website_email",
+        "website_phone"
+      ],
+      "inspection": "Assistant read collected ownership spans and current external values/excerpts; no wrong-entity attachment observed in this inspected set. Not an independent precision estimate."
+    },
+    {
+      "organisation_number": "925123005",
+      "registry_legal_name": "KONGSGAARD BEGRAVELSESBYRÅ AS",
+      "verified_site": "https://kongsgaardbegravelse.no/",
+      "ownership_evidence": [
+        {
+          "id": "ev-d1cb3f182a78db5876f1179e",
+          "source_url": "https://kongsgaardbegravelse.no/",
+          "content_sha256": "b087f7e2ada30678cfe74f842171f68fe34f3eaaee13929639209fd1f2b200cc"
+        },
+        {
+          "id": "ev-aa4193e9921c6238376e3357",
+          "source_url": "https://kongsgaardbegravelse.no/",
+          "content_sha256": "b087f7e2ada30678cfe74f842171f68fe34f3eaaee13929639209fd1f2b200cc"
+        }
+      ],
+      "fields_inspected": [
+        "official_website",
+        "website_description",
+        "website_email",
+        "website_phone"
+      ],
+      "inspection": "Assistant read collected ownership spans and current external values/excerpts; no wrong-entity attachment observed in this inspected set. Not an independent precision estimate."
+    },
+    {
+      "organisation_number": "991738657",
+      "registry_legal_name": "EL-IT INSTALLASJON AS",
+      "verified_site": "https://www.el-it-installasjon.no/",
+      "ownership_evidence": [
+        {
+          "id": "ev-277f9350ba8b959314bd7714",
+          "source_url": "https://www.el-it-installasjon.no/",
+          "content_sha256": "e4f66f32bfcc761e859f543f7ea5a92b13bbf2dd77e0de3bb529b83408bb7916"
+        },
+        {
+          "id": "ev-ebf183549ba4cd9d23f1bfab",
+          "source_url": "https://www.el-it-installasjon.no/",
+          "content_sha256": "e4f66f32bfcc761e859f543f7ea5a92b13bbf2dd77e0de3bb529b83408bb7916"
+        }
+      ],
+      "fields_inspected": [
+        "official_website",
+        "website_description",
+        "website_email",
+        "website_phone"
+      ],
+      "inspection": "Assistant read collected ownership spans and current external values/excerpts; no wrong-entity attachment observed in this inspected set. Not an independent precision estimate."
+    },
+    {
+      "organisation_number": "977225736",
+      "registry_legal_name": "VERGE OPPLÆRING AS",
+      "verified_site": "https://www.verge.no/",
+      "ownership_evidence": [
+        {
+          "id": "ev-4d80b272d9637a218b3289dc",
+          "source_url": "https://www.verge.no/",
+          "content_sha256": "8a7e3d7c113dcd82361bdce760bb9bbdff9c19b63e81c1eda0fbd5fd95926484"
+        },
+        {
+          "id": "ev-fbc933075bb2c55d49312ffd",
+          "source_url": "https://www.verge.no/",
+          "content_sha256": "8a7e3d7c113dcd82361bdce760bb9bbdff9c19b63e81c1eda0fbd5fd95926484"
+        }
+      ],
+      "fields_inspected": [
+        "official_website",
+        "website_description",
+        "website_phone"
+      ],
+      "inspection": "Assistant read collected ownership spans and current external values/excerpts; no wrong-entity attachment observed in this inspected set. Not an independent precision estimate."
+    },
+    {
+      "organisation_number": "936521088",
+      "registry_legal_name": "FJELLFIX TRYSIL AS",
+      "verified_site": "https://www.fjellfix.no/",
+      "ownership_evidence": [
+        {
+          "id": "ev-f7fcab351239d208f9712967",
+          "source_url": "https://www.fjellfix.no/",
+          "content_sha256": "9a2facc6e2bef0d1dba8edc2c7079ce7396bd4c5015a67452eaa2c4c336a143a"
+        },
+        {
+          "id": "ev-43a9a1744023e5c24a74a8b1",
+          "source_url": "https://www.fjellfix.no/",
+          "content_sha256": "9a2facc6e2bef0d1dba8edc2c7079ce7396bd4c5015a67452eaa2c4c336a143a"
+        }
+      ],
+      "fields_inspected": [
+        "official_website",
+        "website_description",
+        "website_location",
+        "website_phone"
+      ],
+      "inspection": "Assistant read collected ownership spans and current external values/excerpts; no wrong-entity attachment observed in this inspected set. Not an independent precision estimate."
+    },
+    {
+      "organisation_number": "925665150",
+      "registry_legal_name": "HS BRUKT & ANTIKK AS",
+      "verified_site": "https://www.gullmannen.no/",
+      "ownership_evidence": [
+        {
+          "id": "ev-bde5c5c010541b5ffab26eef",
+          "source_url": "https://www.gullmannen.no/om-oss/",
+          "content_sha256": "915c8c6476bb85e44144e1d12b64d6a1017406f44eaa99c5b43caabe3845e6a9"
+        },
+        {
+          "id": "ev-d0708a573079502dca12907a",
+          "source_url": "https://www.gullmannen.no/om-oss/",
+          "content_sha256": "915c8c6476bb85e44144e1d12b64d6a1017406f44eaa99c5b43caabe3845e6a9"
+        }
+      ],
+      "fields_inspected": [
+        "official_website",
+        "website_description",
+        "website_email",
+        "website_phone"
+      ],
+      "inspection": "Assistant read collected ownership spans and current external values/excerpts; no wrong-entity attachment observed in this inspected set. Not an independent precision estimate."
+    },
+    {
+      "organisation_number": "917343209",
+      "registry_legal_name": "NINJA WHALE STUDIOS AS",
+      "verified_site": "https://ninjawhalestudios.com/",
+      "ownership_evidence": [
+        {
+          "id": "ev-3af7d8ea341086edc07f1ef5",
+          "source_url": "https://ninjawhalestudios.com/about",
+          "content_sha256": "aa1193496b2665ca8f6aac76690dce69e7dca59e4287379ec595f533c274d897"
+        },
+        {
+          "id": "ev-303bf93e7f9312492deeebbb",
+          "source_url": "https://ninjawhalestudios.com/about",
+          "content_sha256": "aa1193496b2665ca8f6aac76690dce69e7dca59e4287379ec595f533c274d897"
+        }
+      ],
+      "fields_inspected": [
+        "official_website"
+      ],
+      "inspection": "Assistant read collected ownership spans and current external values/excerpts; no wrong-entity attachment observed in this inspected set. Not an independent precision estimate."
+    },
+    {
+      "organisation_number": "899582012",
+      "registry_legal_name": "MED OSLO AS",
+      "verified_site": "https://medoslo.no/",
+      "ownership_evidence": [
+        {
+          "id": "ev-52f6d51047d9832f5be458d5",
+          "source_url": "https://medoslo.no/",
+          "content_sha256": "aac3b2c7fdf050be66c39537b50fd3553cc9aeb7ee2fe5a0aa368479c640377c"
+        },
+        {
+          "id": "ev-d7427eaae662d7a83c4893c4",
+          "source_url": "https://medoslo.no/",
+          "content_sha256": "aac3b2c7fdf050be66c39537b50fd3553cc9aeb7ee2fe5a0aa368479c640377c"
+        }
+      ],
+      "fields_inspected": [
+        "official_website",
+        "website_description",
+        "website_email"
+      ],
+      "inspection": "Assistant read collected ownership spans and current external values/excerpts; no wrong-entity attachment observed in this inspected set. Not an independent precision estimate."
+    }
+  ],
+  "findings": [
+    "All18 current site matches show the collected exact legal-name and checksum-valid org proof, including separate contact/about pages where needed. One verified website has no substantive extracted facts.",
+    "Prior Avero quoted-installer and Solund parent-CEO contacts are absent from the selected current contact claims. BMV and Temp-Team now use actual home business paragraphs rather than privacy copy; El-IT now uses its electrical-services paragraph rather than navigation/advisory title.",
+    "Temp-Team cross-domain privacy contact was specifically investigated in the original collected policy: the exact Temp-Team controller/org section explicitly invites contact at that mailbox for privacy questions. It is a privacy contact, not evidence of a new company relationship or a generic parent CEO.",
+    "Two descriptions have limited usefulness: an ecological-organisation recruitment introduction is secondary to its genuine home description; the gold buyer excerpt describes insured postage rather than a comprehensive business summary. They remain attributed literal excerpts; no dated/current job or named product is inferred. This is a relevance limitation, not a measured error-rate claim.",
+    "Verified NEMS contacts use its own business domain; Fjellfix address and Fjordweb alternate name are exact-entity structured observations. No group facts were inherited by every subsidiary."
+  ],
+  "limitations": [
+    "No independent human reviewer or private checked reference pool",
+    "This review does not establish precision across rejected candidates, every registered role or all financial periods",
+    "Company snippets/raw source bodies remain private; this public review contains access URLs/hashes and inspection metadata only"
+  ],
+  "financial_review_reference": "artifacts/verification/revision2-financial-review.json",
+  "host_overlap": {
+    "method": "Known verified hostname union in recorded pre-sealed runs; www prefix removed; ID disjointness was guaranteed at selection, hostname disjointness was not",
+    "prior_output_files_with_verified_hosts": 26,
+    "prior_verified_hosts": 30,
+    "selected_validation_verified_hosts": 5,
+    "recovery_validation_verified_hosts": 5,
+    "overlap_with_presealed_hosts": [],
+    "overlap_count": 0,
+    "selection_metadata": "artifacts/overnight/inputs/selection-overnight.json"
+  },
+  "helper_failures": [
+    "Private preview initially failed Windows cp1252 stdout on a BOM character; explicit UTF-8 fixed display only.",
+    "Private HTTP checker initially required an explicit script-src directive and an escaped literal ampersand; actual viewer already denied scripts through default-src none and static heading was valid. The checks were corrected, no viewer source changed."
+  ],
+  "viewer_check": {
+    "passed": true,
+    "scope": "HTTP content/security checks on actual selected1000 SQLite, not a visual browser audit",
+    "profiles": 1000,
+    "sample_organisation_number": "997610903",
+    "checks": [
+      "home1000",
+      "company profile",
+      "evidence links and provenance",
+      "financial currency units and scale",
+      "change history",
+      "JSON export equality",
+      "organisation search",
+      "query escaping",
+      "CSP scripts disabled",
+      "untrusted Host403"
+    ],
+    "paid_API_USD": 0
+  },
+  "sealed_validation_review": {
+    "companies_inspected": [
+      "918306196",
+      "965458131",
+      "988251739",
+      "921657404",
+      "913916204"
+    ],
+    "ownership_matches_inspected": 5,
+    "method": "Assistant read all five actual selected ownership pairs and external values after freeze; no tuning followed",
+    "findings": [
+      "No wrong-entity attachment observed in these five inspected matches; no corpus precision estimate.",
+      "Two dated records are framed only as articles published on the verified company site, not as inferred launches or current vacancies.",
+      "Fo-Tec description is a product-category-rich but poorly formatted/truncated literal source fragment. Retained as attributed content; quality limitation explicitly recorded.",
+      "Recovery and selected each find five substantive companies; zero verified-host overlap with recorded presealed runs. No breadth gain or generalisation benefit is claimed from this sample.",
+      "The recovery control correctly extracts two genuine West Mekan B2B offerings (passenger seats and propeller systems). The selected purchase-control-or-exact-provider rule withholds both, a known false-negative tradeoff for non-checkout industrial catalogues. It is not claimed as a precision improvement, and no post-sealed tuning was performed."
+    ]
+  }
+}

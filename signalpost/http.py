@@ -6,7 +6,7 @@ import json
 import socket
 import time
 from contextvars import ContextVar
-from collections import Counter, defaultdict
+from collections import Counter, defaultdict, OrderedDict
 from dataclasses import dataclass
 from urllib.parse import urljoin, urlsplit, urlunsplit
 from urllib.robotparser import RobotFileParser
@@ -139,14 +139,23 @@ class Budget:
 class Result:
     snapshot: dict
     data: bytes
+    root_path: str = ""
+    document: object = None
 
     def json(self):
-        return json.loads(self.data)
+        if self.document is None:
+            self.document=json.loads(self.data)
+        value = self.document
+        for token in self.root_path.strip('/').split('/') if self.root_path else []:
+            token = token.replace('~1','/').replace('~0','~')
+            value = value[int(token)] if isinstance(value,list) else value[token]
+        return value
 
 
 class Fetcher:
-    def __init__(self, store: Store, budget: Budget, *, transport=None):
+    def __init__(self, store: Store, budget: Budget, *, transport=None, timeout_seconds=15.0):
         self.store, self.budget = store, budget
+        self.timeout_seconds=min(120.0,max(.1,float(timeout_seconds)))
         if transport is None:
             transport = httpx.AsyncHTTPTransport(retries=0, limits=httpx.Limits(max_connections=16, max_keepalive_connections=8))
             transport._pool._network_backend = PinnedBackend()
@@ -159,6 +168,9 @@ class Fetcher:
         self.robots = {}
         self.robot_locks = defaultdict(asyncio.Lock)
         self.events = []
+        self.responses = OrderedDict()
+        self.response_locks = defaultdict(asyncio.Lock)
+        self.shared_hits = 0
 
     async def close(self):
         await self.client.aclose()
@@ -171,7 +183,16 @@ class Fetcher:
                 self.consecutive[host] = 0
                 self.cooldowns[host] = 0
             if time.monotonic() < self.cooldowns[host]:
-                raise FetchError("blocked", "Host circuit breaker/cooldown open; no request attempted")
+                if host == 'data.brreg.no':
+                    # A shared official-source cooldown must not instantly fail
+                    # every later company. Wait politely inside the global wall
+                    # cap; never bypass the source's Retry-After/circuit interval.
+                    await asyncio.sleep(min(self.cooldowns[host]-time.monotonic(),max(0,self.budget.deadline-time.monotonic())))
+                    self.budget.check()
+                    self.cooldowns[host]=0
+                    self.consecutive[host]=0
+                else:
+                    raise FetchError("blocked", "Host circuit breaker/cooldown open; no request attempted")
             delay = self.next_time[host] - time.monotonic()
             if delay > 0:
                 await asyncio.sleep(min(delay, max(0, self.budget.deadline - time.monotonic())))
@@ -181,8 +202,9 @@ class Fetcher:
             event = {"url": url, "started_at": utcnow(), "request_number": self.budget.requests}
             if REQUEST_SCOPE.get():
                 event["organisation_number"] = REQUEST_SCOPE.get()["org"]
+                event['module']=REQUEST_SCOPE.get().get('module','registry')
             try:
-                timeout = min(15.0, max(.01, self.budget.deadline - time.monotonic()))
+                timeout = min(self.timeout_seconds, max(.01, self.budget.deadline - time.monotonic()))
                 async with asyncio.timeout(timeout):
                     async with self.client.stream("GET", url, headers=headers, timeout=timeout) as r:
                         # Avoid decoder expansion bombs: request identity and reject
@@ -230,7 +252,7 @@ class Fetcher:
         async with self.robot_locks[origin]:
             if origin not in self.robots:
                 try:
-                    result = await self.get(origin + "/robots.txt", "robots", robots=False, limit=256_000)
+                    result = await self.get(origin + "/robots.txt", "robots", robots=False, limit=256_000,attempts=1)
                     status = result.snapshot["http_status"]
                     if status in {404, 410}:
                         self.robots[origin] = None
@@ -238,6 +260,9 @@ class Fetcher:
                         rp = RobotFileParser()
                         rp.parse(result.data.decode("utf-8", "replace").splitlines())
                         self.robots[origin] = rp
+                        final = urlsplit(result.snapshot['final_url'])
+                        if final.path == '/robots.txt':
+                            self.robots.setdefault(f'{final.scheme}://{final.netloc}', rp)
                     else:
                         raise FetchError("blocked", "Robots policy unavailable")
                 except FetchError as exc:
@@ -254,6 +279,31 @@ class Fetcher:
                 self.next_time[host] = max(self.next_time[host], time.monotonic() + min(delay, 120))
 
     async def get(self, url: str, source_class: str, *, robots=True, limit=2_000_000, attempts=2) -> Result:
+        original = safe_url(url)
+        # Only this invocation's genuinely fetched responses. New runs still make
+        # live/conditional requests; no undeclared persistent warm cache is used.
+        key = (original, robots, limit)
+        async with self.response_locks[key]:
+            if key in self.responses:
+                self.shared_hits += 1
+                result = self.responses[key]
+                if isinstance(result, FetchError):
+                    raise FetchError(result.state, str(result), result.snapshot)
+                return result
+            try:
+                result = await self._get(original, source_class, robots=robots, limit=limit, attempts=attempts)
+            except FetchError as exc:
+                # Policy blocks/absent sites may be shared; don't turn a budget
+                # failure for one company into a cached failure for another.
+                if exc.state == 'blocked':
+                    self.responses[key] = exc
+                raise
+            self.responses[key] = result
+            while len(self.responses) > 128:
+                self.responses.popitem(last=False)
+            return result
+
+    async def _get(self, url: str, source_class: str, *, robots=True, limit=2_000_000, attempts=2) -> Result:
         original = safe_url(url)
         current, chain = original, []
         for hop in range(6):

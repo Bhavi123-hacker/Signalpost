@@ -1,0 +1,77 @@
+{
+  "recorded_evaluator_runs": {
+    "runs": 36,
+    "HTTP_starts": 23243,
+    "summed_runtime_seconds": 9797.695,
+    "paid_API_USD": 0
+  },
+  "overnight_evaluator_runs": {
+    "runs": 14,
+    "HTTP_starts": 7842,
+    "summed_runtime_seconds": 2897.258,
+    "paid_API_USD": 0
+  },
+  "separate_overnight_diagnostics": {
+    "rule_downloads_and_Wikidata": {
+      "requests": 6,
+      "bytes": 279455,
+      "runtime_ms": 4781,
+      "third_party_cost_usd": 0,
+      "api_usage": {
+        "documented_brreg_http_starts": 0,
+        "paid_api_calls": 0,
+        "model_calls": 0
+      },
+      "cache_hits": 0,
+      "source_failures": {
+        "HTTP 403": 1
+      },
+      "requests_by_host": {
+        "www.builderr.ai": 5,
+        "query.wikidata.org": 1
+      },
+      "requests_by_company": {},
+      "request_p50_ms": 235,
+      "request_p95_ms": 313
+    },
+    "NAV_attempt1": {
+      "requests": 1,
+      "bytes": 334,
+      "runtime_ms": 3500,
+      "third_party_cost_usd": 0,
+      "api_usage": {
+        "documented_brreg_http_starts": 0,
+        "paid_api_calls": 0,
+        "model_calls": 0
+      },
+      "cache_hits": 0,
+      "source_failures": {},
+      "requests_by_host": {
+        "pam-stilling-feed.nav.no": 1
+      },
+      "requests_by_company": {},
+      "request_p50_ms": 2484,
+      "request_p95_ms": 2484
+    },
+    "NAV_attempt2": {
+      "requests": 1,
+      "bytes": 334,
+      "runtime_ms": 2875,
+      "third_party_cost_usd": 0,
+      "api_usage": {
+        "documented_brreg_http_starts": 0,
+        "paid_api_calls": 0,
+        "model_calls": 0
+      },
+      "cache_hits": 0,
+      "source_failures": {},
+      "requests_by_host": {
+        "pam-stilling-feed.nav.no": 1
+      },
+      "requests_by_company": {},
+      "request_p50_ms": 1875,
+      "request_p95_ms": 1875
+    }
+  },
+  "exclusions": "Dependency installation, web-tool documentation browsing and original preparation/diagnostic HTTP not comprehensively metered; no paid APIs. Recorded runs deduplicated by run_id+original started_at, including rejected development runs; overlapping companies never summed as distinct profiles."
+}

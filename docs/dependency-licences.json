@@ -130,6 +130,20 @@
     "classifiers": []
   },
   {
+    "name": "PyMuPDF",
+    "version": "1.26.7",
+    "licence_expression": null,
+    "licence": "Dual Licensed - GNU AFFERO GPL 3.0 or Artifex Commercial License",
+    "classifiers": []
+  },
+  {
+    "name": "pypdf",
+    "version": "6.20.1",
+    "licence_expression": "BSD-3-Clause",
+    "licence": null,
+    "classifiers": []
+  },
+  {
     "name": "pytest",
     "version": "9.1.1",
     "licence_expression": "MIT",

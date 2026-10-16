@@ -15,6 +15,8 @@ py -3.12 -m venv .venv
 
 Linux:
 
+Use Python 3.12+ with working `venv`/`ensurepip` support (`python3-venv` on Debian/Ubuntu). The verification report records the alternative pip bootstrap used on the available WSL interpreter, which lacked that distribution component. WSL temporary-file capture can use `python -m pytest --capture=sys`.
+
 ```sh
 python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements.lock.txt
@@ -33,6 +35,8 @@ python scripts/run_competition_batch.py --organisations INPUT.jsonl --output OUT
 Replace the three filenames and STATE directory with evaluator-supplied locations. For the frozen registry supplied by Builderr, append `--bulk BRREG.csv.gz` (CSV may also be uncompressed; native BRREG JSONL is accepted). This removes live identity requests and leaves more budget for enrichment. Acquisition metadata can be adjacent as `BRREG.csv.gz.metadata.json`, or supplied with `--bulk-retrieved-at UTC_TIMESTAMP`. An unannotated evaluator snapshot is explicitly marked as a local snapshot read, not a live retrieval. The input list is never chosen by the runner. Without a bulk snapshot it uses the live entity API, with subunit fallback only after a 404.
 
 The same flags work through `python -m signalpost batch`. Add `--profiles-output PROFILES.jsonl` for a simplified profile export. `--expected-count N` is optional and checks the supplied batch size; there is no 100-row maximum. The retrieved documents do not prescribe numeric resource caps; 2,700 seconds / 2,000 HTTP starts are conservative provisional defaults from the supplied task, overridden by official flags. Paid API calls remain disabled even if a nonzero cost cap is supplied. See [contract notes](docs/contract.md).
+
+The selected defaults are `--extraction expanded --page-policy adaptive`: literal operational paragraphs and explicitly labelled contacts on verified pages, followed by actual navigation for categories still missing. The exact-company ownership gate remains strict. Optional depth is bounded by `--site-pages 3`; mandatory same-host identity proof may require additional pages even with `--site-pages 1`. `--extraction baseline --page-policy baseline` reproduces the extraction/allocation control, including current mandatory attribution corrections. [Experiments](docs/experiments.md) separates cold development comparisons, retrospective replay and untouched validation.
 
 Exit 0: output is structurally valid and every input has a terminal outcome (some may be blocked/failed). Exit 1: output validation failed. Exit 2: invalid input/configuration. JSON/JSONL syntax errors and duplicate normalised organisation numbers are rejected at batch level, matching the starter. Invalid individual numbers get failed envelopes while other rows continue. Progress goes to stderr, results to files, and no batch logs go to stdout.
 
@@ -59,7 +63,7 @@ Open http://127.0.0.1:8765. The viewer reads actual local SQLite records; it doe
 To inspect the bundled **real official-data export** without collecting new sources:
 
 ```sh
-python scripts/load_export.py --input artifacts/scale-1000/envelopes.jsonl.gz --state private/export-viewer
+python scripts/load_export.py --input artifacts/overnight/scale-1000/envelopes.jsonl.gz --state private/export-viewer
 python -m signalpost viewer --state private/export-viewer --port 8765
 ```
 
@@ -87,3 +91,13 @@ python scripts/run_competition_batch.py --organisations data/inputs/smoke-100.js
 Use `data/inputs/scale-1000.jsonl` and expected-count 1000 for the larger test. `data/inputs/selection.json` records seed, universe hashes and disjoint splits. The 20-company validation input is held back from tuning. Preparation downloads are explicit, separately logged and not silently performed by the evaluator. Never provide our local test list instead of an official input file.
 
 All implementation and audit details: [architecture](docs/architecture.md), [sources](docs/source-policy.md), [identity/evidence](docs/identity-and-evidence.md), [refresh](docs/refresh.md), [limitations](docs/limitations.md), [costs](docs/model-api-costs.md). No publication or email is performed by running this project. Packaging instructions are in `submission/PUBLICATION.md`.
+
+## Revision 2 verification
+
+The original e0d90f5 baseline and d400e03 package are preserved. Revised results are reported separately in docs/verification-report.md and submission/verification-revision2.json. External enrichment now requires a substantive sourced site fact; a URL alone is counted separately as a verified website. Cold starts use documented exact-ID filtered registry calls with bounded fallback; no private precomputed answers are loaded. Read docs/financial-audit.md for the 10-filing semantic sample and unresolved corpus-wide limits.
+
+Optional original-filing review tools are isolated from the evaluator: install requirements-audit.txt and run scripts/review_financial_filings.py with explicit --input, --output, --state and optional --render. It collects documents for review and never automatically certifies numbers.
+
+## Overnight verified revision
+
+The selected executable source is `0607183400744697596a57322af38890b123678a`. Exact new Windows/Linux installations each passed 111 tests. Final measured results, comparisons, costs and limitations are in [verification report](docs/verification-report.md), with permitted data under `artifacts/overnight/`. Older source/package commits remain recovery checkpoints. This revision has not been pushed or emailed. The 07:00 IST delivery checkpoint was missed; the report records actual completion times.

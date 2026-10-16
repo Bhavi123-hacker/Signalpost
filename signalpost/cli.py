@@ -34,6 +34,8 @@ def parser():
         b.add_argument("--per-company-requests", type=int, default=16)
         b.add_argument("--site-pages", type=int, default=3)
         b.add_argument("--strategy", choices=["balanced", "official-first"], default="balanced")
+        b.add_argument('--extraction',choices=['baseline','expanded'],default='expanded',help='Reversible company-text extraction; exact ownership gate is unchanged')
+        b.add_argument('--page-policy',choices=['baseline','focused','adaptive'],default='adaptive',help='Order actual same-host navigation by missing high-value categories')
         b.add_argument("--modules", default="registry,financials,roles,locations,group,website")
         b.add_argument("--resume", action="store_true", help="Same-run restart only; refresh uses a NEW run ID")
     v = sub.add_parser("validate")

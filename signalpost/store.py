@@ -88,6 +88,8 @@ class Store:
                     changes.append({"claim_id": claim["id"], "field": claim["field"], "type": "added" if before is None else "changed", "previous": before, "current": claim})
         # A value is removed only when its source was successfully checked and explicitly absent.
         for claim in envelope["claims"]:
+            if claim.get('retracted') and claim['id'] in old and claim.get('evidence_ids'):
+                changes.append({'claim_id':claim['id'],'field':claim['field'],'type':'retracted','previous':old[claim['id']],'current':claim})
             if claim["availability"] == "not_available" and claim["id"] in old and claim.get("evidence_ids"):
                 changes.append({"claim_id": claim["id"], "field": claim["field"], "type": "removed", "previous": old[claim["id"]], "current": claim})
         envelope["changes"] = changes
