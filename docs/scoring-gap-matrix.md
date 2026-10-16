@@ -31,3 +31,5 @@ Overnight recovery and selected measurements are in docs/verification-report.md 
 ## Latest coverage-cycle decision
 
 The initial matrix above is historical; guessed legal-name domains are now removed. Actual latest baseline and source/request risks are in docs/coverage-cycle.md. Priority is exact ownership-proof completion and source-derived breadth; optional role collection must not consume website proof capacity unnoticed. No financial/role batch endpoint is assumed. Source-independent Wikidata exact-ID discovery returned0/200 development matches at11 requests and was rejected for default use. The selected configuration is chosen from measured comparisons, not hypothetical family weights or an invented official score.
+
+Final selected measurement:1000 identities,995 financial,21 verified sites/20 substantive,402 registered-role companies at2000 reservations/631.203s/USD0. Descriptions20,email15,phone14 companies; locations0 versus prior1; products/jobs/activity0 in scale. Independent100 strict3 versus selected4, including one supported product. These are category measurements, never an official score.

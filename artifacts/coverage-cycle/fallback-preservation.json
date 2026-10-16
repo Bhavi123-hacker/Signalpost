@@ -1,0 +1,22 @@
+[
+  {
+    "path": "D:\\Signalpost\\submission\\Signalpost-submission.zip",
+    "sha256": "3731b8e340a06e4dadbfb70a5ed4ef3e223ce4ff3cc0cb83c7baa6b7c8db8c88",
+    "unchanged": true
+  },
+  {
+    "path": "D:\\Signalpost\\submission\\Signalpost-submission-revision2.zip",
+    "sha256": "37c1e5861cdfb91a6ff07159faa511a6a690dc048beeee0758b243d257c4f844",
+    "unchanged": true
+  },
+  {
+    "path": "D:\\Signalpost\\submission\\Signalpost-submission-overnight.zip",
+    "sha256": "7ada5954aeb92aff10e83b75c876f5f9ec24260cf5fc9859382ac071bec9d727",
+    "unchanged": true
+  },
+  {
+    "path": "D:\\Signalpost\\submission\\handoff\\Signalpost-submission.zip",
+    "sha256": "554b5cd2048454d22f7fdcc420e42d7cab2d5b01bd7043ea7f1fb42e355c0609",
+    "unchanged": true
+  }
+]

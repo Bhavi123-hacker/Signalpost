@@ -1,0 +1,33 @@
+{
+  "argv": [
+    "D:/Signalpost/private/coverage-cycle/windows-venv/Scripts/python.exe",
+    "scripts/run_competition_batch.py",
+    "--organisations",
+    "D:\\Signalpost\\data\\inputs\\scale-1000.jsonl",
+    "--bulk",
+    "D:/Signalpost/private/preparation/brreg-enheter.csv.gz",
+    "--output",
+    "D:\\Signalpost\\private\\coverage-cycle\\v2-scale-results.jsonl",
+    "--report",
+    "D:\\Signalpost\\private\\coverage-cycle\\v2-scale-report.json",
+    "--state",
+    "D:\\Signalpost\\private\\coverage-cycle\\v2-scale-state",
+    "--run-id",
+    "coverage-final-v2-scale",
+    "--expected-count",
+    "1000",
+    "--max-requests",
+    "2000",
+    "--max-seconds",
+    "2700",
+    "--strategy",
+    "balanced",
+    "--identity-policy",
+    "corroborated",
+    "--site-pages",
+    "3"
+  ],
+  "cwd": "D:\\Signalpost\\private\\coverage-cycle\\frozen-v2",
+  "source_commit": "0f0ca16f762d1df8865743b2beacd7f118f3e591",
+  "cold_state_before_start": true
+}

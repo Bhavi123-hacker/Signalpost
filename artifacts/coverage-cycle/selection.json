@@ -1,0 +1,25 @@
+{
+  "created_at": "2026-10-16T04:39:04.979564Z",
+  "dev_seed": "coverage-cycle-dev-v1",
+  "validation_seed": "coverage-cycle-validation-v1",
+  "method": "Lowest SHA256(seed:org), no website/size/sector conditioning; dev over measured1000, validation over full411160 excluding previous inputs",
+  "excluded_ids": 1320,
+  "dev_sha256": "6814d7abfb3ac4b026e366891de55052b5b01acf6ef622f8855586cc767ef558",
+  "validation_sha256": "be998b2dfa093e0221bf75b6166a19309ab151ae5cc28f0bd3229ad028244b43",
+  "sealed_before_implementation": true,
+  "byte_policy": "Measured Windows-selected dev/validation inputs have CRLF; exact bytes are preserved under artifacts/coverage-cycle/inputs with -text Git attributes. data/inputs examples use canonical LF, same ordered IDs.",
+  "measured_input_sha256": {
+    "clean-linux-3.jsonl": "8e85eaafac0e864019d65ff7cacf26368844019f19aabad58d3d95aa72442f09",
+    "clean-windows-6.jsonl": "4e86ef88265c16f452e75fafd7287d0e19f7bd814db2ba17f9f226832287a613",
+    "dev-200.jsonl": "6814d7abfb3ac4b026e366891de55052b5b01acf6ef622f8855586cc767ef558",
+    "scale-1000.jsonl": "706c96defaeaab71ec4e561e07165d8df43a3aa4af04deb1efdd314e539bd8dd",
+    "smoke-100.jsonl": "976e28512482584dfb998308f4ebb4d09c363f236519d247fb74139409733c31",
+    "validation-200.jsonl": "be998b2dfa093e0221bf75b6166a19309ab151ae5cc28f0bd3229ad028244b43",
+    "v2-validation-100.jsonl": "f9707de10853e6b456cff5e15e8f265445277fc20724ce500e11bdc906548670"
+  },
+  "canonical_source_example_sha256": {
+    "coverage-cycle-dev-200.jsonl": "464264134ab0db384edc5ed8a2f2dd75a058bb789618d5963451deadb5b79451",
+    "coverage-cycle-validation-200.jsonl": "adec0ea27cecf90a247e1b724f6c657bd4d914de4a5f995861d81f6bc3edcfc5"
+  },
+  "final_validation_note": "Initial200 is pre-fix; final independent100 was sealed before scalar-street/shared-binding fixes, checked zero overlap with earlier inputs. Exact raw final bytes in inputs/v2-validation-100.jsonl."
+}

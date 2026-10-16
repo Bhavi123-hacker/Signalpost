@@ -1,0 +1,170 @@
+{
+  "run_id": "v2-clean-linux",
+  "started_at": "2026-10-16T07:30:52.144875Z",
+  "completed_at": "2026-10-16T07:31:32.006190Z",
+  "input_sha256": "8e85eaafac0e864019d65ff7cacf26368844019f19aabad58d3d95aa72442f09",
+  "expected_count": 3,
+  "emitted_envelopes": 3,
+  "resumed_profiles": 0,
+  "source_tree_sha256": "68824f6c9e9142520721f4e0d87e99ba661106a95b4074ed113881922673d20a",
+  "configuration": {
+    "strategy": "balanced",
+    "extraction": "expanded",
+    "page_policy": "adaptive",
+    "identity_policy": "corroborated",
+    "site_pages": 3,
+    "modules": "registry,financials,roles,locations,group,website",
+    "bulk_sha256": "cfd5738e1c0bf808dae004fffd9dfe9a549467b0d5038c872f6df91b828d3041"
+  },
+  "limits": {
+    "requests": 2000,
+    "seconds": 2700.0,
+    "cost_usd": 0,
+    "workers": 8,
+    "per_company_requests": 16
+  },
+  "resource_cutoff": false,
+  "operations": {
+    "requests": 20,
+    "bytes": 109853,
+    "runtime_ms": 39795,
+    "third_party_cost_usd": 0,
+    "api_usage": {
+      "documented_brreg_http_starts": 12,
+      "paid_api_calls": 0,
+      "model_calls": 0
+    },
+    "cache_hits": 2,
+    "source_failures": {},
+    "requests_by_host": {
+      "data.brreg.no": 12,
+      "www.rikstv.no": 6,
+      "rikstv.no": 2
+    },
+    "requests_by_company": {
+      "977108217": 4,
+      "828931202": 4,
+      "889099682": 12
+    },
+    "request_p50_ms": 330,
+    "request_p95_ms": 2620,
+    "resource_deferrals": {},
+    "network_source_failures": {},
+    "request_budget_exhausted": false,
+    "shared_response_hits": 2,
+    "requests_this_invocation": 20,
+    "request_accounting": "Durable reservations before DNS/HTTP; redirects, robots and retries count. Resume retains original wall-clock deadline and cumulative request cap."
+  },
+  "coverage": {
+    "envelopes": 3,
+    "distinct_inputs": 3,
+    "registry_anchored_companies": 3,
+    "externally_enriched_companies": 0,
+    "verified_website_companies": 0,
+    "external_definition": "At least one current supported substantive company-site fact; URL-only and registry facts excluded",
+    "financial_companies": 3,
+    "current_claims_by_field": {
+      "bankrupt": 3,
+      "business_address": 3,
+      "business_email": 1,
+      "business_phone": 1,
+      "employees": 1,
+      "entity_kind": 3,
+      "financial.annual_result": 9,
+      "financial.assets": 9,
+      "financial.debt": 9,
+      "financial.equity": 9,
+      "financial.operating_result": 9,
+      "financial.revenue": 9,
+      "founded": 3,
+      "industry": 3,
+      "latest_filing_year": 3,
+      "leadership_role": 11,
+      "legal_form": 3,
+      "legal_name": 3,
+      "liquidating": 3,
+      "official_group_structure": 2,
+      "organisation_number": 3,
+      "postal_address": 1,
+      "registered": 3,
+      "registered_activity": 3,
+      "registered_purpose": 3,
+      "registered_workplace": 3
+    },
+    "companies_by_populated_field": {
+      "bankrupt": 3,
+      "business_address": 3,
+      "business_email": 1,
+      "business_phone": 1,
+      "employees": 1,
+      "entity_kind": 3,
+      "financial.annual_result": 3,
+      "financial.assets": 3,
+      "financial.debt": 3,
+      "financial.equity": 3,
+      "financial.operating_result": 3,
+      "financial.revenue": 3,
+      "founded": 3,
+      "industry": 3,
+      "latest_filing_year": 3,
+      "leadership_role": 3,
+      "legal_form": 3,
+      "legal_name": 3,
+      "liquidating": 3,
+      "official_group_structure": 2,
+      "organisation_number": 3,
+      "postal_address": 1,
+      "registered": 3,
+      "registered_activity": 3,
+      "registered_purpose": 3,
+      "registered_workplace": 3
+    },
+    "terminal_availability_counts": {
+      "available": 3
+    },
+    "module_states": {
+      "registry": {
+        "available": 3
+      },
+      "financials": {
+        "available": 3
+      },
+      "roles": {
+        "available": 3
+      },
+      "locations": {
+        "available": 3
+      },
+      "group": {
+        "not_available": 1,
+        "available": 2
+      },
+      "website": {
+        "failed": 2,
+        "ambiguous": 1
+      },
+      "hiring": {
+        "failed": 3
+      },
+      "activity": {
+        "failed": 3
+      },
+      "public_brand": {
+        "failed": 3
+      },
+      "company_owned_profiles": {
+        "failed": 3
+      }
+    },
+    "stale_claims": 0
+  },
+  "validation": {
+    "passed": true,
+    "count": 3,
+    "errors": []
+  },
+  "profile_p50_ms": 35596,
+  "profile_p95_ms": 36359,
+  "cache_declaration": "SQLite response validators; no unvalidated response reuse. Optional evaluator bulk declared in source_snapshots.",
+  "qualification": "Self-test only; no official score or qualification claimed"
+}

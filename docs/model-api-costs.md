@@ -1,27 +1,28 @@
-# Models, APIs and actual costs
+# Actual models, APIs and costs
 
-No model, embedding, paid search/data API, API key, personal browser session, cloud hosting or billing integration is enabled. No optional paid adapter was built or used. The author's coding-assistant login is never an application credential.
+No model, embedding, paid search/data API, cloud, API key or browser-session dependency is enabled. The coding-assistant login is not an application credential. Free documented BRREG APIs and anonymous company HTTP are the only default sources. Original code MIT, BRREG data NLOD; dependency licences are declared separately. Wikidata CC0 Action API was a12-start feasibility experiment (including positive control/probe),0/200 development matches, not a runtime integration.
 
-Enabled sources are the free documented BRREG entity/subunit, roles, accounts, workplace and group APIs plus anonymous company HTTP subject to source policy and robots. Original code is MIT; BRREG data is NLOD. Dependency licences are in THIRD_PARTY_NOTICES.md and docs/dependency-licences.json. Raw company pages and role birth-date responses are not redistributed.
+| Configuration | Inputs | Substantive | Verified | Roles | Requests | Seconds |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| control | 200 | 4 | 4 | 132 | 400 | 221.469 |
+| allocation | 200 | 4 | 4 | 95 | 400 | 226.921 |
+| corroborated | 200 | 4 | 4 | 95 | 400 | 200.984 |
+| fair | 200 | 4 | 4 | 96 | 400 | 272.125 |
+| pre-fix-selected | 200 | 4 | 4 | 133 | 400 | 235.031 |
+| pre-fix-validation-control | 200 | 5 | 5 | 73 | 400 | 264.250 |
+| pre-fix-validation-selected | 200 | 5 | 5 | 73 | 400 | 254.688 |
+| pre-fix-clean-windows | 6 | 0 | 0 | 6 | 33 | 41.735 |
+| pre-fix-clean-linux | 3 | 0 | 0 | 3 | 20 | 28.763 |
+| selected | 200 | 4 | 4 | 133 | 400 | 207.421 |
+| validation-control | 100 | 3 | 3 | 43 | 200 | 118.594 |
+| validation-selected | 100 | 4 | 4 | 44 | 200 | 125.609 |
+| scale | 1000 | 20 | 21 | 402 | 2000 | 631.203 |
+| smoke | 100 | 2 | 2 | 100 | 464 | 255.594 |
+| clean-windows | 6 | 0 | 0 | 6 | 33 | 41.906 |
+| clean-linux | 3 | 0 | 0 | 3 | 20 | 39.795 |
 
-Frozen source0607183400744697596a57322af38890b123678a; actual selected runs:
+Every row has USD0 external paid API charges. New cycle application ledger:8170 starts/3872.713 summed seconds; separately12 discovery and5 rule starts. Historical project totals remain in preserved older reports and are not conflated with this cycle. Dependency downloads/web documentation browsing are outside evaluator counts, not comprehensively metered, and made no paid API calls. Internet/electricity/hardware/assistant-plan charges are separate and unestimated.
 
-| Run | Inputs | HTTP starts | Seconds | Paid API USD |
-| --- | ---: | ---: | ---: | ---: |
-| scale | 1000 | 2000 | 620.703 | 0.00 |
-| smoke | 100 | 572 | 324.039 | 0.00 |
-| validation | 100 | 601 | 198.578 | 0.00 |
-| refresh1 | 6 | 24 | 21.375 | 0.00 |
-| refresh2 | 6 | 25 | 27.078 | 0.00 |
+Expected official-run paid API charges are USD0 because no charging adapter exists; source availability/coverage is not guaranteed. Numerical official caps are unavailable; use organiser settings, not an assumed2k maximum. Official snapshot is staged explicitly; development preparation/acquisition remains separately logged. Selected live-identity/no-bulk1000 is untested and must not inherit snapshot metrics.
 
-Scale uses a declared supplied registry snapshot and fresh external state. Smoke and sealed validation use fresh state/live identity. Website refresh2 has10 new observations and5 retained stale contacts; it is not claimed fully idempotent. The separate registry/financial-only control is documented in artifacts/overnight/refresh-analysis.json.
-
-Recorded overnight evaluator ledger: 14 runs, 7842 starts, 2897.258 summed seconds, USD0. All recorded evaluator runs across recovery/development: 36 runs, 23243 starts, 9797.695 summed seconds, USD0. Overlapping companies are not summed as distinct profiles. Rejected diagnostic runs remain in the ledger.
-
-Rule/Wikidata/NAV investigation counters are separate in run-ledger.json. Dependency downloads, web-tool documentation browsing and earlier preparation/diagnostic downloads are not comprehensively metered; they made no paid API calls. Internet, electricity, hardware, coding time and assistant-plan charges are separate and unestimated.
-
-Expected official-run paid API charges remain USD0 at any input size because there is no charging adapter. This is not a guarantee of source availability or information completeness. The retrieved contract does not confirm numeric resource caps; use organiser-supplied limits. Default2700seconds/2000starts are provisional, with USD0 external paid spend.
-
-Optional local financial-review tools were actually used: pypdf6.20.1 (BSD-3-Clause) and PyMuPDF1.26.7 (AGPL-3.0), declared separately in requirements-audit.txt. They are not imported by the evaluator/viewer. No LLM repaired or generated a financial value. Ten original filings/31 observations were visually reviewed; other accounts remain unaudited against original PDFs.
-
-Handoff no-bulk1000 control: 2000 HTTP starts/683.031seconds,USD0. It is a separate measured configuration, not the17-company snapshot result. Five current-rule diagnostic HTTP calls were separately recorded; fresh dependency installation is outside evaluator counts and incurred no paid API calls.
+Financial-review-only tools previously used:pypdf6.20.1 BSD-3-Clause and PyMuPDF1.26.7 AGPL-3.0, declared in requirements-audit.txt. They are not imported by runner/viewer.10 filings/31 observations were reviewed; corpus-wide amount interpretation remains unverified. No LLM repairs numbers.

@@ -1,0 +1,33 @@
+{
+  "argv": [
+    "D:/Signalpost/private/handoff/windows-venv/Scripts/python.exe",
+    "scripts/run_competition_batch.py",
+    "--organisations",
+    "D:\\Signalpost\\private\\coverage-cycle\\sealed-validation-200.jsonl",
+    "--bulk",
+    "D:/Signalpost/private/preparation/brreg-enheter.csv.gz",
+    "--output",
+    "D:\\Signalpost\\private\\coverage-cycle\\validation-control-results.jsonl",
+    "--report",
+    "D:\\Signalpost\\private\\coverage-cycle\\validation-control-report.json",
+    "--state",
+    "D:\\Signalpost\\private\\coverage-cycle\\validation-control-state",
+    "--run-id",
+    "coverage-final-validation-control",
+    "--expected-count",
+    "200",
+    "--max-requests",
+    "400",
+    "--max-seconds",
+    "900",
+    "--strategy",
+    "balanced",
+    "--identity-policy",
+    "strict",
+    "--site-pages",
+    "3"
+  ],
+  "cwd": "D:\\Signalpost\\private\\coverage-cycle\\frozen",
+  "source_commit": "0100dabf7580532f72a8e1e46e33dd04c591ee3b",
+  "cold_state_before_start": true
+}

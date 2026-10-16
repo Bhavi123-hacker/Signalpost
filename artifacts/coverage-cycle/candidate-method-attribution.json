@@ -1,0 +1,62 @@
+{
+  "checked": 11,
+  "all_urls_present": true,
+  "cause": "Last-value URL deduplication retains business-email method on11 identical registry/email URLs. These are not missing website candidates. Recorded method histogram is not the complete discovery lineage. Priority can be conservative; no post-validation runtime tuning applied.",
+  "cases": [
+    {
+      "organisation_number": "980304043",
+      "same_url_present": true,
+      "retained_method": "registry_business_email_domain"
+    },
+    {
+      "organisation_number": "913795784",
+      "same_url_present": true,
+      "retained_method": "registry_business_email_domain"
+    },
+    {
+      "organisation_number": "920290310",
+      "same_url_present": true,
+      "retained_method": "registry_business_email_domain"
+    },
+    {
+      "organisation_number": "925064270",
+      "same_url_present": true,
+      "retained_method": "registry_business_email_domain"
+    },
+    {
+      "organisation_number": "947619209",
+      "same_url_present": true,
+      "retained_method": "registry_business_email_domain"
+    },
+    {
+      "organisation_number": "997355377",
+      "same_url_present": true,
+      "retained_method": "registry_business_email_domain"
+    },
+    {
+      "organisation_number": "984176503",
+      "same_url_present": true,
+      "retained_method": "registry_business_email_domain"
+    },
+    {
+      "organisation_number": "984571348",
+      "same_url_present": true,
+      "retained_method": "registry_business_email_domain"
+    },
+    {
+      "organisation_number": "833720252",
+      "same_url_present": true,
+      "retained_method": "registry_business_email_domain"
+    },
+    {
+      "organisation_number": "936504817",
+      "same_url_present": true,
+      "retained_method": "registry_business_email_domain"
+    },
+    {
+      "organisation_number": "997414446",
+      "same_url_present": true,
+      "retained_method": "registry_business_email_domain"
+    }
+  ]
+}

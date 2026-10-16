@@ -1,0 +1,116 @@
+{
+  "created_at": "2026-10-16T07:11:16.271727Z",
+  "funnel": {
+    "inputs": 200,
+    "identity_available": 200,
+    "candidate_discovered": 53,
+    "candidate_html_fetched": 20,
+    "ownership_verified": 5,
+    "substantive_external": 5,
+    "companies_with_additional_company_pages": 2,
+    "budget_skipped_with_source_derived_candidate": 30
+  },
+  "dominant_website_outcomes": {
+    "missing_discovery_path": 147,
+    "request_starvation": 30,
+    "blocked_access": 2,
+    "identity_ambiguous": 13,
+    "substantive_accepted": 5,
+    "other_fetch_or_parser_failure": 2,
+    "source_timeout": 1
+  },
+  "candidates_by_method": {
+    "registry_business_email_domain": {
+      "failed": 30,
+      "blocked": 2,
+      "ambiguous": 11,
+      "verified": 2,
+      "candidate": 2
+    },
+    "registry_listed": {
+      "blocked": 2,
+      "ambiguous": 12,
+      "verified": 3,
+      "failed": 4
+    }
+  },
+  "candidate_reasons": {
+    "Robots check failed: Request budget exhausted; source not checked": 28,
+    "Robots policy disallows this URL": 2,
+    "Conflicting organisation numbers on page": 6,
+    "Exact legal name and organisation number not both established": 16,
+    "Exact legal name and organisation number in collected page": 5,
+    "unattempted": 2,
+    "HTTP 403; no bypass attempted": 2,
+    "Company request allocation exhausted; source not checked": 1,
+    "Scoped staff/directory profile; exact entity mention does not establish site ownership": 1,
+    "Robots check failed: Company request allocation exhausted; source not checked": 1,
+    "Robots check failed: Public source request failed: ConnectError": 1,
+    "Robots check failed: Public source request failed: TimeoutError": 2,
+    "Robots check failed: Public source request failed: gaierror": 1
+  },
+  "companies_by_populated_field": {
+    "financial.operating_result": 198,
+    "financial.revenue": 174,
+    "entity_kind": 200,
+    "leadership_role": 73,
+    "registered_activity": 200,
+    "registered_purpose": 197,
+    "founded": 200,
+    "financial.debt": 196,
+    "legal_form": 200,
+    "bankrupt": 200,
+    "liquidating": 200,
+    "legal_name": 200,
+    "registered": 200,
+    "latest_filing_year": 200,
+    "industry": 200,
+    "financial.annual_result": 199,
+    "financial.equity": 199,
+    "organisation_number": 200,
+    "financial.assets": 199,
+    "business_address": 200,
+    "postal_address": 44,
+    "business_email": 56,
+    "business_phone": 34,
+    "employees": 32,
+    "official_website": 5,
+    "website_email": 5,
+    "website_description": 5,
+    "website_phone": 4,
+    "website_location": 1,
+    "dated_activity": 1
+  },
+  "request_allocation": {
+    "accounts": 200,
+    "robots": 50,
+    "company_page": 77,
+    "roles": 73
+  },
+  "requests_by_module": {
+    "financials": 200,
+    "website": 127,
+    "roles": 73
+  },
+  "recorded_request_starts": 400,
+  "interpretation": "Bounded collection outcomes only. Missing discovery path/unattempted/ambiguous is not confirmed absence. Extraction counts require substantive supported facts, never URL-only.",
+  "output_sha256": "fb762f8cd27416ce7aa56350421bc81e7707918d82e6d106cbc714f79520e6c1",
+  "validation": {
+    "own": {
+      "passed": true,
+      "count": 200,
+      "errors": []
+    },
+    "supplied_starter": {
+      "passed": true,
+      "checks": {
+        "exact_expected_count": true,
+        "unique_organisation_numbers": true,
+        "all_entity_states_terminal": true,
+        "all_module_states_terminal": true,
+        "zero_silent_drops": true
+      },
+      "invalid_states": []
+    }
+  }
+}

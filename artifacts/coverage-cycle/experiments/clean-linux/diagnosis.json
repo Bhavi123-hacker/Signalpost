@@ -1,0 +1,91 @@
+{
+  "created_at": "2026-10-16T07:33:33.042936Z",
+  "funnel": {
+    "inputs": 3,
+    "identity_available": 3,
+    "candidate_discovered": 1,
+    "candidate_html_fetched": 1,
+    "ownership_verified": 0,
+    "substantive_external": 0,
+    "companies_with_additional_company_pages": 0
+  },
+  "dominant_website_outcomes": {
+    "missing_discovery_path": 2,
+    "identity_ambiguous": 1
+  },
+  "candidates_by_method": {
+    "registry_listed": {
+      "ambiguous": 1
+    },
+    "registry_business_email_domain": {
+      "ambiguous": 1
+    }
+  },
+  "candidate_reasons": {
+    "Exact legal name and organisation number not both established": 2
+  },
+  "companies_by_populated_field": {
+    "financial.operating_result": 3,
+    "registered": 3,
+    "latest_filing_year": 3,
+    "financial.equity": 3,
+    "organisation_number": 3,
+    "entity_kind": 3,
+    "legal_name": 3,
+    "liquidating": 3,
+    "leadership_role": 3,
+    "financial.annual_result": 3,
+    "bankrupt": 3,
+    "legal_form": 3,
+    "founded": 3,
+    "registered_workplace": 3,
+    "registered_activity": 3,
+    "financial.assets": 3,
+    "business_address": 3,
+    "industry": 3,
+    "financial.revenue": 3,
+    "registered_purpose": 3,
+    "financial.debt": 3,
+    "official_group_structure": 2,
+    "postal_address": 1,
+    "employees": 1,
+    "business_email": 1,
+    "business_phone": 1
+  },
+  "request_allocation": {
+    "accounts": 3,
+    "robots": 3,
+    "company_page": 5,
+    "roles": 3,
+    "workplaces": 3,
+    "official_group": 3
+  },
+  "requests_by_module": {
+    "financials": 3,
+    "website": 8,
+    "roles": 3,
+    "locations": 3,
+    "group": 3
+  },
+  "recorded_request_starts": 20,
+  "interpretation": "Bounded collection outcomes only. Missing discovery path/unattempted/ambiguous is not confirmed absence. Extraction counts require substantive supported facts, never URL-only.",
+  "output_sha256": "17859060ed99119e23d6676533fe7ff09cce68a79d33fc04bd4ebdacd16c2e72",
+  "validation": {
+    "own": {
+      "passed": true,
+      "count": 3,
+      "errors": []
+    },
+    "supplied_starter": {
+      "passed": true,
+      "checks": {
+        "exact_expected_count": true,
+        "unique_organisation_numbers": true,
+        "all_entity_states_terminal": true,
+        "all_module_states_terminal": true,
+        "zero_silent_drops": true
+      },
+      "invalid_states": []
+    }
+  }
+}

@@ -35,3 +35,38 @@ The0100dab1000 run used2000 starts/706.625s, emitted16 substantive/17verified co
 The expected corroborated gains also exposed a representation bug: official CSV streets are scalar strings, unlike native API arrays. Matching now accepts either literal representation without eval. Full legal-name &/og presentation is normalized while retaining AS/ASA and every other token. Legal-suffix omission still mandates exact registered street/postcode. Replay on the actual failed-run pages/snapshot now supports the three corrections; this remains retrospective evidence, not new live coverage.
 
 126 focused/full Windows tests passed before refreeze. Earlier sealed200 results remain pre-fix. A new100-company validation was sealed from the permitted universe, excluding earlier inputs, before these corrections and will be used once per control/selected configuration. No post-validation feature tuning or new discovery adapter is added.
+
+## Final measured results
+
+| Configuration | Inputs | Substantive | Verified | Roles | Requests | Seconds |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| control | 200 | 4 | 4 | 132 | 400 | 221.469 |
+| allocation | 200 | 4 | 4 | 95 | 400 | 226.921 |
+| corroborated | 200 | 4 | 4 | 95 | 400 | 200.984 |
+| fair | 200 | 4 | 4 | 96 | 400 | 272.125 |
+| pre-fix-selected | 200 | 4 | 4 | 133 | 400 | 235.031 |
+| pre-fix-validation-control | 200 | 5 | 5 | 73 | 400 | 264.250 |
+| pre-fix-validation-selected | 200 | 5 | 5 | 73 | 400 | 254.688 |
+| pre-fix-clean-windows | 6 | 0 | 0 | 6 | 33 | 41.735 |
+| pre-fix-clean-linux | 3 | 0 | 0 | 3 | 20 | 28.763 |
+| selected | 200 | 4 | 4 | 133 | 400 | 207.421 |
+| validation-control | 100 | 3 | 3 | 43 | 200 | 118.594 |
+| validation-selected | 100 | 4 | 4 | 44 | 200 | 125.609 |
+| scale | 1000 | 20 | 21 | 402 | 2000 | 631.203 |
+| smoke | 100 | 2 | 2 | 100 | 464 | 255.594 |
+| clean-windows | 6 | 0 | 0 | 6 | 33 | 41.906 |
+| clean-linux | 3 | 0 | 0 | 3 | 20 | 39.795 |
+
+| External family | Previous1000 companies / facts | Final1000 companies / facts |
+| --- | ---: | ---: |
+| website_description | 17 / 18 | 20 / 21 |
+| website_email | 11 / 16 | 15 / 26 |
+| website_phone | 13 / 15 | 14 / 21 |
+| website_service | 0 / 0 | 0 / 0 |
+| website_location | 1 / 1 | 0 / 0 |
+| website_leadership | 0 / 0 | 0 / 0 |
+| job_posting | 0 / 0 | 0 / 0 |
+| dated_activity | 0 / 0 | 0 / 0 |
+| public_brand | 1 / 1 | 1 / 1 |
+
+See verification-report.md and the comparison/run-ledger artifacts for exact measurements and unchanged limitations. No tuning after validation.

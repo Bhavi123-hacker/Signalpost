@@ -1,0 +1,94 @@
+{
+  "created_at": "2026-10-16T07:33:31.782556Z",
+  "funnel": {
+    "inputs": 6,
+    "identity_available": 6,
+    "candidate_discovered": 2,
+    "candidate_html_fetched": 1,
+    "ownership_verified": 0,
+    "substantive_external": 0,
+    "companies_with_additional_company_pages": 0
+  },
+  "dominant_website_outcomes": {
+    "missing_discovery_path": 4,
+    "identity_ambiguous": 1,
+    "other_fetch_or_parser_failure": 1
+  },
+  "candidates_by_method": {
+    "registry_listed": {
+      "ambiguous": 1
+    },
+    "registry_business_email_domain": {
+      "ambiguous": 1,
+      "failed": 1
+    }
+  },
+  "candidate_reasons": {
+    "Exact legal name and organisation number not both established": 2,
+    "Robots check failed: Public source request failed: ConnectError": 1
+  },
+  "companies_by_populated_field": {
+    "financial.operating_result": 6,
+    "registered": 6,
+    "latest_filing_year": 6,
+    "financial.equity": 6,
+    "organisation_number": 6,
+    "entity_kind": 6,
+    "legal_name": 6,
+    "liquidating": 6,
+    "leadership_role": 6,
+    "financial.annual_result": 6,
+    "bankrupt": 6,
+    "legal_form": 6,
+    "founded": 6,
+    "registered_workplace": 5,
+    "registered_activity": 6,
+    "financial.assets": 6,
+    "business_address": 6,
+    "industry": 6,
+    "financial.revenue": 5,
+    "registered_purpose": 6,
+    "financial.debt": 6,
+    "official_group_structure": 2,
+    "postal_address": 1,
+    "employees": 1,
+    "business_email": 2,
+    "business_phone": 1
+  },
+  "request_allocation": {
+    "accounts": 6,
+    "robots": 4,
+    "company_page": 5,
+    "roles": 6,
+    "workplaces": 6,
+    "official_group": 6
+  },
+  "requests_by_module": {
+    "financials": 6,
+    "website": 9,
+    "roles": 6,
+    "locations": 6,
+    "group": 6
+  },
+  "recorded_request_starts": 33,
+  "interpretation": "Bounded collection outcomes only. Missing discovery path/unattempted/ambiguous is not confirmed absence. Extraction counts require substantive supported facts, never URL-only.",
+  "output_sha256": "f898f21f040718bbf300e17b5be064e376130968b0128a54809848810895cba8",
+  "validation": {
+    "own": {
+      "passed": true,
+      "count": 6,
+      "errors": []
+    },
+    "supplied_starter": {
+      "passed": true,
+      "checks": {
+        "exact_expected_count": true,
+        "unique_organisation_numbers": true,
+        "all_entity_states_terminal": true,
+        "all_module_states_terminal": true,
+        "zero_silent_drops": true
+      },
+      "invalid_states": []
+    }
+  }
+}

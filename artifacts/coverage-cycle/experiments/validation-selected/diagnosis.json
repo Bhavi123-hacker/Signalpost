@@ -1,0 +1,109 @@
+{
+  "created_at": "2026-10-16T14:41:03.401421Z",
+  "funnel": {
+    "inputs": 100,
+    "identity_available": 100,
+    "candidate_discovered": 20,
+    "candidate_html_fetched": 9,
+    "ownership_verified": 4,
+    "substantive_external": 4,
+    "companies_with_additional_company_pages": 1,
+    "budget_skipped_with_source_derived_candidate": 10
+  },
+  "dominant_website_outcomes": {
+    "missing_discovery_path": 80,
+    "request_starvation": 10,
+    "substantive_accepted": 4,
+    "identity_ambiguous": 4,
+    "other_fetch_or_parser_failure": 1,
+    "blocked_access": 1
+  },
+  "candidates_by_method": {
+    "registry_business_email_domain": {
+      "failed": 11,
+      "candidate": 3,
+      "ambiguous": 4,
+      "verified": 1
+    },
+    "registry_listed": {
+      "verified": 3,
+      "ambiguous": 4,
+      "failed": 1,
+      "blocked": 1
+    }
+  },
+  "candidate_reasons": {
+    "Robots check failed: Request budget exhausted; source not checked": 9,
+    "Exact legal name and organisation number in collected page": 3,
+    "unattempted": 3,
+    "Exact legal name and organisation number not both established": 6,
+    "Robots check failed: Public source request failed: gaierror": 2,
+    "Conflicting organisation numbers on page": 2,
+    "Exact organisation number, full name core with legal-form/conjunction normalization, registered street and postcode on same page": 1,
+    "HTTP 403; no bypass attempted": 1,
+    "Company request allocation exhausted; source not checked": 1
+  },
+  "companies_by_populated_field": {
+    "industry": 100,
+    "financial.debt": 100,
+    "business_phone": 26,
+    "financial.annual_result": 100,
+    "leadership_role": 44,
+    "business_address": 98,
+    "financial.equity": 100,
+    "liquidating": 100,
+    "registered_purpose": 95,
+    "registered": 100,
+    "latest_filing_year": 100,
+    "entity_kind": 100,
+    "founded": 98,
+    "financial.revenue": 91,
+    "bankrupt": 100,
+    "financial.assets": 100,
+    "organisation_number": 100,
+    "legal_name": 100,
+    "financial.operating_result": 100,
+    "registered_activity": 100,
+    "business_email": 23,
+    "legal_form": 100,
+    "employees": 16,
+    "postal_address": 31,
+    "website_description": 4,
+    "website_phone": 4,
+    "official_website": 4,
+    "website_email": 4,
+    "website_service": 1
+  },
+  "request_allocation": {
+    "accounts": 100,
+    "robots": 25,
+    "company_page": 31,
+    "roles": 44
+  },
+  "requests_by_module": {
+    "financials": 100,
+    "website": 56,
+    "roles": 44
+  },
+  "recorded_request_starts": 200,
+  "interpretation": "Bounded collection outcomes only. Missing discovery path/unattempted/ambiguous is not confirmed absence. Extraction counts require substantive supported facts, never URL-only.",
+  "output_sha256": "ef663c72621f13adde99532a7ffd4897abe246424e482f6f40afb494d8673373",
+  "validation": {
+    "own": {
+      "passed": true,
+      "count": 100,
+      "errors": []
+    },
+    "supplied_starter": {
+      "passed": true,
+      "checks": {
+        "exact_expected_count": true,
+        "unique_organisation_numbers": true,
+        "all_entity_states_terminal": true,
+        "all_module_states_terminal": true,
+        "zero_silent_drops": true
+      },
+      "invalid_states": []
+    }
+  }
+}

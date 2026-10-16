@@ -1,0 +1,14 @@
+{
+  "audited_at": "2026-10-16T07:04:48.518602Z",
+  "companies": 6,
+  "evidence_references_checked": 415,
+  "financial_observations_checked": 105,
+  "binding_validation": {
+    "passed": true,
+    "count": 6,
+    "errors": []
+  },
+  "failures": [],
+  "passed": true,
+  "limitation": "Source binding self-audit, not independent factual or official scoring validation. Raw API units retained; this binding audit does not perform PDF corroboration. Any separate semantic sample is documented independently."
+}

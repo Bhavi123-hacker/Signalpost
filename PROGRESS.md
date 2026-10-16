@@ -1,5 +1,21 @@
 # Signalpost progress
 
+## Local delivery verified ?2026-10-16T14:50:49.322860+00:00
+
+Final source0f0ca16f762d1df8865743b2beacd7f118f3e591. Source/Windows/Linux/live/audit evidence is complete below. A separate generated coverage-cycle ZIP/manifest/email has passed an independent payload,privacy,source-byte and exact-input audit; final hash and packaging commit are recorded externally under D:/Signalpost/submission/coverage-cycle to avoid self-reference. All four previous ZIPs remain unchanged. No further research variant is selected or tuning performed.
+
+Selected1000:20 substantive/21 verified,995 financial,2000starts/631.203s/USD0. Independent100 strict3 versus selected4;dev4 versus4. Descriptions20,email15,phone14;location drops1 to0;scalejobs/activity/products0,validationproduct1.126 tests pass per platform,typed+starter validators and52058-reference binding audit pass. Financial semantic review remains10 filings/31 observations,not all995 companies.
+
+Publication branch coverage-cycle is a clean descendant of public main; original main is a preserved recovery branch and must not be pushed. Current packaging changes only docs/generated exports/packager,not frozen runtime/tests/schemas/dependencies. Exact future normal push and remote source checks are in submission/PUBLICATION.md. Do not send until the exact frozen source is remotely accessible. Fill [AUTHOR: CONFIRM CONTACT DETAILS BEFORE SENDING]; confirm organiser-provided registry/actual caps/cutoff and send manually. No push or email performed.
+
+## Final verified source ?16 October2026,14:47UTC
+
+Tested source0f0ca16f762d1df8865743b2beacd7f118f3e591. Windows3.12.4/Linux3.14.4:126 tests each,pip check,3590 frozen blob checks,actual clean evaluator commands6/3 real inputs. Final cold external-state scale1000 with declared provided snapshot:1000 identities,995 financial,21 verified sites/20 substantive (prior18/17),402 registered-role companies,2000starts/631.203s/52264385decoded bytes/USD0. Descriptions20,email15,phone14;location0(previous1),brand1,products/jobs/activity0. Four gained profiles/one Fjellfix live-source loss. New independently sealed100:strict3 versus selected4,200starts each,one supported product;dev200 remains4 versus4. No tuning after final validation.
+
+All final scale/smoke/validation/clean results pass typed+supplied starter structural validators and source-binding audits. Scale52058 references/15953 financial observations,zero binding failures. Semantic financial review remains10 originals/31 observations only. Viewer HTTP checks against actual new1000 passed. First0100dab scale failed and is explicitly rejected/preserved; scalar CSV street and reused-excerpt binding defects were fixed before final tests and a newly sealed validation. Earlier packages intact. Final current-cycle ledger8170 application starts +17 rule/discovery starts,3872.713 summed application seconds,USD0.
+
+Source frozen; only packaging/docs/artifacts now change. Remaining local steps:final ZIP/manifest/email,rights/secret/payload audit,publishable packaging commit,root handoff checkout and final hashes. Do NOT push old local main; prepared future normal command git push origin coverage-cycle:main. Public main remainsd400e03; no source push/email. Contact placeholder [AUTHOR: CONFIRM CONTACT DETAILS BEFORE SENDING]. Organiser snapshot staging/actual limits/cutoff and private harness remain explicit uncertainties.
+
 ## Mandatory defect correction ?16 October2026,07:27UTC
 
 First scale at0100dab failed typed validation: reused exact name excerpt for Fjordweb website/public-brand erased its first claim binding.16 substantive versus prior17 (Fjellfix ConnectError); no release. Original failed results/report/state/2000-request ledger retained unchanged. Also found corroborated proof iterated scalar official-CSV street as characters, so native-API replay repairs did not apply to supplied snapshots. Corrected scalar/list handling without eval or invented address. Full legal-name &/og normalization now preserves every remaining token including AS; legal-form omission still requires all four signals. Actual failed-run page replay now supports3 repairs on the same stored evidence. No matching threshold or domain guessing relaxed.

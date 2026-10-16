@@ -1,0 +1,30 @@
+{
+  "argv": [
+    "/mnt/d/Signalpost/private/coverage-cycle/linux-venv/bin/python",
+    "scripts/run_competition_batch.py",
+    "--organisations",
+    "/mnt/d/Signalpost/private/coverage-cycle/clean-linux-input.jsonl",
+    "--bulk",
+    "/mnt/d/Signalpost/private/preparation/brreg-enheter.csv.gz",
+    "--output",
+    "/mnt/d/Signalpost/private/coverage-cycle/clean-linux-results.jsonl",
+    "--report",
+    "/mnt/d/Signalpost/private/coverage-cycle/clean-linux-report.json",
+    "--state",
+    "/mnt/d/Signalpost/private/coverage-cycle/clean-linux-state",
+    "--run-id",
+    "clean-linux",
+    "--max-requests",
+    "2000",
+    "--max-seconds",
+    "2700",
+    "--strategy",
+    "balanced",
+    "--identity-policy",
+    "corroborated",
+    "--site-pages",
+    "3"
+  ],
+  "cwd": "/mnt/d/Signalpost/private/coverage-cycle/frozen",
+  "cold_state_before_start": true
+}

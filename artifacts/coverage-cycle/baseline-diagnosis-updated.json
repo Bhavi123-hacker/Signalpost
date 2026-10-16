@@ -1,0 +1,119 @@
+{
+  "created_at": "2026-10-16T07:06:31.581469Z",
+  "funnel": {
+    "inputs": 1000,
+    "identity_available": 1000,
+    "candidate_discovered": 984,
+    "candidate_html_fetched": 99,
+    "ownership_verified": 18,
+    "substantive_external": 17,
+    "companies_with_additional_company_pages": 7,
+    "budget_skipped_with_source_derived_candidate": 79
+  },
+  "dominant_website_outcomes": {
+    "request_starvation": 846,
+    "identity_ambiguous": 76,
+    "missing_discovery_path": 16,
+    "source_timeout": 17,
+    "other_fetch_or_parser_failure": 18,
+    "blocked_access": 9,
+    "substantive_accepted": 17,
+    "verified_site_no_substantive_extraction": 1
+  },
+  "candidates_by_method": {
+    "legal_name_domain_hypothesis": {
+      "failed": 767
+    },
+    "registry_business_email_domain": {
+      "failed": 116,
+      "ambiguous": 58,
+      "blocked": 7,
+      "verified": 5,
+      "candidate": 10
+    },
+    "registry_listed": {
+      "ambiguous": 62,
+      "failed": 21,
+      "blocked": 5,
+      "verified": 13
+    }
+  },
+  "candidate_reasons": {
+    "Robots check failed: Request budget exhausted; source not checked": 840,
+    "Exact legal name and organisation number not both established": 88,
+    "Robots check failed: Public source request failed: TimeoutError": 26,
+    "Robots check failed: Public source request failed: gaierror": 10,
+    "Conflicting organisation numbers on page": 30,
+    "Robots check failed: Public source request failed: ConnectError": 13,
+    "HTTP 403; no bypass attempted": 5,
+    "Exact legal name and organisation number in collected page": 18,
+    "Candidate did not return static HTML": 1,
+    "unattempted": 10,
+    "Request budget exhausted; source not checked": 2,
+    "Robots policy disallows this URL": 6,
+    "Company request allocation exhausted; source not checked": 4,
+    "HTTP 500": 2,
+    "Robots check failed: HTTP 503": 1,
+    "Robots check failed: HTTP 502": 1,
+    "Robots check failed: HTTP 500": 2,
+    "Scoped staff/directory profile; exact entity mention does not establish site ownership": 1,
+    "Robots check failed: Response exceeded bounded download limit": 3,
+    "Robots check failed: HTTP 403; no bypass attempted": 1
+  },
+  "companies_by_populated_field": {
+    "financial.operating_result": 978,
+    "financial.equity": 994,
+    "leadership_role": 333,
+    "industry": 998,
+    "founded": 989,
+    "entity_kind": 1000,
+    "legal_form": 1000,
+    "financial.assets": 995,
+    "financial.debt": 985,
+    "business_address": 995,
+    "latest_filing_year": 998,
+    "registered": 998,
+    "financial.annual_result": 995,
+    "liquidating": 998,
+    "registered_activity": 998,
+    "legal_name": 1000,
+    "bankrupt": 998,
+    "registered_purpose": 965,
+    "organisation_number": 1000,
+    "financial.revenue": 810,
+    "business_email": 245,
+    "employees": 134,
+    "business_phone": 184,
+    "postal_address": 228,
+    "website_description": 17,
+    "website_email": 11,
+    "website_phone": 13,
+    "official_website": 18,
+    "deleted_at": 2,
+    "public_brand": 1,
+    "website_location": 1
+  },
+  "request_allocation": {
+    "registry_identity": 42,
+    "accounts": 1000,
+    "robots": 257,
+    "company_page": 367,
+    "roles": 334
+  },
+  "requests_by_module": {
+    "unscoped_preparation_or_identity": 40,
+    "registry": 2,
+    "financials": 1000,
+    "website": 624,
+    "roles": 334
+  },
+  "recorded_request_starts": 2000,
+  "interpretation": "Bounded collection outcomes only. Missing discovery path/unattempted/ambiguous is not confirmed absence. Extraction counts require substantive supported facts, never URL-only.",
+  "source_derived_candidate_companies": 217,
+  "registry_website_presence": {
+    "with": 112,
+    "without": 888
+  },
+  "source_run": "handoff-no-bulk-1000",
+  "historical_configuration": "No bulk; keep separate from snapshot experiment"
+}

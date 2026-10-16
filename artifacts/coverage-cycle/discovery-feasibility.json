@@ -1,0 +1,46 @@
+{
+  "source": "Documented anonymous Wikidata Action API, CC0 exact-org candidate lookup",
+  "development_companies": 200,
+  "development_matches": 0,
+  "positive_control_matches": 1,
+  "operations": {
+    "requests": 11,
+    "bytes": 1206,
+    "runtime_ms": 10672,
+    "third_party_cost_usd": 0,
+    "api_usage": {
+      "documented_brreg_http_starts": 0,
+      "paid_api_calls": 0,
+      "model_calls": 0
+    },
+    "cache_hits": 0,
+    "source_failures": {},
+    "requests_by_host": {
+      "www.wikidata.org": 11
+    },
+    "requests_by_company": {},
+    "request_p50_ms": 359,
+    "request_p95_ms": 484
+  },
+  "earlier_probe_operations": {
+    "requests": 1,
+    "bytes": 71,
+    "runtime_ms": 906,
+    "third_party_cost_usd": 0,
+    "api_usage": {
+      "documented_brreg_http_starts": 0,
+      "paid_api_calls": 0,
+      "model_calls": 0
+    },
+    "cache_hits": 0,
+    "source_failures": {},
+    "requests_by_host": {
+      "www.wikidata.org": 1
+    },
+    "requests_by_company": {},
+    "request_p50_ms": 671,
+    "request_p95_ms": 671
+  },
+  "selected_for_default_runner": false,
+  "reason": "No random-development matches to justify default request budget; snippets never used as ownership evidence"
+}

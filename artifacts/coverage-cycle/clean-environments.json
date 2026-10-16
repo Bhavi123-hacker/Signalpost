@@ -1,0 +1,225 @@
+{
+  "source_commit": "0f0ca16f762d1df8865743b2beacd7f118f3e591",
+  "source_integrity": {
+    "source_commit": "0f0ca16f762d1df8865743b2beacd7f118f3e591",
+    "tracked_files_checked": 3590,
+    "mismatches": [],
+    "checkout_EOls_restored_to_exact_Git_blobs": [
+      ".gitattributes",
+      ".gitignore",
+      "LICENSE"
+    ]
+  },
+  "platforms": {
+    "windows": {
+      "test_results": {
+        "tests": 126,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "environment": {
+        "python": "3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)]",
+        "executable": "D:\\Signalpost\\private\\coverage-cycle\\windows-venv\\Scripts\\python.exe",
+        "platform": "Windows-11-10.0.26300-SP0",
+        "application_import": "D:\\Signalpost\\private\\coverage-cycle\\frozen-v2\\signalpost\\__init__.py",
+        "installed": [
+          [
+            "Pygments",
+            "2.21.0"
+          ],
+          [
+            "annotated-types",
+            "0.8.0"
+          ],
+          [
+            "anyio",
+            "4.15.1"
+          ],
+          [
+            "beautifulsoup4",
+            "4.15.0"
+          ],
+          [
+            "certifi",
+            "2026.7.22"
+          ],
+          [
+            "colorama",
+            "0.4.6"
+          ],
+          [
+            "h11",
+            "0.16.0"
+          ],
+          [
+            "httpcore",
+            "1.0.9"
+          ],
+          [
+            "httpx",
+            "0.28.1"
+          ],
+          [
+            "idna",
+            "3.20"
+          ],
+          [
+            "iniconfig",
+            "2.3.1"
+          ],
+          [
+            "packaging",
+            "26.3"
+          ],
+          [
+            "pip",
+            "24.0"
+          ],
+          [
+            "pluggy",
+            "1.7.0"
+          ],
+          [
+            "pydantic",
+            "2.14.1"
+          ],
+          [
+            "pydantic_core",
+            "2.50.1"
+          ],
+          [
+            "pytest",
+            "9.1.1"
+          ],
+          [
+            "pytest-asyncio",
+            "1.4.0"
+          ],
+          [
+            "setuptools",
+            "80.9.0"
+          ],
+          [
+            "soupsieve",
+            "3.0.3"
+          ],
+          [
+            "typing-inspection",
+            "0.4.4"
+          ],
+          [
+            "typing_extensions",
+            "4.16.0"
+          ]
+        ]
+      },
+      "pip_check": "passed",
+      "installation_scope": "New isolated pinned-only environment built this cycle; unchanged requirements reused for final fresh checkout retest. Application is imported from exact frozen-v2, no editable/old application install.",
+      "note": "Python3.12 venv; process TEMP/TMP on D drive."
+    },
+    "linux": {
+      "test_results": {
+        "tests": 126,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "environment": {
+        "python": "3.14.4 (main, Apr  8 2026, 04:02:31) [GCC 15.2.0]",
+        "executable": "/mnt/d/Signalpost/private/coverage-cycle/linux-venv/bin/python",
+        "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+        "application_import": "/mnt/d/Signalpost/private/coverage-cycle/frozen-v2/signalpost/__init__.py",
+        "installed": [
+          [
+            "Pygments",
+            "2.21.0"
+          ],
+          [
+            "annotated-types",
+            "0.8.0"
+          ],
+          [
+            "anyio",
+            "4.15.1"
+          ],
+          [
+            "beautifulsoup4",
+            "4.15.0"
+          ],
+          [
+            "certifi",
+            "2026.7.22"
+          ],
+          [
+            "colorama",
+            "0.4.6"
+          ],
+          [
+            "h11",
+            "0.16.0"
+          ],
+          [
+            "httpcore",
+            "1.0.9"
+          ],
+          [
+            "httpx",
+            "0.28.1"
+          ],
+          [
+            "idna",
+            "3.20"
+          ],
+          [
+            "iniconfig",
+            "2.3.1"
+          ],
+          [
+            "packaging",
+            "26.3"
+          ],
+          [
+            "pluggy",
+            "1.7.0"
+          ],
+          [
+            "pydantic",
+            "2.14.1"
+          ],
+          [
+            "pydantic_core",
+            "2.50.1"
+          ],
+          [
+            "pytest",
+            "9.1.1"
+          ],
+          [
+            "pytest-asyncio",
+            "1.4.0"
+          ],
+          [
+            "setuptools",
+            "80.9.0"
+          ],
+          [
+            "soupsieve",
+            "3.0.3"
+          ],
+          [
+            "typing-inspection",
+            "0.4.4"
+          ],
+          [
+            "typing_extensions",
+            "4.16.0"
+          ]
+        ]
+      },
+      "pip_check": "passed",
+      "installation_scope": "New isolated pinned-only environment built this cycle; unchanged requirements reused for final fresh checkout retest. Application is imported from exact frozen-v2, no editable/old application install.",
+      "note": "WSL Python lacks ensurepip; existing pip only installed declared pinned dependencies into new venv; initial two PyPI metadata timeouts recovered; --capture=sys."
+    }
+  }
+}

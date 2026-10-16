@@ -1,0 +1,10 @@
+{
+  "source_commit": "0f0ca16f762d1df8865743b2beacd7f118f3e591",
+  "tracked_files_checked": 3590,
+  "mismatches": [],
+  "checkout_EOls_restored_to_exact_Git_blobs": [
+    ".gitattributes",
+    ".gitignore",
+    "LICENSE"
+  ]
+}

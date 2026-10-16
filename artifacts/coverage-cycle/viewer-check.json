@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "scope": "HTTP content/security checks on actual selected1000 SQLite, not a visual browser audit",
+  "profiles": 1000,
+  "sample_organisation_number": "963652224",
+  "checks": [
+    "home1000",
+    "company profile",
+    "evidence links and provenance",
+    "financial currency units and scale",
+    "change history",
+    "JSON export equality",
+    "organisation search",
+    "query escaping",
+    "CSP scripts disabled",
+    "untrusted Host403"
+  ],
+  "paid_API_USD": 0
+}

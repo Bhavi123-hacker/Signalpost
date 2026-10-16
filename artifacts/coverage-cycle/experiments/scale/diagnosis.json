@@ -1,0 +1,128 @@
+{
+  "created_at": "2026-10-16T14:41:17.252927Z",
+  "funnel": {
+    "inputs": 1000,
+    "identity_available": 1000,
+    "candidate_discovered": 217,
+    "candidate_html_fetched": 95,
+    "ownership_verified": 21,
+    "substantive_external": 20,
+    "companies_with_additional_company_pages": 7,
+    "budget_skipped_with_source_derived_candidate": 77
+  },
+  "dominant_website_outcomes": {
+    "missing_discovery_path": 783,
+    "request_starvation": 77,
+    "identity_ambiguous": 72,
+    "substantive_accepted": 20,
+    "source_timeout": 16,
+    "other_fetch_or_parser_failure": 24,
+    "blocked_access": 7,
+    "verified_site_no_substantive_extraction": 1
+  },
+  "candidates_by_method": {
+    "registry_business_email_domain": {
+      "failed": 117,
+      "ambiguous": 56,
+      "candidate": 12,
+      "blocked": 6,
+      "verified": 5
+    },
+    "registry_listed": {
+      "ambiguous": 58,
+      "verified": 16,
+      "failed": 23,
+      "blocked": 4
+    }
+  },
+  "candidate_reasons": {
+    "Robots check failed: Request budget exhausted; source not checked": 73,
+    "Exact legal name and organisation number not both established": 80,
+    "Exact organisation number, full name core with legal-form/conjunction normalization, registered street and postcode on same page": 3,
+    "unattempted": 12,
+    "Robots check failed: Public source request failed: TimeoutError": 22,
+    "Robots check failed: Public source request failed: gaierror": 10,
+    "Conflicting organisation numbers on page": 32,
+    "Robots check failed: Public source request failed: ConnectError": 18,
+    "HTTP 403; no bypass attempted": 5,
+    "Exact legal name and organisation number in collected page": 18,
+    "Candidate did not return static HTML": 1,
+    "Request budget exhausted; source not checked": 2,
+    "Company request allocation exhausted; source not checked": 2,
+    "Robots check failed: Public source request failed: ConnectTimeout": 3,
+    "HTTP 500": 2,
+    "Robots check failed: HTTP 503": 2,
+    "Robots check failed: HTTP 502": 1,
+    "Robots check failed: HTTP 500": 2,
+    "Robots policy disallows this URL": 4,
+    "Scoped staff/directory profile; exact entity mention does not establish site ownership": 1,
+    "Robots check failed: Response exceeded bounded download limit": 3,
+    "Robots check failed: HTTP 403; no bypass attempted": 1
+  },
+  "companies_by_populated_field": {
+    "industry": 998,
+    "financial.debt": 985,
+    "financial.annual_result": 995,
+    "leadership_role": 402,
+    "business_address": 995,
+    "financial.equity": 994,
+    "liquidating": 998,
+    "registered_purpose": 965,
+    "registered": 998,
+    "latest_filing_year": 998,
+    "entity_kind": 1000,
+    "founded": 989,
+    "bankrupt": 998,
+    "financial.assets": 995,
+    "organisation_number": 1000,
+    "legal_name": 1000,
+    "financial.operating_result": 978,
+    "registered_activity": 998,
+    "legal_form": 1000,
+    "business_phone": 184,
+    "employees": 134,
+    "financial.revenue": 810,
+    "business_email": 245,
+    "postal_address": 228,
+    "website_description": 20,
+    "website_phone": 14,
+    "official_website": 21,
+    "website_email": 15,
+    "deleted_at": 2,
+    "public_brand": 1
+  },
+  "request_allocation": {
+    "registry_identity": 2,
+    "accounts": 1000,
+    "robots": 248,
+    "company_page": 347,
+    "roles": 403
+  },
+  "requests_by_module": {
+    "registry": 2,
+    "financials": 1000,
+    "website": 595,
+    "roles": 403
+  },
+  "recorded_request_starts": 2000,
+  "interpretation": "Bounded collection outcomes only. Missing discovery path/unattempted/ambiguous is not confirmed absence. Extraction counts require substantive supported facts, never URL-only.",
+  "output_sha256": "117a7db20c71574f2182cc6e6812b5c5d6ae3009c9b5ba53df0ae32eddee18c3",
+  "validation": {
+    "own": {
+      "passed": true,
+      "count": 1000,
+      "errors": []
+    },
+    "supplied_starter": {
+      "passed": true,
+      "checks": {
+        "exact_expected_count": true,
+        "unique_organisation_numbers": true,
+        "all_entity_states_terminal": true,
+        "all_module_states_terminal": true,
+        "zero_silent_drops": true
+      },
+      "invalid_states": []
+    }
+  }
+}

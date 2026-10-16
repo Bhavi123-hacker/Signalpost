@@ -1,0 +1,245 @@
+{
+  "reviewer": "Implementation assistant; not independent human adjudication",
+  "retrospective_repairs": [
+    {
+      "organisation_number": "999322905",
+      "url": "https://www.vinderenblomster.no/om-oss/apningstider",
+      "hash": "c60a14aab308613740f2227aaabbbae9f46dbbf24fd6e4d85f1d0b796b27f8af",
+      "basis": "Exact organisation number, full name core with legal-form/conjunction normalization, registered street and postcode on same page",
+      "assistant_review": "All four literal signals match registry identity on same collected page; no conflicting org in proof",
+      "scope": "Retrospective source review; not new live coverage"
+    },
+    {
+      "organisation_number": "971228865",
+      "url": "https://www.bi.no/om-bi/kontakt-oss/",
+      "hash": "032a0254c5157572fa315e0fc7fe7f59665105f717eaa87ff70c9366f051fa9e",
+      "basis": "Exact organisation number, full name core with legal-form/conjunction normalization, registered street and postcode on same page",
+      "assistant_review": "All four literal signals match registry identity on same collected page; no conflicting org in proof",
+      "scope": "Retrospective source review; not new live coverage"
+    },
+    {
+      "organisation_number": "811956732",
+      "url": "https://roekenesgaard.no/kontakt/",
+      "hash": "13ee7391fb2f4c9469fce7e660c49be2292cf0138d0c87e67fe018a4f9729ea6",
+      "basis": "Exact organisation number, full name core with legal-form/conjunction normalization, registered street and postcode on same page",
+      "assistant_review": "All four literal signals match registry identity on same collected page; no conflicting org in proof",
+      "scope": "Retrospective source review; not new live coverage"
+    }
+  ],
+  "rejected_examples": [
+    {
+      "organisation_number": "990276897",
+      "source": "https://kco.no/",
+      "decision": "Keep ambiguous:shared legal practice lists several organisation numbers"
+    },
+    {
+      "organisation_number": "998150469",
+      "source": "https://hhcanada.no/",
+      "decision": "Keep rejected:parked/unrelated site"
+    },
+    {
+      "organisation_number": "977168651",
+      "source": "https://mancraft.no/",
+      "decision": "Keep ambiguous:no exact organisation number on collected proof"
+    }
+  ],
+  "new_validation_review": {
+    "matched_companies": 4,
+    "organisation_numbers": [
+      "989957031",
+      "916761988",
+      "945700750",
+      "927692740"
+    ],
+    "identity_errors_observed": 0,
+    "unsupported_contact_or_product_attribution_observed_in_review": 0,
+    "new_match": "927692740; exact org/name-core/street/postcode, actual named DA256 product with description and shop control",
+    "limitation": "Small assistant-inspected sample, not measured whole-corpus accuracy"
+  },
+  "new_scale_review": {
+    "ownership_proofs_inspected": 21,
+    "substantive_companies": 20,
+    "gained_organisation_numbers": [
+      "811956732",
+      "963652224",
+      "971228865",
+      "999322905"
+    ],
+    "lost_organisation_numbers": [
+      "936521088"
+    ],
+    "accepted_identity_errors_observed": 0,
+    "claim_review_scope": "Assistant inspected all21 name/org ownership pairs, four gained profiles and four final validation profiles including contacts/product evidence. Not independent adjudication or all-corpus extraction/financial semantic certification.",
+    "weaknesses": "Some descriptions are marketing/aspirational/destination text, retained as source-attributed rather than independently endorsed company operations. Final scale location-company coverage falls1 to0."
+  },
+  "proof_access_metadata": [
+    {
+      "organisation_number": "963652224",
+      "website": "https://more.fhs.no/",
+      "source_url": "https://more.fhs.no/kontakt-skulen/",
+      "content_sha256": "1a95184ed19c874becb2a808b503ff57e3dbc765974f8af1a4b14920893d7491",
+      "identity_basis": "Exact organisation number, full name core with legal-form/conjunction normalization, registered street and postcode on same page; redirects recorded",
+      "proof_excerpt_count": 4
+    },
+    {
+      "organisation_number": "997610903",
+      "website": "https://no.northtrampoline.com/",
+      "source_url": "https://no.northtrampoline.com/pages/contact",
+      "content_sha256": "175f1eaaa9c67f8ca9c2de7e9cc8b456361545bd618fa9271313eb6c52f1f0f6",
+      "identity_basis": "Exact legal name and organisation number in collected page; redirects recorded",
+      "proof_excerpt_count": 2
+    },
+    {
+      "organisation_number": "991368566",
+      "website": "https://eu.daleofnorway.com:443/",
+      "source_url": "https://eu.daleofnorway.com:443/customer-service/contact-us/",
+      "content_sha256": "8b1512888218db9c0718e1f3f28e2e180394e096859040257e1f342498f8f892",
+      "identity_basis": "Exact legal name and organisation number in collected page; redirects recorded",
+      "proof_excerpt_count": 2
+    },
+    {
+      "organisation_number": "999322905",
+      "website": "https://www.vinderenblomster.no/",
+      "source_url": "https://www.vinderenblomster.no/",
+      "content_sha256": "c713ff5603394f19950647739d39184b09826e3fcaf7ce39074dfeb5cf919765",
+      "identity_basis": "Exact organisation number, full name core with legal-form/conjunction normalization, registered street and postcode on same page; redirects recorded",
+      "proof_excerpt_count": 4
+    },
+    {
+      "organisation_number": "987445378",
+      "website": "https://temp-team.no/",
+      "source_url": "https://temp-team.no/om-oss/personvernerklaering",
+      "content_sha256": "d47339e9e85697addb959d893c9980639989644af01d745e91fabb3f4feb7ca5",
+      "identity_basis": "Exact legal name and organisation number in collected page; redirects recorded",
+      "proof_excerpt_count": 2
+    },
+    {
+      "organisation_number": "985882053",
+      "website": "https://solundverft.no/",
+      "source_url": "https://solundverft.no/",
+      "content_sha256": "517aec4465b77861601eba51a3668cd9688055187b5b46b91528b6bf6bd6b93f",
+      "identity_basis": "Exact legal name and organisation number in collected page; redirects recorded",
+      "proof_excerpt_count": 2
+    },
+    {
+      "organisation_number": "913795784",
+      "website": "https://fjordweb.no/",
+      "source_url": "https://fjordweb.no/",
+      "content_sha256": "35d4f977ce360046f2803e5846b846905a660a20096d102cbc6a8be9c5c5037e",
+      "identity_basis": "Exact legal name and organisation number in collected page; redirects recorded",
+      "proof_excerpt_count": 2
+    },
+    {
+      "organisation_number": "990503214",
+      "website": "https://fiveland.no/",
+      "source_url": "https://fiveland.no/",
+      "content_sha256": "52d80bcfb8076290e72e0bb1f1004871d45412712a5d89b9ea7e25e397872941",
+      "identity_basis": "Exact legal name and organisation number in collected page; redirects recorded",
+      "proof_excerpt_count": 2
+    },
+    {
+      "organisation_number": "971228865",
+      "website": "https://www.bi.no/",
+      "source_url": "https://www.bi.no/om-bi/kontakt-oss/",
+      "content_sha256": "eb4e2972c84850a8456926e068c6839b457fcd444cf8772905ade525df14487d",
+      "identity_basis": "Exact organisation number, full name core with legal-form/conjunction normalization, registered street and postcode on same page; redirects recorded",
+      "proof_excerpt_count": 4
+    },
+    {
+      "organisation_number": "940598117",
+      "website": "https://www.nems.eco/",
+      "source_url": "https://www.nems.eco/contact-us",
+      "content_sha256": "963542a692a433a68e32711ed57f38b405d3f538e8dc27a302db6986835c4426",
+      "identity_basis": "Exact legal name and organisation number in collected page; redirects recorded",
+      "proof_excerpt_count": 2
+    },
+    {
+      "organisation_number": "982512069",
+      "website": "https://okologisknorge.no/",
+      "source_url": "https://okologisknorge.no/",
+      "content_sha256": "998a37d904ca731f03153fa547b205675739dbb19e1014bd17e8b8345451c9b7",
+      "identity_basis": "Exact legal name and organisation number in collected page; redirects recorded",
+      "proof_excerpt_count": 2
+    },
+    {
+      "organisation_number": "915922058",
+      "website": "https://www.helpinghands.no/",
+      "source_url": "https://www.helpinghands.no/",
+      "content_sha256": "c9cfb60c9027e5bb4c8e06e7f5f9527e63c21ace4ea316e9c75a22202d09cf62",
+      "identity_basis": "Exact legal name and organisation number in collected page; redirects recorded",
+      "proof_excerpt_count": 2
+    },
+    {
+      "organisation_number": "986593306",
+      "website": "https://www.lillespecial.no/",
+      "source_url": "https://www.lillespecial.no/kontakt-oss",
+      "content_sha256": "0ee20e88ae615882444cb92ede7545685fae2d86c7d31a511ecb678d626df955",
+      "identity_basis": "Exact legal name and organisation number in collected page; redirects recorded",
+      "proof_excerpt_count": 2
+    },
+    {
+      "organisation_number": "914614317",
+      "website": "https://www.berlandmaskin.no/",
+      "source_url": "https://www.berlandmaskin.no/",
+      "content_sha256": "65d762b1a03cef35e9944022e1453747b40fbcb15f867734104d90694c50556f",
+      "identity_basis": "Exact legal name and organisation number in collected page; redirects recorded",
+      "proof_excerpt_count": 2
+    },
+    {
+      "organisation_number": "811956732",
+      "website": "https://roekenesgaard.no/",
+      "source_url": "https://roekenesgaard.no/",
+      "content_sha256": "8180f8ed26def8f655f60444a4ec999537e07ffbf5fd5981440cdc917486a953",
+      "identity_basis": "Exact legal name and organisation number in collected page; redirects recorded",
+      "proof_excerpt_count": 2
+    },
+    {
+      "organisation_number": "925123005",
+      "website": "https://kongsgaardbegravelse.no/",
+      "source_url": "https://kongsgaardbegravelse.no/",
+      "content_sha256": "b087f7e2ada30678cfe74f842171f68fe34f3eaaee13929639209fd1f2b200cc",
+      "identity_basis": "Exact legal name and organisation number in collected page; redirects recorded",
+      "proof_excerpt_count": 2
+    },
+    {
+      "organisation_number": "991738657",
+      "website": "https://www.el-it-installasjon.no/",
+      "source_url": "https://www.el-it-installasjon.no/",
+      "content_sha256": "e4f66f32bfcc761e859f543f7ea5a92b13bbf2dd77e0de3bb529b83408bb7916",
+      "identity_basis": "Exact legal name and organisation number in collected page; redirects recorded",
+      "proof_excerpt_count": 2
+    },
+    {
+      "organisation_number": "977225736",
+      "website": "https://www.verge.no/",
+      "source_url": "https://www.verge.no/",
+      "content_sha256": "4febd8c36cbd448c1b36db5aff0f4999a65a5dcf03a61a59fd3d996b63af121c",
+      "identity_basis": "Exact legal name and organisation number in collected page; redirects recorded",
+      "proof_excerpt_count": 2
+    },
+    {
+      "organisation_number": "925665150",
+      "website": "https://www.gullmannen.no/",
+      "source_url": "https://www.gullmannen.no/om-oss/",
+      "content_sha256": "a0b75101ec536bdf4f04a0aeced1a8a16ce3e018e4086b94c77bb0b40119b63b",
+      "identity_basis": "Exact legal name and organisation number in collected page; redirects recorded",
+      "proof_excerpt_count": 2
+    },
+    {
+      "organisation_number": "917343209",
+      "website": "https://ninjawhalestudios.com/",
+      "source_url": "https://ninjawhalestudios.com/about",
+      "content_sha256": "aa1193496b2665ca8f6aac76690dce69e7dca59e4287379ec595f533c274d897",
+      "identity_basis": "Exact legal name and organisation number in collected page; redirects recorded",
+      "proof_excerpt_count": 2
+    },
+    {
+      "organisation_number": "899582012",
+      "website": "https://medoslo.no/",
+      "source_url": "https://medoslo.no/",
+      "content_sha256": "e10b7c5b60ed1dfa845e43decbe1cad23ee1bfc4be4dd2529721adaa70273359",
+      "identity_basis": "Exact legal name and organisation number in collected page; redirects recorded",
+      "proof_excerpt_count": 2
+    }
+  ]
+}

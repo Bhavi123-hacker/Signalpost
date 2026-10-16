@@ -1,0 +1,7 @@
+{
+  "seed": "coverage-cycle-v2-validation-20261016",
+  "method": "Lowest SHA256(seed:org), uniform public-universe IDs, excludes all earlier explicit inputs; sealed before CSV/conjunction defect fixes",
+  "excluded_count": 1420,
+  "sha256": "f9707de10853e6b456cff5e15e8f265445277fc20724ce500e11bdc906548670",
+  "count": 100
+}

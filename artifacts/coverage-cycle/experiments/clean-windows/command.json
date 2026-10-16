@@ -1,0 +1,30 @@
+{
+  "argv": [
+    "D:\\Signalpost\\private\\coverage-cycle\\windows-venv\\Scripts\\python.exe",
+    "scripts/run_competition_batch.py",
+    "--organisations",
+    "D:\\Signalpost\\private\\coverage-cycle\\v2-clean-windows-input.jsonl",
+    "--bulk",
+    "D:/Signalpost/private/preparation/brreg-enheter.csv.gz",
+    "--output",
+    "D:\\Signalpost\\private\\coverage-cycle\\v2-clean-windows-results.jsonl",
+    "--report",
+    "D:\\Signalpost\\private\\coverage-cycle\\v2-clean-windows-report.json",
+    "--state",
+    "D:\\Signalpost\\private\\coverage-cycle\\v2-clean-windows-state",
+    "--run-id",
+    "v2-clean-windows",
+    "--max-requests",
+    "2000",
+    "--max-seconds",
+    "2700",
+    "--strategy",
+    "balanced",
+    "--identity-policy",
+    "corroborated",
+    "--site-pages",
+    "3"
+  ],
+  "cwd": "D:\\Signalpost\\private\\coverage-cycle\\frozen-v2",
+  "cold_state_before_start": true
+}

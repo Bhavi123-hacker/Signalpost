@@ -48,7 +48,7 @@ def main():
             if args.metadata_suffix in {'-overnight','-handoff','-coverage'} and info.filename.startswith('artifacts/') and info.filename!='artifacts/verification/revision2-financial-review.json':
                 omitted_generated.append(info.filename)
                 continue
-            if args.metadata_suffix == '-coverage' and info.filename.startswith('submission/') and info.filename not in {'submission/PUBLICATION.md','submission/SOURCE_COMMIT.txt'}:
+            if args.metadata_suffix == '-coverage' and info.filename.startswith('submission/'):
                 omitted_generated.append(info.filename)
                 continue
             payload[info.filename]=z.read(info)
@@ -136,7 +136,7 @@ This is a LOCAL DRAFT ONLY. Nothing has been sent.
         'contract_retrievals':rules,'actual_verification_summary':summary,'run_command':command,'third_party_api_cost_usd':0,
         'remaining_handoff':['Confirm author contact detail','Publish and remotely verify the exact tested source via the documented non-force command before submission','Review and send email manually; no email was sent','Use organiser-supplied official run limits and frozen registry/cutoff'],
         'source_archive_sha256':sha(source_archive),'original_git_archive_sha256':sha(archive),
-        'source_archive_policy':'Frozen source excluding listed historical generated artifacts; no later metadata overlays' if args.metadata_suffix in {'-overnight','-handoff','-coverage'} else 'Full frozen Git archive',
+        'source_archive_policy':('Frozen source excluding historical artifacts and generated submission handoff; final operational metadata is in the main ZIP' if args.metadata_suffix=='-coverage' else 'Frozen source excluding listed historical generated artifacts; no later metadata overlays') if args.metadata_suffix in {'-overnight','-handoff','-coverage'} else 'Full frozen Git archive',
         'payload_sha256':{n:sha(b) for n,b in sorted(payload.items())},
         'post_freeze_metadata_paths':metadata_paths,
         'omitted_historical_generated_files':omitted_generated,

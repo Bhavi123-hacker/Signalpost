@@ -1,0 +1,41 @@
+{
+  "checked_at": "2026-10-16T14:51:08.334821+00:00",
+  "passed": true,
+  "source_commit": "0f0ca16f762d1df8865743b2beacd7f118f3e591",
+  "zip": "D:\\Signalpost\\submission\\coverage-cycle\\Signalpost-submission.zip",
+  "zip_sha256": "4909347fa0aeb5abc5df8bf09ada720e545e0d67ff9ca263cda456d879c5fba5",
+  "payload_files": 2690,
+  "runtime_test_schema_dependency_files_matched": 23,
+  "public_exports": {
+    "artifacts/coverage-cycle/scale-1000/envelopes.jsonl.gz": {
+      "passed": true,
+      "count": 1000,
+      "errors": []
+    },
+    "artifacts/coverage-cycle/smoke-100/envelopes.jsonl": {
+      "passed": true,
+      "count": 100,
+      "errors": []
+    },
+    "artifacts/coverage-cycle/validation-100/envelopes.jsonl.gz": {
+      "passed": true,
+      "count": 100,
+      "errors": []
+    }
+  },
+  "packaged_evidence_references_hash_checked": 56141,
+  "roles_evidence_access_only_not_redistributed": 7943,
+  "checks": [
+    "payload hashes",
+    "safe paths",
+    "no credential patterns",
+    "no raw company HTML/PDF/role birth dates",
+    "official-data export projection",
+    "frozen runtime equality",
+    "primary command/source consistency",
+    "exact input byte hashes",
+    "rejected run preserved",
+    "all four fallback ZIPs unchanged"
+  ],
+  "source_archive_sha256": "e2fb69a9a958c06938862f20163d1d7537dfcce3549e24d39003438d70391faa"
+}
