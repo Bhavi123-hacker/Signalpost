@@ -25,3 +25,8 @@ submission/manifest-handoff.json
 submission/EMAIL_DRAFT-handoff.txt
 submission/PACKAGING_COMMIT-handoff.txt
 submission/handoff/
+
+submission/coverage-cycle/
+submission/manifest-coverage.json
+submission/EMAIL_DRAFT-coverage.txt
+submission/PACKAGING_COMMIT-coverage.txt

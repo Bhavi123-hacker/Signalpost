@@ -56,7 +56,7 @@ def audit(rows,state):
     validation=validate_envelopes(rows)
     return {'audited_at':utcnow(),'companies':len(rows),'evidence_references_checked':evidence_count,'financial_observations_checked':financial_count,
         'binding_validation':validation,'failures':failures,'passed':not failures and validation['passed'],
-        'limitation':'Source binding self-audit, not independent factual or official scoring validation. Raw API units retained; PDF scale corroboration not performed.'}
+        'limitation':'Source binding self-audit, not independent factual or official scoring validation. Raw API units retained; this binding audit does not perform PDF corroboration. Any separate semantic sample is documented independently.'}
 
 
 if __name__=='__main__':

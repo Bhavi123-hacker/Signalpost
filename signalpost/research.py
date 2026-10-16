@@ -27,19 +27,63 @@ def pointer(value, path: str):
     return value
 
 
-def identity_gate(org: str, legal_name: str, text: str) -> dict:
+NUMBER_TOKEN = re.compile(r"(?<!\d)(\d{3}(?:[ .\u00a0\u202f\t\r\n-]{0,3})\d{3}(?:[ .\u00a0\u202f\t\r\n-]{0,3})\d{3})(?!\d)")
+
+
+def number_tokens(text):
+    for match in NUMBER_TOKEN.finditer(text):
+        try:
+            number = org_number(re.sub(r'\D', '', match.group(1)))
+        except ValueError:
+            continue
+        yield number, match.group(1)
+
+
+def phrase_span(phrase, text, conjunction=False):
+    """Return an actual contiguous excerpt, preserving source spelling."""
+    def tokens(value):
+        return [(('og' if conjunction and m.group() == '&' else unicodedata.normalize('NFKC', m.group()).casefold()), m.start(), m.end())
+                for m in re.finditer(r'\w+|&' if conjunction else r'\w+', value)]
+    wanted = [t[0] for t in tokens(phrase)]
+    found = tokens(text)
+    if not wanted:
+        return None
+    for start in range(len(found) - len(wanted) + 1):
+        if [t[0] for t in found[start:start + len(wanted)]] == wanted:
+            return text[found[start][1]:found[start + len(wanted) - 1][2]]
+    return None
+
+
+def identity_gate(org: str, legal_name: str, text: str, *, entity=None, policy='strict') -> dict:
     # Only separated 9-digit tokens, never a substring assembled across all page digits.
     candidates = set()
-    for match in re.finditer(r"(?<!\d)(\d{3}[ .\u00a0]?\d{3}[ .\u00a0]?\d{3})(?!\d)", text):
-        try:
-            candidates.add(org_number(match.group(1)))
-        except ValueError:
-            pass
+    candidates = {number for number, _ in number_tokens(text)}
     if candidates - {org}:
         return {"state": "ambiguous", "reason": "Conflicting organisation numbers on page", "observed_numbers": sorted(candidates)}
-    normalize=lambda s: re.sub(r'[^\w]+',' ',unicodedata.normalize('NFKC',s).casefold()).strip()
-    if org in candidates and (' '+normalize(legal_name)+' ') in (' '+normalize(text)+' '):
-        return {"state": "available", "reason": "Exact legal name and organisation number in collected page", "observed_numbers": [org]}
+    name_span = phrase_span(legal_name, text)
+    org_span = next((span for number, span in number_tokens(text) if number == org), None)
+    if org_span and name_span:
+        return {"state": "available", "reason": "Exact legal name and organisation number in collected page", "observed_numbers": [org], 'proof_spans': [name_span, org_span]}
+    if org_span and policy == 'corroborated' and entity and not entity.get('overordnetEnhet'):
+        form = entity.get('organisasjonsform', {}).get('kode')
+        core = legal_name
+        if form in {'AS', 'ASA'}:
+            core = re.sub(r'\s+(?:A\s*/?\s*S|ASA)$', '', core, flags=re.I)
+        elif form == 'STI':
+            core = re.sub(r'^(?:STIFTELSEN|STIFTINGA)\s+', '', core, flags=re.I)
+        else:
+            core = ''
+        # The full meaningful name, exact registered street AND postcode must
+        # accompany the exact number on this same proof page. No brand matching.
+        core_span = phrase_span(core, text, conjunction=True) if len(core) >= 6 else None
+        address = entity.get('forretningsadresse') or {}
+        streets = [line for line in address.get('adresse', []) if len(re.findall(r'\w+', line)) >= 2 and re.search(r'[A-Za-zÆØÅæøå]{4}', line) and not re.search(r'^(?:postboks|c/o|leilighet)\b', line, re.I)]
+        street_span = next((span for line in streets if (span := phrase_span(line, text))), None)
+        postcode = str(address.get('postnummer', ''))
+        post_match = re.search(r'(?<!\d)' + re.escape(postcode) + r'(?!\d)', text) if re.fullmatch(r'\d{4}', postcode) else None
+        if core_span and street_span and post_match:
+            return {'state': 'available', 'reason': 'Exact organisation number, full name core with legal-form/conjunction normalization, registered street and postcode on same page',
+                    'observed_numbers': [org], 'proof_spans': [core_span, org_span, street_span, post_match.group()]}
     return {"state": "ambiguous", "reason": "Exact legal name and organisation number not both established", "observed_numbers": sorted(candidates)}
 
 
@@ -53,14 +97,6 @@ def website_candidates(entity: dict) -> list[dict]:
         domain = email.rsplit("@", 1)[1].strip().lower()
         if domain not in {"gmail.com", "hotmail.com", "hotmail.no", "outlook.com", "yahoo.com", "yahoo.no", "online.no", "live.no", "live.com", "icloud.com", "c2i.net", "netcom.no", "start.no", "broadpark.no"}:
             values.append({"url": "https://" + domain, "method": "registry_business_email_domain", "status": "candidate"})
-    # Reproducible zero-fee discovery, not a claim: at most one legal-name domain hypothesis.
-    if not values:
-        name = re.sub(r"\s+(?:AS|ASA|ANS|DA|SA|NUF)$", "", entity.get("navn", ""), flags=re.I)
-        name = name.translate(str.maketrans({"ø": "o", "Ø": "o", "æ": "ae", "Æ": "ae", "å": "a", "Å": "a"}))
-        name = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode()
-        slug = re.sub(r"[^a-z0-9]", "", name.casefold())
-        if 4 <= len(slug) <= 45:
-            values.append({"url": "https://" + slug + ".no", "method": "legal_name_domain_hypothesis", "status": "candidate"})
     return list({v["url"].lower().rstrip("/"): v for v in values}.values())[:2]
 
 
@@ -447,10 +483,10 @@ def adaptive_links(profile,links):
     return sorted((url for url in links if wanted[page_family(url)]),key=lambda url:priorities.get(page_family(url),5))
 
 
-async def website(profile: Profile, fetcher: Fetcher, max_pages=3, *, extraction='baseline', page_policy='baseline'):
+async def website(profile: Profile, fetcher: Fetcher, max_pages=3, *, extraction='baseline', page_policy='baseline', identity_policy='strict'):
     profile.candidates = website_candidates(profile.entity)
     if not profile.candidates:
-        profile.mark("website", "not_available", "No registry URL, usable business-email domain or domain hypothesis")
+        profile.mark("website", "failed", "No candidate in checked registry URL/business-email fields; wider public-web search not completed, not confirmed absence")
         return
     last_state = "ambiguous"
     for candidate in profile.candidates:
@@ -471,7 +507,7 @@ async def website(profile: Profile, fetcher: Fetcher, max_pages=3, *, extraction
                 candidate.update(status='ambiguous',reason='Scoped staff/directory profile; exact entity mention does not establish site ownership',final_url=result.snapshot['final_url'])
                 last_state='ambiguous'
                 continue
-            gate = identity_gate(profile.org, profile.entity.get("navn", ""), identity_text(result,text,structured))
+            gate = identity_gate(profile.org, profile.entity.get("navn", ""), identity_text(result,text,structured), entity=profile.entity, policy=identity_policy)
             candidate.update(status=gate["state"], reason=gate["reason"], final_url=result.snapshot["final_url"], observed_numbers=gate["observed_numbers"])
             pages = [(result, soup, text, structured)]
             # Contact/legal page can prove exact identity when homepage does not.
@@ -516,38 +552,23 @@ async def website(profile: Profile, fetcher: Fetcher, max_pages=3, *, extraction
                         continue
                     profile.snapshots[contact.snapshot["id"]] = contact.snapshot
                     candidate["checks"].append({k: contact.snapshot[k] for k in ("id", "source_url", "final_url", "retrieved_at", "content_sha256", "storage_ref")})
-                    cg = identity_gate(profile.org, profile.entity.get("navn", ""), identity_text(contact,ct,cj))
+                    cg = identity_gate(profile.org, profile.entity.get("navn", ""), identity_text(contact,ct,cj), entity=profile.entity, policy=identity_policy)
                     pages.append((contact, cs, ct, cj))
                     gate = cg
                     candidate.update(status=gate["state"], reason=gate["reason"], observed_numbers=gate["observed_numbers"])
-                    if gate["state"] == "available":
+                    if gate["state"] == "available" or set(gate['observed_numbers']) - {profile.org}:
                         break
             if gate["state"] != "available":
                 last_state = "ambiguous"
                 continue
             proof = pages[-1]
             profile.verified_urls.update(p[0].snapshot["final_url"] for p in pages)
-            # Bind both identity tokens to the saved proof page.
-            name_pattern=r'[\W_]+'.join(re.escape(t) for t in re.findall(r'\w+',profile.entity.get('navn','')))
-            match=re.search(name_pattern,proof[2],re.I)
-            if match:
-                name_span=proof[2][max(0,match.start()-25):match.end()+25]
-            else:
-                values=[str(item.get(key,'')) for item in flat_jsonld(proof[3]) for key in ('legalName','name')]
-                normalize=lambda s: re.sub(r'[^\w]+',' ',unicodedata.normalize('NFKC',s).casefold()).strip()
-                name_span=next(v for v in values if normalize(v)==normalize(profile.entity.get('navn','')) and v in html.unescape(proof[0].data.decode('utf-8','replace')))
-            eid = profile.ev(proof[0], None, span=name_span)
-            profile.add("official_website", result.snapshot["final_url"], eid, explanation="Exact legal name and organisation number collected; source URL redirects recorded")
-            for number_match in re.finditer(r"(?<!\d)(\d{3}[ .\u00a0]?\d{3}[ .\u00a0]?\d{3})(?!\d)", html.unescape(proof[0].data.decode('utf-8','replace'))):
-                if re.sub(r"[ .\u00a0]", "", number_match.group(1)) == profile.org:
-                    raw=html.unescape(proof[0].data.decode('utf-8','replace'))
-                    profile.claims["official_website"]["evidence_ids"].append(profile.ev(proof[0], None, span=raw[max(0, number_match.start()-35):number_match.end()+35]))
-                    break
-            if len(profile.claims['official_website']['evidence_ids'])<2:
-                for number_match in re.finditer(r'(?<!\d)(\d{3}[ .\u00a0]?\d{3}[ .\u00a0]?\d{3})(?!\d)',proof[2]):
-                    if re.sub(r'[ .\u00a0]','',number_match.group(1))==profile.org:
-                        profile.claims['official_website']['evidence_ids'].append(profile.ev(proof[0],None,span=proof[2][max(0,number_match.start()-25):number_match.end()+25]))
-                        break
+            # Every identity decision carries its literal supporting excerpts.
+            proof_ids = [profile.ev(proof[0], None, span=span) for span in gate['proof_spans']]
+            profile.add("official_website", result.snapshot["final_url"], proof_ids[0], explanation=gate['reason'] + "; redirects recorded")
+            profile.claims['official_website']['evidence_ids'] = list(dict.fromkeys(proof_ids))
+            candidate['identity_policy'] = identity_policy
+            candidate['ownership_evidence_ids'] = list(dict.fromkeys(proof_ids))
             candidate["status"] = "verified"
             profile.mark("website", "available", "Exact legal entity verified on company-owned page")
             home = result.snapshot["final_url"]

@@ -1,5 +1,21 @@
 # Signalpost progress
 
+## Source-freeze preparation ?16 October2026,06:57UTC
+
+123 automated tests passed. Scheduler comparisons all4 substantive/4 verified on dev200:control132 roles/221.469s,external-first95/226.921s,corroborated external-first95/200.984s,fair96/272.125s,400 starts/USD0 each. Do not select allocation variants as coverage improvements. Retain balanced/3pages plus exact-org/name-core/street/postcode corroboration and mandatory no-guesses/conflict-safety corrections. Financial parser unchanged. Next: freeze source, exact selected dev cold check, then sealed control/selected validation once, final smoke/1000, clean Windows/Linux installs, metadata-only audits/exports and new package. All previous packages intact. New validation remains unopened. No push/email.
+
+## Coverage cycle checkpoint — 16 October 2026, 04:49 UTC
+
+Active worktree D:/Signalpost/private/coverage-cycle/work, branch coverage-cycle, descended from the preserved public-main handoff branch. All prior ZIPs and tested commits remain intact; no push or email authorised. Current changes are NOT yet selected/frozen.
+
+Diagnosed actual no-bulk1000 logs:112 registry-listed websites/888 without;2000 reservations =42 identity+1000 accounts+257 robots+367 company pages+334 roles.18 sites verified/17 substantive.984 candidate companies included767 guessed domains with zero completed ownership research; those hypotheses are removed from every new configuration by explicit user instruction. Registry/email candidates are source-derived and remain separate from ownership.
+
+New dev200 SHA6814d7abfb3ac4b026e366891de55052b5b01acf6ef622f8855586cc767ef558; sealed validation200 SHAbe998b2dfa093e0221bf75b6166a19309ab151ae5cc28f0bd3229ad028244b43. Selected uniformly by declared hash seeds before editing; validation excludes1320 previous input IDs and remains unused. Inputs/selection metadata initially private/coverage-cycle. Each comparison uses supplied declared snapshot, empty state,400 starts/900seconds; no private snapshot is assumed at evaluation (organiser provisioning remains mandatory).
+
+Manual rejected-page review found literal target org plus full business name core and matching registered street/postcode on several pages; legal AS/STI presentation and &/og caused false rejections. Experimental corroborated gate still mandates exact org, blocks all conflicting valid orgs, and binds four literal proof spans. Shared practices, parked sites and numberless pages remain unverified. Fixed first conflicting contact-page proof being superseded by a later page.8 focused synthetic regressions passed. Initial suite110 passed/1 obsolete domain-guess expectation failed; expectation updated to require no guesses, final suite pending.
+
+Documented Wikidata Action API is anonymous and functional (positive control matched), but all200 random development IDs returned zero matches in10 bounded queries. This is a separately logged feasibility experiment, not additional researched profiles; no zero-yield adapter is enabled in the runner. No paid API calls. Next: measure balanced control, external-first allocation, then allocation+corroborated identity; choose before opening validation, audit matches, freeze/clean-install/package. Preserve financial10-filing/31-observation audit limitation and private-harness/numeric-cap uncertainties.
+
 ## Submission handoff correction ?16 October2026
 
 No research feature changed. Primary official command now explicitly includes --bulk BRREG.csv.gz, matching the organiser-provided frozen registry rule and the measured snapshot configuration. docs/reproducibility.md specifies staging, trusted compressed-file checksum, actual acquisition time, cutoff uncertainty and resource boundaries. No automatic uncounted preparation or private cache is required. Source field dates are not invented from import time.

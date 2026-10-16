@@ -1,0 +1,71 @@
+{
+  "retrieved_at": "2026-10-16T06:52:49.754708Z",
+  "records": [
+    {
+      "source_url": "https://www.builderr.ai/challenges/signalpost",
+      "final_url": "https://www.builderr.ai/challenges/signalpost",
+      "retrieved_at": "2026-10-16T06:52:45.557337Z",
+      "content_sha256": "d3be8f8ed054f2b4cbea4bc5ca12aa06af963afa0a05daba76aa828dd4644812",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "matches_previous_content_hash": true
+    },
+    {
+      "source_url": "https://www.builderr.ai/docs/signalpost-evaluation-harness.md",
+      "final_url": "https://www.builderr.ai/docs/signalpost-evaluation-harness.md",
+      "retrieved_at": "2026-10-16T06:52:45.947942Z",
+      "content_sha256": "e9f994e2fa34750411487e9fab82dbffd55dc1bb16efe9021906b92896229d45",
+      "http_status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "matches_previous_content_hash": true
+    },
+    {
+      "source_url": "https://www.builderr.ai/starter-briefs/signalpost-sources.md",
+      "final_url": "https://www.builderr.ai/starter-briefs/signalpost-sources.md",
+      "retrieved_at": "2026-10-16T06:52:46.945239Z",
+      "content_sha256": "f080470ab29d5c6da243d812e35d0ae0aa3d35f5871d62dfef90422df1b8f630",
+      "http_status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "matches_previous_content_hash": true
+    },
+    {
+      "source_url": "https://www.builderr.ai/starter-briefs/signalpost-agent-playbook.md",
+      "final_url": "https://www.builderr.ai/starter-briefs/signalpost-agent-playbook.md",
+      "retrieved_at": "2026-10-16T06:52:47.981402Z",
+      "content_sha256": "0b165301576e1ad09c210bba48dd61bb2669752a07abaeb1188df4099bd4844e",
+      "http_status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "matches_previous_content_hash": true
+    },
+    {
+      "source_url": "https://www.builderr.ai/signalpost-starter-kit.tar.gz",
+      "final_url": "https://www.builderr.ai/signalpost-starter-kit.tar.gz",
+      "retrieved_at": "2026-10-16T06:52:49.697076Z",
+      "content_sha256": "d48da9910ea7de07d2bf51ab265539a35fe07002a6c1ca5787df81316dfabbf6",
+      "http_status": 200,
+      "content_type": "application/gzip",
+      "matches_previous_content_hash": true,
+      "safe_archive_members": 158
+    }
+  ],
+  "operations": {
+    "requests": 5,
+    "bytes": 380558,
+    "runtime_ms": 5047,
+    "third_party_cost_usd": 0,
+    "api_usage": {
+      "documented_brreg_http_starts": 0,
+      "paid_api_calls": 0,
+      "model_calls": 0
+    },
+    "cache_hits": 0,
+    "source_failures": {},
+    "requests_by_host": {
+      "www.builderr.ai": 5
+    },
+    "requests_by_company": {},
+    "request_p50_ms": 62,
+    "request_p95_ms": 765
+  },
+  "raw_document_policy": "Local immutable evidence only; metadata redistributed, no archive code executed"
+}

@@ -352,7 +352,7 @@ def test_discovery_beyond_registry_url():
     c=website_candidates({'navn':'SYNTHETIC EXAMPLE AS','epostadresse':'office@synthetic-domain.no'})
     assert c[0]['method']=='registry_business_email_domain'
     c=website_candidates({'navn':'SYNTHETIC EXAMPLE AS'})
-    assert c[0]['method']=='legal_name_domain_hypothesis' and c[0]['status']=='candidate'
+    assert c == []  # No domain guessing: only actual public source identifiers.
 
 
 def test_bulk_preserves_original_and_hash(store,tmp_path):

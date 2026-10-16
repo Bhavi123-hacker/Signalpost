@@ -35,7 +35,7 @@ def allowed(name):
 
 def main():
     p=argparse.ArgumentParser(); p.add_argument('--source-commit',required=True); p.add_argument('--verification',required=True); p.add_argument('--output',default='submission/Signalpost-submission.zip')
-    p.add_argument('--metadata-suffix',default='',choices=['','-revision2','-overnight','-handoff'])
+    p.add_argument('--metadata-suffix',default='',choices=['','-revision2','-overnight','-handoff','-coverage'])
     args=p.parse_args()
     commit=git('rev-parse',args.source_commit+'^{commit}').decode().strip()
     archive=git('archive','--format=zip',commit)
@@ -45,7 +45,10 @@ def main():
         for info in z.infolist():
             if info.is_dir(): continue
             if not allowed(info.filename): raise ValueError('Tracked file violates packaging policy: '+info.filename)
-            if args.metadata_suffix in {'-overnight','-handoff'} and info.filename.startswith('artifacts/') and info.filename!='artifacts/verification/revision2-financial-review.json':
+            if args.metadata_suffix in {'-overnight','-handoff','-coverage'} and info.filename.startswith('artifacts/') and info.filename!='artifacts/verification/revision2-financial-review.json':
+                omitted_generated.append(info.filename)
+                continue
+            if args.metadata_suffix == '-coverage' and info.filename.startswith('submission/') and info.filename not in {'submission/PUBLICATION.md','submission/SOURCE_COMMIT.txt'}:
                 omitted_generated.append(info.filename)
                 continue
             payload[info.filename]=z.read(info)
@@ -56,7 +59,7 @@ def main():
     # The standalone source archive follows the same rights curation as the
     # submission. Retain the original Git archive hash separately for provenance.
     source_archive=archive
-    if args.metadata_suffix in {'-overnight','-handoff'}:
+    if args.metadata_suffix in {'-overnight','-handoff','-coverage'}:
         curated=io.BytesIO()
         with zipfile.ZipFile(curated,'w',zipfile.ZIP_DEFLATED,compresslevel=9) as z:
             for name,data in sorted(payload.items()):
@@ -67,9 +70,9 @@ def main():
     verification=json.loads(Path(args.verification).read_text(encoding='utf-8'))
     # Later packaging metadata is explicit; executable research source stays frozen.
     metadata_paths=['.gitignore','PROGRESS.md','README.md','docs/verification-report.md','docs/verification-baseline.md','docs/limitations.md',
-        'docs/model-api-costs.md','docs/reproducibility.md','docs/rules/retrieval-handoff.json','docs/scoring-gap-matrix.md','docs/architecture.md','docs/experiments.md','docs/novelty-review.md','submission/PUBLICATION.md','submission/SOURCE_COMMIT.txt','scripts/package_submission.py']
+        'docs/model-api-costs.md','docs/reproducibility.md','docs/rules/retrieval-handoff.json','docs/rules/retrieval-coverage.json','docs/coverage-cycle.md','docs/source-policy.md','docs/identity-and-evidence.md','docs/scoring-gap-matrix.md','docs/architecture.md','docs/experiments.md','docs/novelty-review.md','submission/PUBLICATION.md','submission/SOURCE_COMMIT.txt','scripts/package_submission.py']
     if (ROOT/'docs/verification-revision2.md').exists():metadata_paths.append('docs/verification-revision2.md')
-    artifact_root='artifacts/overnight' if args.metadata_suffix in {'-overnight','-handoff'} else 'artifacts/revision2'
+    artifact_root='artifacts/coverage-cycle' if args.metadata_suffix=='-coverage' else 'artifacts/overnight' if args.metadata_suffix in {'-overnight','-handoff'} else 'artifacts/revision2'
     revision_artifacts=ROOT/artifact_root
     if revision_artifacts.exists():
         metadata_paths.extend(p.relative_to(ROOT).as_posix() for p in sorted(revision_artifacts.rglob('*')) if p.is_file())
@@ -114,7 +117,7 @@ Source and instructions: README.md (repository/ZIP relative); local publication 
 100-company report/export: {ROOT/artifact_root/'smoke-100'}
 1,000-company report/export: {ROOT/artifact_root/'scale-1000'}
 Verification and limits: {ROOT/'docs/verification-report.md'}
-Exact source/runtime equivalence, fresh-environment checks and separate no-bulk1000 control: submission/verification-final.json and artifacts/handoff/ in the ZIP. Do not submit until the tested source is accessible through the public repository; use the non-force refspec and verification commands in submission/PUBLICATION.md.
+Exact source, fresh-environment checks and latest comparison reports: submission/verification-final.json and the selected artifact directory in the ZIP. Historical no-bulk1000 control remains separately labelled in the repository; it is not a measurement of the new configuration. Do not submit until the tested source is accessible through the public repository; use the non-force refspec and verification commands in submission/PUBLICATION.md.
 
 Measured summary: {json.dumps(summary,ensure_ascii=False)}
 Paid model/search/data API spend: USD 0.00. Expected paid API cost per official run: USD 0.00 (no paid integration).
@@ -126,18 +129,18 @@ No official qualification or private-pool score is claimed. Financial values are
 This is a LOCAL DRAFT ONLY. Nothing has been sent.
 '''
     payload['submission/EMAIL_DRAFT.txt']=email.encode('utf-8')
-    rules=json.loads((ROOT/('docs/rules/retrieval-handoff.json' if args.metadata_suffix=='-handoff' else 'docs/rules/retrieval-overnight.json' if args.metadata_suffix=='-overnight' else 'docs/rules/retrieval-revision2.json')).read_text())
+    rules=json.loads((ROOT/('docs/rules/retrieval-coverage.json' if args.metadata_suffix=='-coverage' else 'docs/rules/retrieval-handoff.json' if args.metadata_suffix=='-handoff' else 'docs/rules/retrieval-overnight.json' if args.metadata_suffix=='-overnight' else 'docs/rules/retrieval-revision2.json')).read_text())
     manifest={'manifest_version':1,'created_at':datetime.now(UTC).isoformat(),'author':{'name':'Bhavy Garg','student_id':'24BAI1088','institution':'VIT Chennai'},
         'source_commit':commit,'source_tree':git('rev-parse',commit+'^{tree}').decode().strip(),'repository_url':repository,'repository_visibility':visibility,
         'completion_status':{'local_implementation':'finished subject to declared limitations','official_qualification':'not evaluated','submission_sent':False,'public_publication':verification.get('source_published',False)},
         'contract_retrievals':rules,'actual_verification_summary':summary,'run_command':command,'third_party_api_cost_usd':0,
         'remaining_handoff':['Confirm author contact detail','Publish and remotely verify the exact tested source via the documented non-force command before submission','Review and send email manually; no email was sent','Use organiser-supplied official run limits and frozen registry/cutoff'],
         'source_archive_sha256':sha(source_archive),'original_git_archive_sha256':sha(archive),
-        'source_archive_policy':'Frozen source excluding listed historical generated artifacts; no later metadata overlays' if args.metadata_suffix in {'-overnight','-handoff'} else 'Full frozen Git archive',
+        'source_archive_policy':'Frozen source excluding listed historical generated artifacts; no later metadata overlays' if args.metadata_suffix in {'-overnight','-handoff','-coverage'} else 'Full frozen Git archive',
         'payload_sha256':{n:sha(b) for n,b in sorted(payload.items())},
         'post_freeze_metadata_paths':metadata_paths,
         'omitted_historical_generated_files':omitted_generated,
-        'artifact_selection':'Selected permitted snapshot results, separately labelled no-bulk handoff results and financial review; older generated exports preserved only in local recovery branches/packages' if args.metadata_suffix in {'-overnight','-handoff'} else 'Frozen historical exports plus revised selected exports',
+        'artifact_selection':'Selected permitted snapshot results, separately labelled no-bulk handoff results and financial review; older generated exports preserved only in local recovery branches/packages' if args.metadata_suffix in {'-overnight','-handoff','-coverage'} else 'Frozen historical exports plus revised selected exports',
         'source_scope':'Research runtime, tests, schemas and requirements are the frozen source commit. Listed packaging/report files overlay later authorisation and exact-commit verification; their payload hashes are explicit.',
         'manifest_scope':'Embedded manifest hashes payload excluding itself; external manifest additionally records final ZIP hash.'}
     payload['submission/manifest.json']=(json.dumps(manifest,indent=2,ensure_ascii=False)+'\n').encode()

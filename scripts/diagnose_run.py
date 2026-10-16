@@ -11,11 +11,12 @@ from signalpost.models import digest,utcnow
 EXTERNAL={'website_description','website_email','website_phone','website_service','website_location','website_leadership','dated_activity','job_posting','public_brand'}
 
 def diagnose(rows,events):
-    funnel=Counter();outcomes=Counter();methods=defaultdict(Counter);categories=Counter();allocation=Counter();starts=defaultdict(list)
+    funnel=Counter();outcomes=Counter();methods=defaultdict(Counter);categories=Counter();allocation=Counter();starts=defaultdict(list);modules=Counter();candidate_reasons=Counter()
     for event in events:
         starts[event.get('organisation_number')].append(event)
+        modules[event.get('module','unscoped_preparation_or_identity')]+=1
         url=urlsplit(event['url'])
-        kind='robots' if url.path.endswith('/robots.txt') else 'registry_identity' if url.hostname=='data.brreg.no' and '/enhetsregisteret/api/enheter' in url.path and not url.path.endswith('/roller') else 'accounts' if '/regnskapsregisteret/' in url.path else 'roles' if url.path.endswith('/roller') else 'workplaces' if '/underenheter' in url.path else 'official_group' if url.hostname=='data.brreg.no' else 'discovery_api' if url.hostname=='query.wikidata.org' else 'company_page'
+        kind='robots' if url.path.endswith('/robots.txt') else 'registry_identity' if url.hostname=='data.brreg.no' and '/enhetsregisteret/api/enheter' in url.path and not url.path.endswith('/roller') else 'accounts' if '/regnskapsregisteret/' in url.path else 'roles' if url.path.endswith('/roller') else 'workplaces' if '/underenheter' in url.path else 'official_group' if url.hostname=='data.brreg.no' else 'discovery_api' if url.hostname in {'query.wikidata.org','www.wikidata.org'} else 'company_page'
         allocation[kind]+=1
     for row in rows:
         cs=[c for c in row['claims'] if c['availability']=='available' and not c['stale']]
@@ -25,7 +26,9 @@ def diagnose(rows,events):
         funnel.update({'inputs':1,'identity_available':row['legal_identity']['status']=='available','candidate_discovered':bool(candidates),'candidate_html_fetched':bool(attempts),'ownership_verified':bool(verified),'substantive_external':substantive})
         verified_pages={s['final_url'] for s in row['source_snapshots'] if s['source_class']=='company_owned'}
         funnel['companies_with_additional_company_pages']+=bool(verified_pages)
-        for c in candidates:methods[c['method']][c['status']]+=1
+        for c in candidates:
+            methods[c['method']][c['status']]+=1
+            candidate_reasons[c.get('reason','unattempted')]+=1
         categories.update({c['field'] for c in cs})
         reasons='; '.join(str(c.get('reason','')) for c in candidates)+'; '+row['modules']['website']['explanation']
         # Exclusive dominant bounded-run outcome; no inference of universal absence.
@@ -40,7 +43,9 @@ def diagnose(rows,events):
         elif any(c.get('status')=='rejected' for c in candidates):reason='candidate_source_absent'
         else:reason='other_fetch_or_parser_failure'
         outcomes[reason]+=1
-    return {'created_at':utcnow(),'funnel':dict(funnel),'dominant_website_outcomes':dict(outcomes),'candidates_by_method':dict(methods),'companies_by_populated_field':dict(categories),'request_allocation':dict(allocation),'recorded_request_starts':len(events),'interpretation':'Bounded collection outcomes only. Missing discovery path/unattempted/ambiguous is not confirmed absence. Extraction counts require substantive supported facts, never URL-only.'}
+        if reason=='request_starvation':
+            funnel['budget_skipped_with_source_derived_candidate']+=any(c['method']!='legal_name_domain_hypothesis' for c in candidates)
+    return {'created_at':utcnow(),'funnel':dict(funnel),'dominant_website_outcomes':dict(outcomes),'candidates_by_method':dict(methods),'candidate_reasons':dict(candidate_reasons),'companies_by_populated_field':dict(categories),'request_allocation':dict(allocation),'requests_by_module':dict(modules),'recorded_request_starts':len(events),'interpretation':'Bounded collection outcomes only. Missing discovery path/unattempted/ambiguous is not confirmed absence. Extraction counts require substantive supported facts, never URL-only.'}
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--input',required=True);p.add_argument('--requests',required=True);p.add_argument('--output',required=True);a=p.parse_args()

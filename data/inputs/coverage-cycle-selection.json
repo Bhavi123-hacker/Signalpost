@@ -1,0 +1,10 @@
+{
+  "created_at": "2026-10-16T04:39:04.979564Z",
+  "dev_seed": "coverage-cycle-dev-v1",
+  "validation_seed": "coverage-cycle-validation-v1",
+  "method": "Lowest SHA256(seed:org), no website/size/sector conditioning; dev over measured1000, validation over full411160 excluding previous inputs",
+  "excluded_ids": 1320,
+  "dev_sha256": "6814d7abfb3ac4b026e366891de55052b5b01acf6ef622f8855586cc767ef558",
+  "validation_sha256": "be998b2dfa093e0221bf75b6166a19309ab151ae5cc28f0bd3229ad028244b43",
+  "sealed_before_implementation": true
+}

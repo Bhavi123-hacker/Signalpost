@@ -181,7 +181,7 @@ async def run_batch(args, *, transport=None):
         "bulk": str(Path(args.bulk).resolve()) if args.bulk else None, "max_requests": args.max_requests,
         "bulk_sha256": bulk_hash, "source_tree_sha256": source_tree_hash,
         "max_seconds": args.max_seconds, "per_company_requests": args.per_company_requests, "site_pages": args.site_pages,
-        "extraction":getattr(args,'extraction','baseline'),"page_policy":getattr(args,'page_policy','baseline')}).encode())
+        "extraction":getattr(args,'extraction','baseline'),"page_policy":getattr(args,'page_policy','baseline'),"identity_policy":getattr(args,'identity_policy','strict')}).encode())
     saved_run = store.db.execute("SELECT input_hash,config_hash,started_at FROM runs WHERE run_id=?", (args.run_id,)).fetchone()
     if saved_run:
         if not args.resume:
@@ -273,7 +273,7 @@ async def run_batch(args, *, transport=None):
                         REQUEST_SCOPE.get()['module']=module
                         try:
                             if module == "website":
-                                await website(p, fetcher, max_pages=args.site_pages,extraction=getattr(args,'extraction','baseline'),page_policy=getattr(args,'page_policy','baseline'))
+                                await website(p, fetcher, max_pages=args.site_pages,extraction=getattr(args,'extraction','baseline'),page_policy=getattr(args,'page_policy','baseline'),identity_policy=getattr(args,'identity_policy','strict'))
                             else:
                                 await official(p, fetcher, module)
                         except FetchError as exc:
@@ -324,7 +324,7 @@ async def run_batch(args, *, transport=None):
                         print('Filtered identity lookup unavailable; bounded exact-ID fallback',file=sys.stderr)
             await asyncio.gather(*(identity_task(r) for r in inputs))
             pending = [p for org, p in profiles.items() if org not in rows_by_org and p.modules["registry"]["availability"] == "available"]
-            if args.strategy == "balanced" and "financials" in requested:
+            if args.strategy in {"balanced", "external-first", "coverage-fair"} and "financials" in requested:
                 # Give EVERY anchored company its filed-accounts opportunity before
                 # any website can consume scarce requests. This is an observable
                 # phase, not an estimate of coverage from registry-only envelopes.
@@ -333,20 +333,37 @@ async def run_batch(args, *, transport=None):
                 print(f"Accounts phase finished for {len(pending)} identities; {budget.requests} HTTP requests", file=sys.stderr, flush=True)
                 # Website-only passes prevent role/group requests starving other
                 # companies' higher-yield ownership checks. No company-ID tuning.
-                groups = [[],[],[],[]]
-                if 'website' in requested:
-                    for p in pending:
-                        groups[candidate_priority(p.entity)].append(p)
-                    for group_index,group in enumerate(groups):
-                        if group_index==2 and 'roles' in requested:
-                            # Measured official roles have far higher useful-fact
-                            # yield/start than unmatched email or guessed domains.
-                            # Give the whole batch one fair role opportunity after
-                            # strong site candidates, before speculative discovery.
-                            share,extra=divmod(budget.remaining,max(1,len(pending)))
-                            await asyncio.gather(*(enrich_task(p,min(1,share+(i<extra)),['roles'],finish=False) for i,p in enumerate(pending)))
-                        share,extra=divmod(budget.remaining,max(1,len(group)))
-                        await asyncio.gather(*(enrich_task(p,min(args.per_company_requests,share+(i<extra)),['website'],finish=False) for i,p in enumerate(group)))
+                if args.strategy == 'coverage-fair' and 'website' in requested:
+                    # Protect a proof-sized opportunity for every actual source-
+                    # derived candidate, then recycle unused capacity. No guesses.
+                    real = sorted((p for p in pending if website_candidates(p.entity)), key=lambda p: candidate_priority(p.entity))
+                    async def fair_round(items, ceiling):
+                        for offset in range(0, len(items), args.workers):
+                            group = items[offset:offset + args.workers]
+                            share, extra = divmod(budget.remaining, max(1, len(items) - offset))
+                            await asyncio.gather(*(enrich_task(p, min(ceiling, share + (i < extra)), ['website'], finish=False) for i, p in enumerate(group)))
+                    await fair_round(real, 6)
+                    retry = [p for p in real if p.modules['website']['availability'] == 'failed' and 'allocation exhausted' in p.modules['website']['explanation'].lower()]
+                    # Only allocation-interrupted work gets a second opportunity;
+                    # blocked sources and semantic rejections are not retried.
+                    retry.sort(key=lambda p: not any(c.get('checks') for c in p.candidates))
+                    await fair_round(retry, 8)
+                    await asyncio.gather(*(enrich_task(p, 0, ['website'], finish=False) for p in pending if not website_candidates(p.entity)))
+                else:
+                    groups = [[],[],[],[]]
+                    if 'website' in requested:
+                        for p in pending:
+                            groups[candidate_priority(p.entity)].append(p)
+                        for group_index,group in enumerate(groups):
+                            if args.strategy == 'balanced' and group_index==2 and 'roles' in requested:
+                                # Measured official roles have far higher useful-fact
+                                # yield/start than unmatched email or guessed domains.
+                                # Give the whole batch one fair role opportunity after
+                                # strong site candidates, before speculative discovery.
+                                share,extra=divmod(budget.remaining,max(1,len(pending)))
+                                await asyncio.gather(*(enrich_task(p,min(1,share+(i<extra)),['roles'],finish=False) for i,p in enumerate(pending)))
+                            share,extra=divmod(budget.remaining,max(1,len(group)))
+                            await asyncio.gather(*(enrich_task(p,min(args.per_company_requests,share+(i<extra)),['website'],finish=False) for i,p in enumerate(group)))
                 sequence=[m for m in requested if m in {'roles','locations','group'}]
                 share,extra=divmod(budget.remaining,max(1,len(pending)))
                 await asyncio.gather(*(enrich_task(p,min(args.per_company_requests,share+(i<extra)),sequence) for i,p in enumerate(pending)))
@@ -385,7 +402,7 @@ async def run_batch(args, *, transport=None):
     report = {"run_id": args.run_id, "started_at": started_at, "completed_at": utcnow(), "input_sha256": input_hash,
               "expected_count": len(inputs), "emitted_envelopes": len(rows), "resumed_profiles": resumed,
               "source_tree_sha256": source_tree_hash,
-              "configuration":{"strategy":args.strategy,"extraction":getattr(args,'extraction','baseline'),"page_policy":getattr(args,'page_policy','baseline'),"modules":args.modules,"bulk_sha256":bulk_hash},
+              "configuration":{"strategy":args.strategy,"extraction":getattr(args,'extraction','baseline'),"page_policy":getattr(args,'page_policy','baseline'),"identity_policy":getattr(args,'identity_policy','strict'),"site_pages":args.site_pages,"modules":args.modules,"bulk_sha256":bulk_hash},
               "limits": {"requests": args.max_requests, "seconds": args.max_seconds, "cost_usd": 0, "workers": args.workers, "per_company_requests": args.per_company_requests},
               "resource_cutoff": timed_out, "operations": operations, "coverage": coverage_report(rows), "validation": validation,
               "profile_p50_ms": runtimes[len(runtimes) // 2] if runtimes else None,
