@@ -1,0 +1,136 @@
+{
+  "created_at": "2026-10-16T04:17:08.370334+00:00",
+  "publication_branch": "handoff-publication",
+  "source_commit": "80cd04615d8b438b0efdb770693822ba880fe208",
+  "parent_public_main": "d400e03e73f0ee90bf7b2eedab5ca94e1319bdaa",
+  "preserved_old_local_main": "6c7e2451155b7601005ecede0f950f1265e0e801",
+  "old_measured_source": "0607183400744697596a57322af38890b123678a",
+  "omitted_historical_generated_paths": 4851,
+  "runtime_tests_schemas_scripts_dependencies_byte_identical": true,
+  "files": [
+    {
+      "path": "pyproject.toml",
+      "sha256": "66485e45d5a0e5884e80b65b094330833f2b7764c1c550869056c5c0ceb2f482"
+    },
+    {
+      "path": "requirements-audit.txt",
+      "sha256": "4b9c467f032da3f68afb27b32d0c4d447853995f973b0e9afbb28cd3e2e910b2"
+    },
+    {
+      "path": "requirements.lock.txt",
+      "sha256": "746f955fc9edd98915b56ef3e924ca07f9c13068e33d27c8d0fd263bf574ef89"
+    },
+    {
+      "path": "schemas/claim.schema.json",
+      "sha256": "9b3fc6143404823383b4df6bc3de6b5285359b334976a50d0e675f35fdab1a22"
+    },
+    {
+      "path": "schemas/evidence.schema.json",
+      "sha256": "a7847898a6dbc2d9b719b1d1264d47277d80f04437019078cc248cf318b0ee31"
+    },
+    {
+      "path": "schemas/input-row.schema.json",
+      "sha256": "281c767f8a109699e5f0d1a30c202e5b0411d7bb7055de7d914ea2566d205b51"
+    },
+    {
+      "path": "schemas/output-envelope.schema.json",
+      "sha256": "8e621721e17372127ed702ed1c7145c781bd87f60aa2129883e2b71df66b4464"
+    },
+    {
+      "path": "scripts/audit_evidence.py",
+      "sha256": "fae89ba2fe1170dcbd9ef2de7059f5a62596688a7ca2dbf5dcb23ca114afcd34"
+    },
+    {
+      "path": "scripts/diagnose_run.py",
+      "sha256": "425d6ddc03ccf7f00fc264d2129a6c155362bc3f9b5f30be1b78a62618cf1e88"
+    },
+    {
+      "path": "scripts/export_public.py",
+      "sha256": "059ceae75c6a68bc6e13653de0e89a652bd4d299d8ac4828d9bc7c6d06fa6a22"
+    },
+    {
+      "path": "scripts/generate_metadata.py",
+      "sha256": "54ece799b13dec4cf2d370b80ab310bb98df8de67dbe3bb9ad38567f82885447"
+    },
+    {
+      "path": "scripts/load_export.py",
+      "sha256": "b0c2fd68bbce83ef8912871d30d70b0332a6fb08a342fd2a1c4cbf9bb79d8aef"
+    },
+    {
+      "path": "scripts/prepare_public.py",
+      "sha256": "96ef50ca9c37f89f018f963e612201d2ee987a29e2708d6a3dadbe4a15a62ea4"
+    },
+    {
+      "path": "scripts/review_financial_filings.py",
+      "sha256": "be80f29f002c217c307cc5e57a27676940a97bbb5af337b6e36802aaa2ed4890"
+    },
+    {
+      "path": "scripts/run_competition_batch.py",
+      "sha256": "f21e01cc917d5a69a66e604ba5c4cf893afae4cb80a200ed1878a6af9516f0d0"
+    },
+    {
+      "path": "scripts/select_samples.py",
+      "sha256": "70b0f7774412aca7eec56b4a02c2625d13c8916c255f557c097110fc4c9d123a"
+    },
+    {
+      "path": "signalpost/__init__.py",
+      "sha256": "d6678f5211928b39f2cb50309b48c870e8ba88c899c59e441603c3e58dfe2558"
+    },
+    {
+      "path": "signalpost/__main__.py",
+      "sha256": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d"
+    },
+    {
+      "path": "signalpost/batch.py",
+      "sha256": "2c01f3f0344f8cef9a30a0d3f7e900ae695f7062d2e50cc9555edddde4dc2170"
+    },
+    {
+      "path": "signalpost/cli.py",
+      "sha256": "6b032a5a523c4631b6ae1c500e19ad061e922b55d6f2b9afd0278f29a2433452"
+    },
+    {
+      "path": "signalpost/http.py",
+      "sha256": "f86ef85f10d828c09ad5d5aa4c8d91495ed4694105d50efd3b2d7ddfe1105318"
+    },
+    {
+      "path": "signalpost/models.py",
+      "sha256": "4384556a8c7718627d3bd60e13821e134c846fe76a0378c92ed91fd25abfc348"
+    },
+    {
+      "path": "signalpost/research.py",
+      "sha256": "72835db39819572401da35fe1a7f03869ebf8c46c4cf3a5f259a1a1a570ca367"
+    },
+    {
+      "path": "signalpost/site_extract.py",
+      "sha256": "0f0c2073af5e3f879433c746b5de5c928525ad125230228ab56414829f680803"
+    },
+    {
+      "path": "signalpost/store.py",
+      "sha256": "f5d2953e72aa7bbcbb0c0d2e62513bb86776ce2af470d033322ae84608f13db1"
+    },
+    {
+      "path": "signalpost/viewer.py",
+      "sha256": "9d97e11ab237d7b3f20270b9fc0a2593bc67cc97638820133f5d4175c561c9da"
+    },
+    {
+      "path": "tests/test_coverage_revision.py",
+      "sha256": "56a367d0d18094b105c984cdf1af550ad156b96eb279a7ced9057be55fa29c64"
+    },
+    {
+      "path": "tests/test_failure_edges.py",
+      "sha256": "2fd94a882ac2abfee0014aa33853047b5a46c7f11592b1fd153049193aa2e7cf"
+    },
+    {
+      "path": "tests/test_overnight_variants.py",
+      "sha256": "af4e4c4b0dcaed61601c1461e2ed4c32a9a957db5c494b7f8c1172b8fcde7116"
+    },
+    {
+      "path": "tests/test_signalpost.py",
+      "sha256": "22462c50f93d53e3825cf76ecbd0811309b43c8b6d2095a4ca5f7e43606b7571"
+    }
+  ],
+  "scope": "Only historical generated artifacts/history lineage changed; application defaults and no-bulk configuration unchanged. Source IDs are distinguished from the actual timed-run commit.",
+  "worktree": "D:\\Signalpost\\private\\handoff\\publication",
+  "pushed": false,
+  "final_publication_source_commit": "3124c87b40e381411c9661d8434728028ac3ea5c"
+}

@@ -67,7 +67,7 @@ def main():
     verification=json.loads(Path(args.verification).read_text(encoding='utf-8'))
     # Later packaging metadata is explicit; executable research source stays frozen.
     metadata_paths=['.gitignore','PROGRESS.md','README.md','docs/verification-report.md','docs/verification-baseline.md','docs/limitations.md',
-        'docs/model-api-costs.md','docs/reproducibility.md','docs/rules/retrieval-handoff.json','docs/scoring-gap-matrix.md','docs/architecture.md','docs/experiments.md','docs/novelty-review.md','submission/PUBLICATION.md','scripts/package_submission.py']
+        'docs/model-api-costs.md','docs/reproducibility.md','docs/rules/retrieval-handoff.json','docs/scoring-gap-matrix.md','docs/architecture.md','docs/experiments.md','docs/novelty-review.md','submission/PUBLICATION.md','submission/SOURCE_COMMIT.txt','scripts/package_submission.py']
     if (ROOT/'docs/verification-revision2.md').exists():metadata_paths.append('docs/verification-revision2.md')
     artifact_root='artifacts/overnight' if args.metadata_suffix in {'-overnight','-handoff'} else 'artifacts/revision2'
     revision_artifacts=ROOT/artifact_root

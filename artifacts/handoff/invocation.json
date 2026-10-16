@@ -1,0 +1,26 @@
+{
+  "source_commit": "0607183400744697596a57322af38890b123678a",
+  "argv": [
+    "D:\\Signalpost\\private\\overnight\\selected\\windows-venv\\Scripts\\python.exe",
+    "scripts/run_competition_batch.py",
+    "--organisations",
+    "D:\\Signalpost\\data\\inputs\\scale-1000.jsonl",
+    "--output",
+    "D:\\Signalpost\\private\\handoff\\no-bulk-results.jsonl",
+    "--report",
+    "D:\\Signalpost\\private\\handoff\\no-bulk-report.json",
+    "--state",
+    "D:\\Signalpost\\private\\handoff\\no-bulk-state",
+    "--run-id",
+    "handoff-no-bulk-1000",
+    "--max-requests",
+    "2000",
+    "--max-seconds",
+    "2700"
+  ],
+  "working_directory": "D:\\Signalpost\\private\\overnight\\selected\\source",
+  "cache": "Fresh empty state; no --bulk, no downloaded registry, no personal session or API key",
+  "started_at": "2026-10-16T04:13:34.415481+00:00",
+  "exit_code": 0,
+  "finished_at": "2026-10-16T04:24:58.477626+00:00"
+}

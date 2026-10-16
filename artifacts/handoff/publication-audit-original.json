@@ -1,0 +1,32 @@
+{
+  "checked_at": "2026-10-16T04:14:57.073444+00:00",
+  "remote_main": "d400e03e73f0ee90bf7b2eedab5ca94e1319bdaa",
+  "proposed_head": "6c7e2451155b7601005ecede0f950f1265e0e801",
+  "scope": "Every newly reachable blob, including older versions/deleted paths in pending history; not only the current ZIP",
+  "counts": {
+    "blobs": 562,
+    "bytes": 53961683,
+    "evidence_blobs": 424
+  },
+  "export_blob_versions_checked": 6,
+  "security_or_raw_restricted_findings": [],
+  "company_source_profile_projection_findings": [
+    {
+      "path": "artifacts/revision2/scale-1000/envelopes.jsonl.gz",
+      "blob": "22323d34b7fd2fe8dc457b3a11d64b80fc5821ed",
+      "organisation_number": "913795784",
+      "field": "public_brand"
+    }
+  ],
+  "ancestors": {
+    "tested_source": {
+      "commit": "0607183400744697596a57322af38890b123678a",
+      "descends_from_public_main": true
+    },
+    "overnight_packaging": {
+      "commit": "6c7e2451155b7601005ecede0f950f1265e0e801",
+      "descends_from_public_main": true
+    }
+  },
+  "pushed": false
+}

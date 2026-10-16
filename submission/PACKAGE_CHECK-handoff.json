@@ -1,0 +1,42 @@
+{
+  "checked_at": "2026-10-16T04:32:17.422808+00:00",
+  "passed": true,
+  "source_commit": "3124c87b40e381411c9661d8434728028ac3ea5c",
+  "zip_path": "D:\\Signalpost\\submission\\handoff\\Signalpost-submission.zip",
+  "zip_sha256": "554b5cd2048454d22f7fdcc420e42d7cab2d5b01bd7043ea7f1fb42e355c0609",
+  "zip_bytes": 26774837,
+  "payload_files": 3582,
+  "all_payload_hashes_verified": true,
+  "all_archive_paths_safe": true,
+  "restricted_private_paths_and_secret_patterns_absent": true,
+  "raw_birth_date_fields_absent": true,
+  "frozen_runtime_tests_schemas_dependencies_byte_identical": true,
+  "public_export_checks": {
+    "artifacts/overnight/smoke-100/envelopes.jsonl": {
+      "profiles": 100,
+      "typed_validation_passed": true,
+      "packaged_evidence_references": 5309,
+      "raw_roles_references_source_URL_only_for_privacy": 1455
+    },
+    "artifacts/overnight/scale-1000/envelopes.jsonl.gz": {
+      "profiles": 1000,
+      "typed_validation_passed": true,
+      "packaged_evidence_references": 46103,
+      "raw_roles_references_source_URL_only_for_privacy": 5335
+    },
+    "artifacts/overnight/validation-100/envelopes.jsonl.gz": {
+      "profiles": 100,
+      "typed_validation_passed": true,
+      "packaged_evidence_references": 5046,
+      "raw_roles_references_source_URL_only_for_privacy": 1455
+    },
+    "artifacts/handoff/no-bulk-1000/envelopes.jsonl.gz": {
+      "profiles": 1000,
+      "typed_validation_passed": true,
+      "packaged_evidence_references": 46103,
+      "raw_roles_references_source_URL_only_for_privacy": 4846
+    }
+  },
+  "repository_visibility": "public",
+  "email_sent": false
+}
