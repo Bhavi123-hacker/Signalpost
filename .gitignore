@@ -20,3 +20,8 @@ out/
 build/
 artifacts/development-scale-1000/
 *.egg-info/
+
+submission/manifest-handoff.json
+submission/EMAIL_DRAFT-handoff.txt
+submission/PACKAGING_COMMIT-handoff.txt
+submission/handoff/

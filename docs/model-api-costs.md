@@ -23,3 +23,5 @@ Rule/Wikidata/NAV investigation counters are separate in run-ledger.json. Depend
 Expected official-run paid API charges remain USD0 at any input size because there is no charging adapter. This is not a guarantee of source availability or information completeness. The retrieved contract does not confirm numeric resource caps; use organiser-supplied limits. Default2700seconds/2000starts are provisional, with USD0 external paid spend.
 
 Optional local financial-review tools were actually used: pypdf6.20.1 (BSD-3-Clause) and PyMuPDF1.26.7 (AGPL-3.0), declared separately in requirements-audit.txt. They are not imported by the evaluator/viewer. No LLM repaired or generated a financial value. Ten original filings/31 observations were visually reviewed; other accounts remain unaudited against original PDFs.
+
+Handoff no-bulk1000 control: 2000 HTTP starts/683.031seconds,USD0. It is a separate measured configuration, not the17-company snapshot result. Five current-rule diagnostic HTTP calls were separately recorded; fresh dependency installation is outside evaluator counts and incurred no paid API calls.

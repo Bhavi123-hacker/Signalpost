@@ -29,10 +29,10 @@ Activate the environment to use the same `python` command on either platform (`.
 Run from the repository root with the isolated environment activated:
 
 ```sh
-python scripts/run_competition_batch.py --organisations INPUT.jsonl --output OUTPUT.jsonl --report REPORT.json --state STATE --run-id official-001 --max-requests 2000 --max-seconds 2700
+python scripts/run_competition_batch.py --organisations INPUT.jsonl --bulk BRREG.csv.gz --output OUTPUT.jsonl --report REPORT.json --state STATE --run-id official-001 --max-requests 2000 --max-seconds 2700
 ```
 
-Replace the three filenames and STATE directory with evaluator-supplied locations. For the frozen registry supplied by Builderr, append `--bulk BRREG.csv.gz` (CSV may also be uncompressed; native BRREG JSONL is accepted). This removes live identity requests and leaves more budget for enrichment. Acquisition metadata can be adjacent as `BRREG.csv.gz.metadata.json`, or supplied with `--bulk-retrieved-at UTC_TIMESTAMP`. An unannotated evaluator snapshot is explicitly marked as a local snapshot read, not a live retrieval. The input list is never chosen by the runner. Without a bulk snapshot it uses the live entity API, with subunit fallback only after a 404.
+Replace the three filenames and STATE directory with evaluator-supplied locations. The primary command explicitly requires the frozen registry supplied by Builderr as `BRREG.csv.gz` (CSV or native BRREG JSONL is accepted). See docs/reproducibility.md for mandatory provisioning/checksum/acquisition metadata. Omit `--bulk` only for the separately measured live-identity configuration. This removes live identity requests and leaves more budget for enrichment. Acquisition metadata can be adjacent as `BRREG.csv.gz.metadata.json`, or supplied with `--bulk-retrieved-at UTC_TIMESTAMP`. An unannotated evaluator snapshot is explicitly marked as a local snapshot read, not a live retrieval. The input list is never chosen by the runner. Without a bulk snapshot it uses the live entity API, with subunit fallback only after a 404.
 
 The same flags work through `python -m signalpost batch`. Add `--profiles-output PROFILES.jsonl` for a simplified profile export. `--expected-count N` is optional and checks the supplied batch size; there is no 100-row maximum. The retrieved documents do not prescribe numeric resource caps; 2,700 seconds / 2,000 HTTP starts are conservative provisional defaults from the supplied task, overridden by official flags. Paid API calls remain disabled even if a nonzero cost cap is supplied. See [contract notes](docs/contract.md).
 
@@ -100,4 +100,8 @@ Optional original-filing review tools are isolated from the evaluator: install r
 
 ## Overnight verified revision
 
-The selected executable source is `0607183400744697596a57322af38890b123678a`. Exact new Windows/Linux installations each passed 111 tests. Final measured results, comparisons, costs and limitations are in [verification report](docs/verification-report.md), with permitted data under `artifacts/overnight/`. Older source/package commits remain recovery checkpoints. This revision has not been pushed or emailed. The 07:00 IST delivery checkpoint was missed; the report records actual completion times.
+The overnight timed source was `0607183400744697596a57322af38890b123678a`; the final publication source and explicit runtime-equivalence proof are recorded in the handoff manifest/report. Exact new Windows/Linux installations each passed 111 tests. Final measured results, comparisons, costs and limitations are in [verification report](docs/verification-report.md), with permitted data under `artifacts/overnight/`. Older source/package commits remain recovery checkpoints. This revision has not been pushed or emailed. The 07:00 IST delivery checkpoint was missed; the report records actual completion times.
+
+## Final submission handoff
+
+The primary official command includes the supplied snapshot; its17-company external result is not attributed to a command without --bulk. Both configurations are independently measured in docs/verification-report.md and artifacts/handoff/configuration-comparison.json. Final source identity is recorded in the submission manifest after freezing. Application bytes match the prior timed source; publication lineage is cleaned without rewriting the preserved original branch. Use submission/PUBLICATION.md, and publish the tested source before sending the draft.

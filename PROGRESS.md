@@ -1,5 +1,22 @@
 # Signalpost progress
 
+## Submission handoff correction ?16 October2026
+
+No research feature changed. Primary official command now explicitly includes --bulk BRREG.csv.gz, matching the organiser-provided frozen registry rule and the measured snapshot configuration. docs/reproducibility.md specifies staging, trusted compressed-file checksum, actual acquisition time, cutoff uncertainty and resource boundaries. No automatic uncounted preparation or private cache is required. Source field dates are not invented from import time.
+
+A separate fresh-state/no-bulk1000 control completed:1000 ordered envelopes/1000 identities/995 financial companies/17 substantive external companies,2000HTTP starts/683.031seconds/USD0. Snapshot experiment remains separate:2000starts/620.703seconds/17 substantive/366 role companies; no-bulk has333 role companies. Equal external counts on this sample do not make the configurations equivalent. All results pass own/supplied starter validators and binding audits. Actual timed-run source0607183 is distinguished from the final publication source, whose engine/tests/schema/runner/dependency bytes are proved equal.
+
+Fresh clean-publication Windows3.12.4/Linux WSL3.14.4 installs each pass111 tests and pip check. Financial review remains10 filings/31 observations and is not corpus-wide verification. Website refresh has5 stale contacts and offering extraction has known B2B false-negatives. No qualification/private-harness/numeric-limit claim.
+
+Audit of all newly reachable Git blobs found no secrets/raw company HTML/PDF/birth-date evidence but found one company-source brand projection in an older private pending export. Original main/commits/packages are preserved; DO NOT PUSH OLD LOCAL MAIN. A clean handoff-publication branch starts at public main d400e03 and excludes that history. Source freeze and later packaging commit are recorded by the final handoff manifest. Full audit scans the branch history, not only the newest ZIP.
+
+Deliverables: D:/Signalpost/submission/handoff/Signalpost-submission.zip, manifest.json, EMAIL_DRAFT.txt and PACKAGE_CHECK.json. Publication worktree: D:/Signalpost/private/handoff/publication. Publication instructions in submission/PUBLICATION.md. Root local main remains the preserved recovery branch; no reset, force push, email or publication occurred.
+
+Only remaining author steps: review, authorize/run the normal refspec git push origin handoff-publication:main, verify the exact source is reachable through the public repository, fill [AUTHOR: CONFIRM CONTACT DETAILS BEFORE SENDING], confirm organiser staging/limits/cutoff and send manually. Never submit an inaccessible source hash. Old packages remain intact with checked hashes.
+
+---
+
+
 ## Final selected handoff ? 16 October 2026, after requested07:00 IST checkpoint
 
 Executable source0607183400744697596a57322af38890b123678a is frozen. All4918 archived files verified against Git blobs. New Windows3.12.4/Linux WSL3.14.4 environments:111 tests each, pip check passed. No runtime/tests/schemas/dependency changes after freeze. Later commit is packaging/reports only. This delivery misses07:00IST; actual final run/check timestamps are retained, no on-time claim.
