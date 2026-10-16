@@ -1,44 +1,36 @@
-# Exact publication and submission handoff
+# Publication and submission handoff
 
-Public repository: https://github.com/Bhavi123-hacker/Signalpost . Remote main was verified at d400e03e73f0ee90bf7b2eedab5ca94e1319bdaa. No push/email has occurred.
+Real repository:https://github.com/Bhavi123-hacker/Signalpost (PUBLIC). Remote main rechecked16 October2026 at d400e03e73f0ee90bf7b2eedab5ca94e1319bdaa. No push/email from this cycle. Tested source0100dabf7580532f72a8e1e46e33dd04c591ee3b is local until publication succeeds. Current package/manifest/checks are D:/Signalpost/submission/coverage-cycle/.
 
-Preserved local main includes an older source-derived brand projection in its private pending history. Do NOT publish that branch. The isolated handoff-publication branch is a clean descendant of public main and preserves the tested application bytes. The final source hash is inserted into the manifest after the source freeze; packaging identity is recorded separately. Original commits/ZIPs remain local recovery points.
+Use the clean coverage-cycle publication branch, which descends from public main. The preserved older local main contains unrelated-to-this-release restricted projection history and must NOT be pushed. Original commits and four ZIPs remain recovery points. Source/runtime freeze and later packaging/report commit are separate; the external PACKAGING_COMMIT.txt records the latter without a self-referential hash cycle.
 
-From D:/Signalpost, after review and a later explicit publication instruction, use this normal, non-force command:
+From Windows CMD:
 
-```sh
-git push origin handoff-publication:main
-```
-
-It has been prepared, not executed. A remote advance must be fetched and reviewed; never add --force. The final packaging report supplies exact remote verification commands. Verify remote main equals the publication branch tip and the tested source commit resolves through GitHub before sending the email. Public visibility alone is not enough.
-
-Draft/contact placeholder: D:/Signalpost/submission/handoff/EMAIL_DRAFT.txt, [AUTHOR: CONFIRM CONTACT DETAILS BEFORE SENDING]. Fill actual author contact, review the ZIP/manifest and send manually to submit@builderr.ai. The primary run command includes the organiser-provisioned snapshot. See docs/reproducibility.md for checksum/acquisition/cutoff requirements and separately measured no-bulk results. Private harness and numerical caps remain unverified.
-
-## Exact remote verification after publication
-
-Frozen tested source: `3124c87b40e381411c9661d8434728028ac3ea5c`. It is not public until the prepared push succeeds. The packaging branch tip contains this source as an ancestor.
-
-From D:/Signalpost, inspect the local and remote state:
-
-```sh
-git log --oneline origin/main..handoff-publication
-git diff --stat origin/main handoff-publication
+```bat
+cd /d D:\Signalpost
+git fetch origin main
+git log --oneline origin/main..coverage-cycle
+git diff --stat origin/main coverage-cycle
+git merge-base --is-ancestor origin/main coverage-cycle
+git merge-base --is-ancestor 0100dabf7580532f72a8e1e46e33dd04c591ee3b coverage-cycle
 git ls-remote origin refs/heads/main
 ```
 
-The exact normal, non-force push is:
+Review remote advancement and the pending audit before publishing. Do not force or push old local main. After a later explicit publication instruction, the exact normal push is:
 
 ```sh
-git push origin handoff-publication:main
+git push origin coverage-cycle:main
 ```
 
-Do not push old local main. If remote main advanced, fetch/review it rather than force-pushing. After the authorised push:
+Then verify:
 
 ```sh
-git rev-parse handoff-publication
+git rev-parse coverage-cycle
 git ls-remote origin refs/heads/main
 gh api repos/Bhavi123-hacker/Signalpost/commits/main --jq .sha
-gh api repos/Bhavi123-hacker/Signalpost/commits/3124c87b40e381411c9661d8434728028ac3ea5c --jq .sha
+gh api repos/Bhavi123-hacker/Signalpost/commits/0100dabf7580532f72a8e1e46e33dd04c591ee3b --jq .sha
 ```
 
-The first three hashes must equal the final packaging branch tip; the last must return the exact source above. A404/mismatch blocks submission. These commands are prepared, not a claim of completed publication. Contact placeholder: [AUTHOR: CONFIRM CONTACT DETAILS BEFORE SENDING] in the local EMAIL_DRAFT.txt. Fill actual contact, verify source accessibility and submit manually to submit@builderr.ai. No email/push has occurred.
+The first three hashes must equal the final packaging branch tip. The last must return the exact frozen source. A404/mismatch blocks submission. Public repository visibility alone does not establish that the tested source is available. These commands are prepared, not executed.
+
+Fill [AUTHOR: CONFIRM CONTACT DETAILS BEFORE SENDING] in D:/Signalpost/submission/coverage-cycle/EMAIL_DRAFT.txt. Review package/hash/report, confirm organiser snapshot staging/acquisition/cutoff and actual numerical limits, publish/remotely verify source, then manually send to submit@builderr.ai. Primary command includes --bulk and selected ownership flags; no current no-bulk1000 equivalence is claimed. Financial semantic audit remains10 filings/31observations and private-harness acceptance remains unverified. No email or publication occurs automatically.

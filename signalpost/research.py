@@ -60,7 +60,9 @@ def identity_gate(org: str, legal_name: str, text: str, *, entity=None, policy='
     candidates = {number for number, _ in number_tokens(text)}
     if candidates - {org}:
         return {"state": "ambiguous", "reason": "Conflicting organisation numbers on page", "observed_numbers": sorted(candidates)}
-    name_span = phrase_span(legal_name, text)
+    # Norwegian legal-name presentation uses both '&' and 'og'. Preserve every
+    # other legal-name token, including AS/ASA; this is not a brand-name match.
+    name_span = phrase_span(legal_name, text, conjunction=True)
     org_span = next((span for number, span in number_tokens(text) if number == org), None)
     if org_span and name_span:
         return {"state": "available", "reason": "Exact legal name and organisation number in collected page", "observed_numbers": [org], 'proof_spans': [name_span, org_span]}
@@ -77,7 +79,11 @@ def identity_gate(org: str, legal_name: str, text: str, *, entity=None, policy='
         # accompany the exact number on this same proof page. No brand matching.
         core_span = phrase_span(core, text, conjunction=True) if len(core) >= 6 else None
         address = entity.get('forretningsadresse') or {}
-        streets = [line for line in address.get('adresse', []) if len(re.findall(r'\w+', line)) >= 2 and re.search(r'[A-Za-zÆØÅæøå]{4}', line) and not re.search(r'^(?:postboks|c/o|leilighet)\b', line, re.I)]
+        raw_streets = address.get('adresse', [])
+        # Official flattened CSV has a scalar street; native API has a list.
+        # Match the literal source value in either representation, never eval it.
+        lines = [raw_streets] if isinstance(raw_streets, str) else raw_streets if isinstance(raw_streets, list) else []
+        streets = [line for line in lines if isinstance(line,str) and len(re.findall(r'\w+', line)) >= 2 and re.search(r'[A-Za-zÆØÅæøå]{4}', line) and not re.search(r'^(?:postboks|c/o|leilighet)\b', line, re.I)]
         street_span = next((span for line in streets if (span := phrase_span(line, text))), None)
         postcode = str(address.get('postnummer', ''))
         post_match = re.search(r'(?<!\d)' + re.escape(postcode) + r'(?!\d)', text) if re.fullmatch(r'\d{4}', postcode) else None
@@ -131,6 +137,10 @@ class Profile:
         if path is not None:
             path = result.root_path + path
         eid = "ev-" + digest(canonical([self.org, s["source_url"], s["content_sha256"], path, span]).encode())[:24]
+        # A literal excerpt may support several claims. Reusing its immutable
+        # identity must preserve existing bindings (e.g. website + public name).
+        if eid in self.evidence:
+            return eid
         self.evidence[eid] = Evidence(id=eid, organisation_number=self.org, source_url=s["source_url"], final_url=s["final_url"],
             source_class="company_owned" if s["final_url"] in self.verified_urls else s["source_class"], source_identifier=s["final_url"] + ("#" + path if path else ""), retrieved_at=s["retrieved_at"],
             content_sha256=s["content_sha256"], storage_ref=s["storage_ref"], claim_span=span, json_path=path).model_dump()

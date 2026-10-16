@@ -63,7 +63,7 @@ Open http://127.0.0.1:8765. The viewer reads actual local SQLite records; it doe
 To inspect the bundled **real official-data export** without collecting new sources:
 
 ```sh
-python scripts/load_export.py --input artifacts/overnight/scale-1000/envelopes.jsonl.gz --state private/export-viewer
+python scripts/load_export.py --input artifacts/coverage-cycle/scale-1000/envelopes.jsonl.gz --state private/export-viewer
 python -m signalpost viewer --state private/export-viewer --port 8765
 ```
 

@@ -5,7 +5,7 @@ import pytest
 import httpx
 from signalpost.research import identity_gate, website, website_candidates, Profile
 from signalpost.http import Fetcher, Budget
-from signalpost.models import utcnow
+from signalpost.models import utcnow, validate_envelopes
 from test_signalpost import ORG, OTHER, ENTITY, response, store
 from test_signalpost import batch_args
 from signalpost.batch import run_batch
@@ -29,6 +29,22 @@ def test_corroborated_legal_suffix_needs_every_signal():
     for broken in [text.replace(ORG, OTHER), text.replace('0373','0374'), text.replace('Testveien 50','Testveien 51'), text.replace('Synthetic Flowers','Flowers'), text+' parent '+OTHER]:
         assert identity_gate(ORG, e['navn'], broken, entity=e, policy='corroborated')['state']=='ambiguous'
     assert identity_gate(ORG,e['navn'],text,entity={**e,'overordnetEnhet':OTHER},policy='corroborated')['state']=='ambiguous'
+
+
+def test_official_scalar_csv_street_and_native_list_are_equivalent():
+    e=entity();text='Synthetic Flowers '+ORG+' Testveien 50 0373'
+    e['forretningsadresse']['adresse']='Testveien 50'
+    gate=identity_gate(ORG,e['navn'],text,entity=e,policy='corroborated')
+    assert gate['state']=='available' and gate['proof_spans'][-2:]==['Testveien 50','0373']
+    e['forretningsadresse']['adresse']={'unexpected':'Testveien 50'}
+    assert identity_gate(ORG,e['navn'],text,entity=e,policy='corroborated')['state']=='ambiguous'
+
+
+def test_full_legal_conjunction_requires_all_other_tokens_and_number():
+    name='SYNTHETIC GÅRD & GJESTEHUS AS'
+    assert identity_gate(ORG,name,'Synthetic Gård og Gjestehus AS '+ORG)['state']=='available'
+    assert identity_gate(ORG,name,'Synthetic Gård og Gjestehus '+ORG)['state']=='ambiguous'
+    assert identity_gate(ORG,name,'Synthetic Gård og Gjestehus AS '+OTHER)['state']=='ambiguous'
 
 
 def test_conjunction_and_foundation_variants_are_bound_to_address():
@@ -78,6 +94,17 @@ async def test_missing_discovery_is_incomplete_not_confirmed_absence(store):
     assert 'not confirmed absence' in p.modules['website']['explanation']
     assert f.budget.requests==0
     await f.close()
+
+
+def test_reused_literal_excerpt_preserves_all_claim_bindings(store):
+    p=Profile(ORG,'synthetic-shared-proof',utcnow());result=response(store,ENTITY);p.registry(result)
+    eid=p.ev(result,None,span=ENTITY['navn'])
+    p.add('official_website','https://synthetic-example.no/',eid)
+    same=p.ev(result,None,span=ENTITY['navn'])
+    assert same==eid
+    p.add('public_brand',ENTITY['navn'],same)
+    assert set(p.evidence[eid]['claim_bindings'])=={'official_website','public_brand'}
+    assert validate_envelopes([p.finalize()])['passed']
 
 
 @pytest.mark.parametrize('strategy',['external-first','coverage-fair'])

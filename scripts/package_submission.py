@@ -140,7 +140,7 @@ This is a LOCAL DRAFT ONLY. Nothing has been sent.
         'payload_sha256':{n:sha(b) for n,b in sorted(payload.items())},
         'post_freeze_metadata_paths':metadata_paths,
         'omitted_historical_generated_files':omitted_generated,
-        'artifact_selection':'Selected permitted snapshot results, separately labelled no-bulk handoff results and financial review; older generated exports preserved only in local recovery branches/packages' if args.metadata_suffix in {'-overnight','-handoff','-coverage'} else 'Frozen historical exports plus revised selected exports',
+        'artifact_selection':('Selected coverage-cycle official-data exports, exact measured inputs/reports/audits and prior financial review; historical raw/private evidence excluded' if args.metadata_suffix=='-coverage' else 'Selected permitted snapshot results, separately labelled no-bulk handoff results and financial review; older generated exports preserved only in local recovery branches/packages') if args.metadata_suffix in {'-overnight','-handoff','-coverage'} else 'Frozen historical exports plus revised selected exports',
         'source_scope':'Research runtime, tests, schemas and requirements are the frozen source commit. Listed packaging/report files overlay later authorisation and exact-commit verification; their payload hashes are explicit.',
         'manifest_scope':'Embedded manifest hashes payload excluding itself; external manifest additionally records final ZIP hash.'}
     payload['submission/manifest.json']=(json.dumps(manifest,indent=2,ensure_ascii=False)+'\n').encode()
